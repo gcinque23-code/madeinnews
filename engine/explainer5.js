@@ -6,7 +6,7 @@ const A=cfg.accent||'#FACC15', R='#E63946', Y='#FFD400';
 const LIB=fs.readFileSync(__dirname+'/node_modules/lottie-web/build/player/lottie.min.js','utf8');
 const LOT={};for(const s of cfg.scenes){for(const m of (s.html.match(/data-lot="([^"]+)"/g)||[])){const n=m.slice(10,-1);if(!LOT[n])LOT[n]=JSON.parse(fs.readFileSync(__dirname+'/assets/lottie/'+n+'.json','utf8'));}}
 const B64=f=>'data:image/jpeg;base64,'+fs.readFileSync(f).toString('base64');
-const html=`<html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@600;800;900&display=block" rel="stylesheet"><style>
+const html=`<html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@600;800;900&family=Gochi+Hand&family=Luckiest+Guy&display=block" rel="stylesheet"><style>
 *{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:#07070a;color:#fff;font-family:'Inter Tight';overflow:hidden;position:relative}
 #grid{display:none;position:absolute;inset:-200px;background-image:linear-gradient(#ffffff08 2px,transparent 2px),linear-gradient(90deg,#ffffff08 2px,transparent 2px);background-size:90px 90px}
 #glow{display:none;position:absolute;width:1300px;height:1300px;left:-110px;top:300px;border-radius:50%;background:radial-gradient(circle,${A}26,transparent 62%)}
@@ -83,7 +83,7 @@ window.render=t=>{if(!BXD){boxcenter();BXD=true;}if(!AC){autocenter();AC=true;}d
 };
 </script></body></html>`;
 (async()=>{const tmp='fr_'+Date.now();fs.mkdirSync(tmp);const b=await chromium.launch();const p=await b.newPage({viewport:{width:1080,height:1920}});
- await p.setContent(html,{waitUntil:'networkidle'});await p.evaluate(()=>document.fonts.ready);
+ await p.setContent(html,{waitUntil:'networkidle'});await p.evaluate(()=>document.fonts.ready);await p.evaluate(()=>Promise.all(['Anton','Inter Tight','Gochi Hand','Luckiest Guy'].flatMap(f=>['400','900'].map(w=>document.fonts.load(w+' 40px "'+f+'"').catch(()=>null)))));
  if(process.env.CHECK){await p.evaluate(()=>window.render(0.01));const rep=await p.evaluate(()=>{const out=[];const SEL={pop:0,stamp:0,rise:0,drop:0,slide:0,fade:0,win:0,type:0,draw:0,grow:0,fall:0,count:0,donut:0};
  for(let i=0;i<N;i++){const sc=document.getElementById('s'+i);CUR=W[i];const ev=[];
   for(const k of Object.keys(SEL)){sc.querySelectorAll('[data-'+k+']').forEach(el=>{const v=num(el,k);ev.push(k=='win'?v[0]+(v[1]||0):v[0]);});}
