@@ -1,6 +1,6 @@
 # Bio Instagram – proposte
 
-## Opzione 1 · Diretta
+## Opzione 1 · Diretta (SCELTA e pubblicata sul profilo)
 Nome: Made in News | Notizie
 Italia, mondo e calcio in 60 secondi ⚡
 Le notizie che contano, spiegate semplici.
