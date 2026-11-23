@@ -21,7 +21,7 @@ svg text{font-family:'Inter Tight'}
 #bar{position:absolute;top:0;left:0;height:12px;background:${A};z-index:20}
 </style></head><body><div id="grid"></div><div id="glow"></div><div id="bar"></div>
 <div class="ttl">${cfg.title.map(t=>`<span>${t}</span>`).join('<br>')}</div>
-<div class="stage">${cfg.scenes.map((s,i)=>`<div class="sc" id="s${i}">${s.html.replace(/PHOTO\((.+?)\)/g,(m,f)=>B64(f))}</div>`).join('')}</div>
+<div class="stage">${cfg.scenes.map((s,i)=>`<div class="sc" id="s${i}">${s.html.replace(/PHOTO\((.+?)\)/g,(m,f)=>B64(f)).replace(/(<svg viewBox="0 0 1080 1100"[^>]*>)/,'$1<g class="autoc">').replace(/<\/svg>(?![\s\S]*<\/svg>)/,'</g></svg>')}</div>`).join('')}</div>
 <div class="cap" id="cap"></div><div class="foot">madeinnews<b>.</b></div><div class="src">${cfg.source||''}</div>
 <script>
 const D=${JSON.stringify(D)},ST=${JSON.stringify(ST)},N=${N},T=${T},PAD=${cfg.pad||0.35},W=${JSON.stringify(cfg.scenes.map(s=>s.words||[]))},WM=${JSON.stringify(cfg.wordmap||{})};
@@ -51,7 +51,9 @@ function anim(root,lt,D){
  root.querySelectorAll('[data-kb]').forEach(p=>{p.style.transform='scale('+(1.08+0.12*lt/D)+')'});
  root.querySelectorAll('[data-shake]').forEach(p=>{const [s]=num(p,'shake');const k=lt-s;p.style.transform=k>0&&k<0.5?'translate('+Math.sin(k*90)*14*(0.5-k)+'px,0)':''});
 }
-window.render=t=>{document.getElementById('bar').style.width=(t/T*1080)+'px';
+function autocenter(){for(let i=0;i<N;i++){const s=document.getElementById('s'+i);const g=s.querySelector('g.autoc');if(!g||s.querySelector('.bg,[data-kb]'))continue;s.style.display='block';CUR=W[i];anim(s,D[i]-0.05,D[i]);const b=g.getBBox();const dx=540-(b.x+b.width/2),dy=Math.max(-300,Math.min(300,520-(b.y+b.height/2)));g.setAttribute('transform','translate('+dx.toFixed(1)+','+dy.toFixed(1)+')');s.style.display='none';}}
+let AC=false;
+window.render=t=>{if(!AC){autocenter();AC=true;}document.getElementById('bar').style.width=(t/T*1080)+'px';
  document.getElementById('grid').style.transform='translate('+(-(t*25)%90)+'px,'+(-(t*15)%90)+'px)';
  document.getElementById('glow').style.transform='translate('+Math.sin(t*.5)*140+'px,'+Math.cos(t*.4)*100+'px)';
  for(let i=0;i<N;i++){const lt=t-ST[i],s=document.getElementById('s'+i),on=lt>=0&&lt<D[i];s.style.display=on?'block':'none';if(!on)continue;
