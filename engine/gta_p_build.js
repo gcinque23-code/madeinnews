@@ -56,4 +56,4 @@ const scenes=[
  cam:"0,1.1,0,0|1.5,1.0,0,0",
  html:bg('q7',[[0,'#0f172a'],[1,'#1e293b']])
  +S(`${G('data-pop="0.3,0.5"',`<rect x="390" y="700" width="300" height="300" fill="#fff"/><text x="540" y="917" text-anchor="middle" class="anton" font-size="186" fill="#000">MN<tspan fill="#E63946">.</tspan></text>`)}${G('data-rise="0.8,0.5"',`<text x="540" y="1170" text-anchor="middle" font-family="Inter Tight" font-size="96" font-weight="900" fill="#fff" letter-spacing="-4">madeinnews<tspan fill="#E63946">.</tspan></text>`)}${G('data-rise="1.2,0.5"',`<text x="540" y="1270" text-anchor="middle" font-family="Inter Tight" font-size="46" font-weight="800" fill="#F59E0B">PILLOLE DI SAPERE, OGNI GIORNO</text>`)}`)}];
-fs.writeFileSync('gta_p.json',JSON.stringify({voiceId:"GOAZNavLupajyL3YafaD",title:["Perché si chiama GTA?"],source:"Fonti: California Penal Code 487, Wikipedia, GamesRadar",accent:'#F59E0B',scenes},null,1));console.log('ok');
+fs.writeFileSync('gta_p.json',JSON.stringify({voiceId:"GOAZNavLupajyL3YafaD",title:["Perché si chiama GTA?"],logo:true,accent:'#F59E0B',scenes},null,1));console.log('ok');
