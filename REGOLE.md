@@ -24,6 +24,8 @@
 - Mai foto prese da testate o agenzie senza licenza.
 
 ## Reel
+- Voce generata in UNA sola registrazione continua per reel (make_reel4.py), mai frase per frase: il timbro resta identico.
+- Stile: animazioni illustrate (explainer3.js), una notizia spiegata per reel; musica solo strumentale.
 - Formato motion graphic: testi e grafiche animati (entrate, numeri che salgono, transizioni), non slide statiche.
 - 2 al giorno, su notizie diverse dai post.
 - Voce: ElevenLabs, modello eleven_multilingual_v2. Si alternano: Sami (femminile, b8jhBTcGAq4kQGWmKprT) e Michele (maschile, Dl7eCteSx0r4bKkraGGE).
