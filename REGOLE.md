@@ -30,3 +30,9 @@
 - Formato motion graphic: testi e grafiche animati (entrate, numeri che salgono, transizioni), non slide statiche.
 - 2 al giorno, su notizie diverse dai post.
 - Voce: ElevenLabs, modello eleven_multilingual_v2, SEMPRE Francesco (GOAZNavLupajyL3YafaD). Stabilità 0.6, una sola registrazione continua per reel.
+
+## Guida di scrittura (instagram-agent-skill, MIT, in risorse/instagram-agent-skill/)
+- Prima di scrivere un reel: seguire risorse/instagram-agent-skill/skills/ig-reel/SKILL.md (formule di hook) e dare un punteggio all'hook con hookscore.py.
+- Didascalie: seguire ig-caption/SKILL.md (la prima riga prima del "...altro" deve agganciare).
+- Caroselli: ig-carousel/SKILL.md.
+- Prima di pubblicare un testo: passarlo in ig-human (detect.py / humanize.py) per togliere lo stile "da AI".
