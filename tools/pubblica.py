@@ -35,7 +35,7 @@ cap=open(capf,encoding="utf-8").read().strip()
 if kind=="foto":
     c=call(f"{IG}/media",{"image_url":raw(src),"caption":cap}); wait(c["id"]); publish(c["id"])
 elif kind=="carosello":
-    imgs=sorted(glob.glob(os.path.join(src,"*.jpg")))
+    imgs=sorted(f for f in glob.glob(os.path.join(src,"*.jpg")) if os.path.basename(f)[:-4].isdigit())
     assert 2<=len(imgs)<=10, "Il carosello vuole da 2 a 10 immagini"
     kids=[]
     for f in imgs:
