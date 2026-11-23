@@ -30,7 +30,7 @@ for k,s in enumerate(c["scenes"]):
 c["pad"]=0; json.dump(c,open(f"{W}/cfg.json","w"),ensure_ascii=False)
 inp=["-i",f"{W}/voice.mp3"]; flt=[f"[0:a]adelay={int(G*1000)}:all=1[v0]"]; mix=["[v0]"]; k=1
 for j,b in enumerate(B):
-    sfx=V+("sfx_hit.mp3" if j in c.get("hits",[0]) else "sfx_whoosh.mp3")
+    sfx=V+"sfx_whoosh.mp3"
     inp+=["-i",sfx]; flt.append(f"[{k}:a]volume=0.4,adelay={int(b*1000)}:all=1[v{k}]"); mix.append(f"[v{k}]"); k+=1
 inp+=["-i",V+"music_bed_instr.mp3"]; flt.append(f"[{k}:a]volume=0.12,afade=t=out:st={max(T-2,0)}:d=2[v{k}]"); mix.append(f"[v{k}]"); k+=1
 fc=";".join(flt)+";"+"".join(mix)+f"amix=inputs={k}:normalize=0:duration=longest,atrim=0:{T}[a]"
