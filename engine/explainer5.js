@@ -53,6 +53,13 @@ function anim(root,lt,D){
  root.querySelectorAll('[data-spin]').forEach(p=>{const [sp]=num(p,'spin');p.style.transform='rotate('+lt*sp+'deg)'});
  root.querySelectorAll('[data-ripple]').forEach(p=>{const [s,per=1.4]=num(p,'ripple');const k=((lt-s)%per)/per;p.setAttribute('r',lt<s?0:10+k*90);p.style.opacity=lt<s?0:1-k});
  root.querySelectorAll('[data-steam]').forEach(p=>{const [s,ph,x0]=num(p,'steam');const k=((lt-s+ph)%2.2)/2.2;const on=lt>=s;p.setAttribute('cy',-40-k*260);p.setAttribute('cx',x0+Math.sin(k*6+ph)*30);p.setAttribute('r',20+k*60);p.style.opacity=on?(1-k)*0.8:0});
+ root.querySelectorAll('[data-loop]').forEach(p=>{const [dx=0,dy=0,per=1]=num(p,'loop');const k=(lt%per)/per;p.style.transform='translate('+(dx*k)+'px,'+(dy*k)+'px)'});
+ root.querySelectorAll('[data-flash]').forEach(p=>{const [s,per=0.25,lo=0]=num(p,'flash');p.style.opacity=lt<s?0:(Math.floor((lt-s)/per)%2?lo:1)});
+ root.querySelectorAll('[data-mv]').forEach(p=>{const v=num(p,'mv');let x=v[2],y=v[3];for(let i=0;i+5<v.length+1&&i<v.length;i+=6){const k=eio((lt-v[i])/v[i+1]);if(lt>=v[i]){x=v[i+2]+(v[i+4]-v[i+2])*k;y=v[i+3]+(v[i+5]-v[i+3])*k;}}p.style.transform='translate('+x+'px,'+y+'px)'});
+ root.querySelectorAll('[data-sc]').forEach(p=>{const v=num(p,'sc');let z=v[2];for(let i=0;i<v.length;i+=4){if(lt>=v[i])z=v[i+2]+(v[i+3]-v[i+2])*eio((lt-v[i])/v[i+1]);}p.style.transform='scale('+z+')'});
+ root.querySelectorAll('[data-rot]').forEach(p=>{const [s,d,a0,a1]=num(p,'rot');const k=(lt-s)/d;p.style.transform='rotate('+(a0+(a1-a0)*(k<0?0:k>1?1:k*k*k))+'deg)'});
+ root.querySelectorAll('[data-type]').forEach(p=>{const [s,d]=num(p,'type');const t=p.dataset.text;p.textContent=t.slice(0,Math.round(t.length*cl((lt-s)/d)))});
+ root.querySelectorAll('[data-wig]').forEach(p=>{const [amp=4,sp=20]=num(p,'wig');p.style.transform='rotate('+Math.sin(lt*sp)*amp+'deg)'});
  root.querySelectorAll('[data-off]').forEach(p=>{const [s]=num(p,'off');p.style.opacity=lt<s?1:Math.max(0,1-(lt-s)/0.3)});
  root.querySelectorAll('[data-kb]').forEach(p=>{p.style.transform='scale('+(1.08+0.12*lt/D)+')'});
  root.querySelectorAll('[data-shake]').forEach(p=>{const [s]=num(p,'shake');const k=lt-s;p.style.transform=k>0&&k<0.5?'translate('+Math.sin(k*90)*14*(0.5-k)+'px,0)':''});
