@@ -11,7 +11,7 @@ const hl=(y,w,t,size=72,fill=YEL,col=INK)=>`<g filter="url(#wob)"><g class="bx">
 const tagAt=(cx,y,w,t,size,fill,col=INK)=>`<g filter="url(#wob)"><g class="bx"><rect x="${cx-w/2}" y="${y}" width="${w}" height="${size*1.5}" rx="12" fill="${fill}"/><text x="${cx}" y="${y+size*1.1}" text-anchor="middle" ${F('Luckiest Guy')} font-size="${size}" fill="${col}">${t}</text></g></g>`;
 const hand=(x,y,t,size=56,col=INK)=>`<text x="${x}" y="${y}" text-anchor="middle" ${F('Gochi Hand')} font-size="${size}" fill="${col}">${t}</text>`;
 // sprite generico (12x16) — non è lo sprite Nintendo
-const PAL={R:RED,S:'#ffd7b0',H:'#5a3a22',Y:YEL,B:'#3d5a80',K:INK,W:'#fff',M:'#c0392b',G:'#8a8a8a'};
+const PAL={R:RED,S:'#ffd7b0',H:'#5a3a22',Y:'#2b59c3',B:'#d62828',K:INK,W:'#fff',M:'#c0392b',G:'#8a8a8a'};
 const BASE=["...RRRRR....","..RRRRRRRRR.","..SSSSSSS...",".SSSKSSKSS..",".SSSSSSSSSS.","..HHHHHHH...","...SSSSS....","..YYBYYBYY..",".YYYBBBBYYY.","SSYBBBBBBYSS","SS.BBBBBB.SS","...BBBBBB...","..BBB..BBB..","..BBB..BBB..",".KKKK..KKKK.","KKKKK..KKKKK"];
 const pix=(rows,cx,cy,c,stag=null,grid=false)=>{const w=rows[0].length*c,h=rows.length*c;let o=`<g transform="translate(${cx-w/2},${cy-h/2})">`;let k=0;
  if(grid)for(let i=0;i<=rows[0].length;i++)o+=`<line x1="${i*c}" y1="0" x2="${i*c}" y2="${h}" stroke="${INK}" stroke-opacity=".15" stroke-width="2"/>`;
