@@ -1,6 +1,6 @@
 """Reel con UNA sola registrazione vocale continua (voce identica in tutto il video).
 Uso: python3 make_reel4.py cfg.json out.mp4 [engine.js]"""
-import json,sys,subprocess,base64,tempfile,urllib.request
+import json,sys,os,subprocess,base64,tempfile,urllib.request
 cfgf,out=sys.argv[1],sys.argv[2]; eng=sys.argv[3] if len(sys.argv)>3 else "explainer3.js"
 c=json.load(open(cfgf)); W=tempfile.mkdtemp(); V='/home/user/italia-in-breve/voci/'
 G=0.4  # ritardo iniziale della voce
@@ -35,6 +35,11 @@ for j,b in enumerate([]):  # nessun effetto sonoro: solo voce e musica
 inp+=["-i",V+"music_bed_instr.mp3"]; flt.append(f"[{k}:a]volume=0.12,afade=t=in:st=0:d=1.5,afade=t=out:st={max(T-2,0)}:d=2[v{k}]"); mix.append(f"[v{k}]"); k+=1
 fc=";".join(flt)+";"+"".join(mix)+f"amix=inputs={k}:normalize=0:duration=longest,atrim=0:{T}[a]"
 subprocess.check_call(["ffmpeg","-loglevel","error","-y",*inp,"-filter_complex",fc,"-map","[a]","-t",str(T),f"{W}/mix.wav"])
-subprocess.check_call(["node",eng,f"{W}/cfg.json",f"{W}/video.mp4"])
+if os.environ.get("PREVIEW"):
+    ST=[sum(s["dur"] for s in c["scenes"][:i]) for i in range(len(c["scenes"]))]
+    ts=",".join(str(round(ST[int(i)]+c["scenes"][int(i)]["dur"]*0.7,2)) for i in os.environ["PREVIEW"].split(","))
+    subprocess.check_call(["node",eng,f"{W}/cfg.json",out.replace(".mp4","")],env={**os.environ,"PREVIEW":ts})
+    print("ANTEPRIMA W=",W); sys.exit(0)
+subprocess.check_call(["node",eng,f"{W}/cfg.json",f"{W}/video.mp4"],env={k:v for k,v in os.environ.items() if k!="PREVIEW"})
 subprocess.check_call(["ffmpeg","-loglevel","error","-y","-i",f"{W}/video.mp4","-i",f"{W}/mix.wav","-c:v","copy","-c:a","aac","-b:a","192k","-shortest","-movflags","+faststart",out])
 print("FATTO",out,round(T,1),"s  W=",W)

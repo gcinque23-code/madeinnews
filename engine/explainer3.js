@@ -63,5 +63,6 @@ window.render=t=>{document.getElementById('bar').style.width=(t/T*1080)+'px';
 </script></body></html>`;
 (async()=>{const tmp='fr_'+Date.now();fs.mkdirSync(tmp);const b=await chromium.launch();const p=await b.newPage({viewport:{width:1080,height:1920}});
  await p.setContent(html,{waitUntil:'networkidle'});await p.evaluate(()=>document.fonts.ready);
+ if(process.env.PREVIEW){const ts=process.env.PREVIEW.split(',').map(Number);for(const [k,t] of ts.entries()){await p.evaluate(t=>window.render(t),t);await p.screenshot({path:`${out}_prev${k}.png`});}await b.close();fs.rmSync(tmp,{recursive:true});console.log('preview ok');return;}
  for(let f=0;f<Math.round(T*FPS);f++){await p.evaluate(t=>window.render(t),f/FPS);await p.screenshot({path:`${tmp}/f${String(f).padStart(5,'0')}.jpg`,type:'jpeg',quality:90});}
  await b.close();execSync(`ffmpeg -loglevel error -y -framerate ${FPS} -i ${tmp}/f%05d.jpg -c:v libx264 -pix_fmt yuv420p -crf 18 ${out}`);fs.rmSync(tmp,{recursive:true});console.log('ok',T);})();
