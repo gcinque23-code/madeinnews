@@ -10,7 +10,7 @@ const pop=(t,inner,d=0.45)=>`<g data-pop="${t},${d}" ${C}>${inner}</g>`;
 const stamp=(t,inner)=>`<g data-stamp="${t}" ${C}>${inner}</g>`;
 const off=(t,inner)=>`<g data-off="${t}">${inner}</g>`;
 const at=(x,y,inner)=>`<g transform="translate(${x},${y})">${inner}</g>`;
-const box=(y,w,h,fill,inner)=>`<rect x="${540-w/2}" y="${y}" width="${w}" height="${h}" rx="24" fill="${fill}"/>${inner}`;
+const box=(y,w,h,fill,inner)=>`<g class="bx"><rect x="${540-w/2}" y="${y}" width="${w}" height="${h}" rx="24" fill="${fill}"/>${inner}</g>`;
 const snowLayer=(n,seed,per,rmax)=>{const f=[...Array(n)].map((_,k)=>`<circle cx="${rnd(k+seed)*1080}" cy="${rnd(k+seed+300)*1920}" r="${2+rnd(k+seed+600)*rmax}" fill="#fff" opacity="${.5+rnd(k+seed+9)*.5}"/>`).join('');return `<g data-loop="0,1920,${per}">${f}<g transform="translate(0,-1920)">${f}</g></g>`};
 const snow=()=>snowLayer(45,1,9,4)+snowLayer(30,77,6,7);
 const stars=(n,h)=>[...Array(n)].map((_,k)=>`<circle cx="${rnd(k+1)*1080}" cy="${rnd(k+50)*h}" r="${1+rnd(k+90)*2.5}" fill="#fff" opacity="${.3+rnd(k+7)*.6}"/>`).join('');

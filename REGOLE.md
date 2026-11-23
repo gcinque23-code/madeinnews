@@ -42,3 +42,5 @@
 - Tutto dritto e centrato: niente scritte o riquadri ruotati/inclinati, niente timbri storti.
 - Composizione simmetrica sull'asse centrale (x=540); elementi decorativi bilanciati a destra e sinistra.
 - Controllare ogni anteprima con una griglia di centro prima di mandarla all'utente.
+- Le scritte dentro i box/riquadri devono essere SEMPRE centrate sia in orizzontale sia in verticale.
+  Nel motore (explainer5.js) ogni riquadro va dentro <g class="bx"> (rect + text): la centratura viene calcolata in automatico sull'inchiostro reale del testo, e se il testo è troppo largo viene ristretto per stare nel box.
