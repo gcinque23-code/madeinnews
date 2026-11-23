@@ -18,7 +18,7 @@ svg text{font-family:'Inter Tight'}
 .cap{position:absolute;top:250px;left:70px;right:70px;text-align:center;font:900 92px/1.1 'Inter Tight';letter-spacing:-2px;text-transform:none;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 24px;z-index:10;text-shadow:0 6px 24px #000}
 .cap span{text-shadow:0 4px 18px #0009,0 2px 4px #0008}.cap span.on{color:#fff}
 .foot{display:none;position:absolute;bottom:150px;left:0;right:0;text-align:center;font:900 40px 'Inter Tight';letter-spacing:-1.5px;z-index:10}.foot b{color:${R}}
-.lg{position:absolute;bottom:70px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:16px;z-index:10;opacity:.9}.lgq{background:#fff;color:#000;font:400 34px Anton;padding:4px 10px;line-height:1.1}.lgt{color:#fff;font:900 36px 'Inter Tight';letter-spacing:-1.5px}.lg i{font-style:normal;color:#E63946}.src{position:absolute;bottom:60px;opacity:.6;left:0;right:0;text-align:center;font:600 24px 'Inter Tight';color:#777;z-index:10}
+.lg{position:absolute;bottom:62px;left:50%;transform:translateX(-50%);display:flex;justify-content:center;align-items:center;gap:14px;z-index:10;background:#000a;padding:10px 22px;border-radius:40px}.lgq{background:#fff;color:#000;font:400 34px Anton;padding:4px 10px;line-height:1.1}.lgt{color:#fff;font:900 36px 'Inter Tight';letter-spacing:-1.5px}.lg i{font-style:normal;color:#E63946}.src{position:absolute;bottom:60px;opacity:.6;left:0;right:0;text-align:center;font:600 24px 'Inter Tight';color:#777;z-index:10}
 .cr{position:absolute;right:30px;bottom:20px;font:600 20px 'Inter Tight';color:#fffc;background:#000a;padding:4px 10px}
 #bar{display:none;position:absolute;top:0;left:0;height:12px;background:${A};z-index:20}
 </style></head><body><div id="grid"></div><div id="glow"></div><div id="bar"></div>
@@ -60,6 +60,7 @@ function anim(root,lt,D){
  root.querySelectorAll('[data-rot]').forEach(p=>{const [s,d,a0,a1]=num(p,'rot');const k=(lt-s)/d;p.style.transform='rotate('+(a0+(a1-a0)*(k<0?0:k>1?1:k*k*k))+'deg)'});
  root.querySelectorAll('[data-type]').forEach(p=>{const [s,d]=num(p,'type');const t=p.dataset.text;p.textContent=t.slice(0,Math.round(t.length*cl((lt-s)/d)))});
  root.querySelectorAll('[data-wig]').forEach(p=>{const [amp=4,sp=20]=num(p,'wig');p.style.transform='rotate('+Math.sin(lt*sp)*amp+'deg)'});
+ root.querySelectorAll('[data-win]').forEach(p=>{const [s,o=0,d=1]=num(p,'win');const t=s+o;p.style.opacity=lt>=t&&lt<t+d?1:0});
  root.querySelectorAll('[data-off]').forEach(p=>{const [s]=num(p,'off');p.style.opacity=lt<s?1:Math.max(0,1-(lt-s)/0.3)});
  root.querySelectorAll('[data-kb]').forEach(p=>{p.style.transform='scale('+(1.08+0.12*lt/D)+')'});
  root.querySelectorAll('[data-shake]').forEach(p=>{const [s]=num(p,'shake');const k=lt-s;p.style.transform=k>0&&k<0.5?'translate('+Math.sin(k*90)*14*(0.5-k)+'px,0)':''});
