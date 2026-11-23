@@ -7,7 +7,7 @@ I file devono essere già su GitHub (branch main): Instagram li scarica da raw.g
 import sys, os, json, time, glob, urllib.request, urllib.parse
 IG="17841432447124067"; API="https://graph.facebook.com/v23.0"
 import subprocess
-SHA=subprocess.check_output(["git","-C",os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"rev-parse","origin/main"]).decode().strip()
+SHA=subprocess.check_output(["git","-C",os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"ls-remote","origin","refs/heads/main"]).decode().split()[0]
 RAW=f"https://raw.githubusercontent.com/gcinque23-code/madeinnews/{SHA}/"
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def call(path, data=None, method="POST"):
