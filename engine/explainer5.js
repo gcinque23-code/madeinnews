@@ -91,7 +91,7 @@ window.render=t=>{if(!BXD){boxcenter();BXD=true;}if(!AC){autocenter();AC=true;}d
   sc.querySelectorAll('[data-lot]').forEach(el=>{ev.push(num(el,'lp')[0]||0)});
   const ws=W[i];const tEnd=D[i];const evs=[...new Set(ev.filter(x=>x>=0&&x<tEnd).map(x=>Math.round(x*10)/10))].sort((a,b)=>a-b);
   const pts=[0,...evs,tEnd];
-  for(let j=1;j<pts.length;j++){const gap=pts[j]-pts[j-1];if(gap>2.2&&i<N-1){const said=ws.filter(w=>w.t0>=pts[j-1]&&w.t0<pts[j]).map(w=>w.w).join(' ');if(said)out.push('VUOTO scena '+i+' da '+pts[j-1].toFixed(1)+'s a '+pts[j].toFixed(1)+'s ('+gap.toFixed(1)+'s): "'+said+'"');}}
+  for(let j=1;j<pts.length;j++){const gap=pts[j]-pts[j-1];if(gap>1.8&&i<N-1){const said=ws.filter(w=>w.t0>=pts[j-1]&&w.t0<pts[j]).map(w=>w.w).join(' ');if(said)out.push('VUOTO scena '+i+' da '+pts[j-1].toFixed(1)+'s a '+pts[j].toFixed(1)+'s ('+gap.toFixed(1)+'s): "'+said+'"');}}
   // overflow / logo overlap at scene end
   sc.style.display='block';anim(sc,tEnd-0.05,tEnd);const lg=document.querySelector('.lg').getBoundingClientRect();
   sc.querySelectorAll('g.bx').forEach(g=>{const r=g.querySelector(':scope > rect, :scope > circle'),t=g.querySelector(':scope > text');if(!r||!t)return;const rb=r.getBoundingClientRect(),tb=t.getBoundingClientRect();if(tb.width>rb.width-20)out.push('TESTO LARGO scena '+i+': "'+t.textContent+'"');});

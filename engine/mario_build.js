@@ -34,7 +34,7 @@ const SCN=[
   ${[-200,-90,20].map((y,k)=>`<line x1="${k%2?-160:-120}" y1="${y}" x2="${k%2?120:160}" y2="${y+20}" stroke="#e76f51" stroke-width="12"/>`).join('')}
   <rect x="-250" y="60" width="500" height="120" fill="#a40e1a"/><circle cx="-90" cy="110" r="26" fill="${INK}"/><circle cx="40" cy="110" r="20" fill="${RED}"/><circle cx="110" cy="110" r="20" fill="${YEL}"/>
  </g></g>
- <g data-pop="@arcade,0.4" ${C}>${pix(BASE,470,950,7)}</g>${pop('@Donkey',`<g class="bx"><rect x="320" y="680" width="440" height="80" fill="none"/><text x="540" y="735" text-anchor="middle" ${F('Luckiest Guy')} font-size="52" fill="${INK}">DONKEY KONG</text></g>`)}<g data-draw="@personaggio,0.5"><circle cx="470" cy="950" r="80" fill="none" stroke="${YEL}" stroke-width="10" filter="url(#wob)"/></g><g data-off="@Jumpman">${pop('@Mario',tagAt(540,1590,420,'MARIO? NO',64,'#fff'))}</g>
+ <g data-off="@arcade">${pop(1.5,`<text x="540" y="930" text-anchor="middle" ${F('Luckiest Guy')} font-size="46" fill="${YEL}">INSERT COIN</text>`)}</g><g data-pop="@arcade,0.4" ${C}>${pix(BASE,470,950,7)}</g>${pop('@Donkey',`<g class="bx"><rect x="320" y="680" width="440" height="80" fill="none"/><text x="540" y="735" text-anchor="middle" ${F('Luckiest Guy')} font-size="52" fill="${INK}">DONKEY KONG</text></g>`)}<g data-draw="@personaggio,0.5"><circle cx="470" cy="950" r="80" fill="none" stroke="${YEL}" stroke-width="10" filter="url(#wob)"/></g><g data-off="@Jumpman">${pop('@Mario',tagAt(540,1590,420,'MARIO? NO',64,'#fff'))}</g>
  ${pop('@Jumpman',tagAt(300,1590,400,'JUMPMAN',64,'#fff'))}${pop('@carpentiere',tagAt(780,1590,440,'CARPENTIERE',58,YEL))}`)},
 {voice:"Gli schermi dell'epoca permettono di disegnarlo con pochissimi pixel e pochi colori.",cam:"0,1.0,0,0|@pixel,1.05,0,0",
  html:S(bg+`${pop('@pochissimi',hl(430,620,'POCHI PIXEL',84))}
@@ -58,14 +58,19 @@ const SCN=[
  ${pop('@colori',`<g filter="url(#wob)">${pix(BASE,770,1110,30)}</g>${hand(770,1420,'due colori',56,RED)}`)}
  ${pop('@braccia',`<g data-draw="@braccia,0.5"><circle cx="650" cy="1125" r="50" fill="none" stroke="${RED}" stroke-width="9" filter="url(#wob)"/></g><circle cx="890" cy="1125" r="50" fill="none" stroke="${RED}" stroke-width="9" filter="url(#wob)"/>`)}
  ${pop('@braccia',hl(1500,600,'BRACCIA VISIBILI',66))}`)},
-{voice:"Il nome Mario arriva dopo: secondo Nintendo, viene da Mario Segale, il proprietario del magazzino della filiale americana.",cam:"0,1.0,0,0|@Segale,1.06,0,0",
+{voice:"Il nome Mario arriva dopo: secondo Nintendo, viene da Mario Segale, il proprietario del magazzino della filiale americana.",cam:"0,1.0,0,0|@Segale,1.05,0,0",
  html:S(bg+`${pop('@nome',hl(430,560,'IL NOME?',84))}
- <g data-drop="@magazzino,0.7,-600" filter="url(#wob)" stroke="${INK}" stroke-width="9" stroke-linejoin="round"><g transform="translate(540,1180)">
+ ${pop('@Mario',`<text x="350" y="830" text-anchor="middle" ${F('Luckiest Guy')} font-size="80" fill="${INK}">JUMPMAN</text>`)}
+ <g data-draw="@dopo,0.4"><path d="M190 802 L510 808" stroke="${RED}" stroke-width="12" stroke-linecap="round" fill="none"/></g>
+ ${pop('@dopo',`<path d="M540 800 l60 0 m-22 -20 l22 20 -22 20" stroke="${INK}" stroke-width="10" fill="none" stroke-linecap="round"/><text x="790" y="830" text-anchor="middle" ${F('Luckiest Guy')} font-size="88" fill="${RED}">MARIO</text>`)}
+ ${pop('@Nintendo',hand(540,700,'secondo Nintendo',58,RED))}
+ <g data-drop="@viene,0.7,-600"><g transform="translate(540,1200) scale(.9)" filter="url(#wob)" stroke="${INK}" stroke-width="10" stroke-linejoin="round">
   <path d="M-360 -160 L0 -330 L360 -160 L360 260 L-360 260Z" fill="#d9c6a5"/><rect x="-150" y="20" width="300" height="240" fill="#8d99ae"/>${[60,110,160,210].map(y=>`<line x1="-150" y1="${y}" x2="150" y2="${y}"/>`).join('')}
   <rect x="-300" y="-110" width="110" height="80" fill="#bfe6ff"/><rect x="190" y="-110" width="110" height="80" fill="#bfe6ff"/>
   <rect x="-210" y="-250" width="420" height="90" rx="10" fill="#fff"/></g></g>
- <g data-fade="@magazzino,0.3" style="opacity:0">${hand(540,990,'MAGAZZINO',60)}</g>
- ${pop('@Segale',hl(1500,620,'MARIO SEGALE',78,RED,'#fff'))}${pop('@Nintendo',`${hand(540,640+60,'secondo Nintendo',58,RED)}`)}`)},
+ <g data-fade="@magazzino,0.4" style="opacity:0">${hand(540,1036,'MAGAZZINO',54)}</g>${pop('@proprietario',`<g transform="translate(900,1330) rotate(0)" filter="url(#wob)" stroke="${INK}" stroke-width="9" fill="${YEL}"><circle cx="-50" cy="0" r="34"/><rect x="-18" y="-12" width="110" height="24" rx="6"/><rect x="60" y="10" width="16" height="26"/><rect x="84" y="10" width="12" height="18"/></g>`)}
+ ${pop('@Segale',hl(1500,620,'MARIO SEGALE',78,RED,'#fff'))}
+ ${pop('@americana',hand(540,1690,'filiale americana di Nintendo',50))}`)},
 {voice:"Segui Made in News: una pillola di sapere al giorno.",cam:"0,1.1,0,0|1.5,1.0,0,0",
  html:S(bg+`${pop(0.3,`<rect x="390" y="700" width="300" height="300" fill="${INK}"/><text x="540" y="917" text-anchor="middle" ${F('Anton')} font-size="186" fill="#fff">MN<tspan fill="${RED}">.</tspan></text>`,0.5)}
  <g data-rise="0.8,0.5"><text x="540" y="1170" text-anchor="middle" ${F('Inter Tight')} font-size="96" font-weight="900" fill="${INK}" letter-spacing="-4">madeinnews<tspan fill="${RED}">.</tspan></text></g>
