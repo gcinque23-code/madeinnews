@@ -1,0 +1,95 @@
+{
+ "voiceId": "Dl7eCteSx0r4bKkraGGE",
+ "title": [
+  "Nucleare:",
+  "l'Italia ci riprova"
+ ],
+ "source": "Fonti: ANSA, Ministero dell'Ambiente",
+ "accent": "#EAB308",
+ "scenes": [
+  {
+   "visual": {
+    "type": "year",
+    "kicker": "L'Italia chiude col nucleare nel",
+    "value": "1987"
+   },
+   "voice": "L'Italia ha chiuso con il nucleare quasi quarant'anni fa. Ora il governo vuole riaprire la porta.",
+   "cap": "Chiuso quasi *40 anni fa*. Ora il governo vuole *riaprire la porta*."
+  },
+  {
+   "visual": {
+    "type": "number",
+    "kicker": "Proposta dei decreti attuativi",
+    "value": 10,
+    "suffix": "giorni",
+    "label": "Annuncio del ministro Pichetto Fratin"
+   },
+   "voice": "Il ministro dell'Ambiente Pichetto Fratin annuncia la proposta dei decreti attuativi entro dieci giorni.",
+   "cap": "Pichetto Fratin: decreti attuativi *entro 10 giorni*."
+  },
+  {
+   "visual": {
+    "type": "year",
+    "kicker": "Chernobyl, Ucraina",
+    "value": "1986",
+    "label": "L'anno dopo, il referendum in Italia",
+    "photo": "/home/user/italia-in-breve/archivio/nucleare/chernobyl.jpg",
+    "credit": "Kamil Porembiński · CC BY-SA 2.0"
+   },
+   "voice": "Tutto parte da Chernobyl, nel 1986. L'anno dopo gli italiani votano al referendum, e le centrali vengono spente una dopo l'altra.",
+   "cap": "Dopo *Chernobyl* il referendum. Le centrali vengono *spente*."
+  },
+  {
+   "visual": {
+    "type": "list",
+    "kicker": "Le centrali italiane",
+    "items": [
+     "Trino",
+     "Caorso",
+     "Latina",
+     "Garigliano"
+    ]
+   },
+   "voice": "Erano quattro: Trino, in Piemonte. Caorso, in Emilia. Latina, nel Lazio. E il Garigliano, in Campania.",
+   "cap": "Erano *quattro*: Trino, Caorso, Latina e Garigliano."
+  },
+  {
+   "visual": {
+    "type": "bar",
+    "kicker": "Referendum 2011 · voti",
+    "rows": [
+     [
+      "Contro il nucleare",
+      94,
+      "#EF4444"
+     ],
+     [
+      "A favore",
+      6,
+      "#666666"
+     ]
+    ],
+    "photo": "/home/user/italia-in-breve/archivio/nucleare/fukushima.jpg",
+    "credit": "IAEA Imagebank · CC BY-SA 2.0"
+   },
+   "voice": "Nel 2011, dopo Fukushima, un secondo referendum. Il novantaquattro per cento dei votanti dice no al ritorno.",
+   "cap": "2011, dopo *Fukushima*: il *94%* dice no al ritorno."
+  },
+  {
+   "visual": {
+    "type": "text",
+    "text": "Ora i *decreti*: le regole per ripartire"
+   },
+   "voice": "Adesso tocca ai decreti attuativi: le regole che servono per far ripartire il nucleare in Italia.",
+   "cap": "Ora tocca ai *decreti*: le regole per *ripartire*."
+  },
+  {
+   "visual": {
+    "type": "text",
+    "text": "Segui *madeinnews.*"
+   },
+   "voice": "Segui Made in News per capire le notizie, ogni giorno.",
+   "cap": "Le notizie spiegate, *ogni giorno*."
+  }
+ ]
+}

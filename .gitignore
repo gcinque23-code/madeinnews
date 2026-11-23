@@ -1,0 +1,5 @@
+frames_*/
+fr_*/
+node_modules/
+*.env
+.env*
