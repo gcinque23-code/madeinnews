@@ -30,9 +30,10 @@ for k,s in enumerate(c["scenes"]):
 c["pad"]=0; json.dump(c,open(f"{W}/cfg.json","w"),ensure_ascii=False)
 inp=["-i",f"{W}/voice.mp3"]; flt=[f"[0:a]adelay={int(G*1000)}:all=1[v0]"]; mix=["[v0]"]; k=1
 for j,b in enumerate(B):
+    if j==0: continue
     sfx=V+"sfx_whoosh.mp3"
-    inp+=["-i",sfx]; flt.append(f"[{k}:a]volume=0.4,adelay={int(b*1000)}:all=1[v{k}]"); mix.append(f"[v{k}]"); k+=1
-inp+=["-i",V+"music_bed_instr.mp3"]; flt.append(f"[{k}:a]volume=0.12,afade=t=out:st={max(T-2,0)}:d=2[v{k}]"); mix.append(f"[v{k}]"); k+=1
+    inp+=["-i",sfx]; flt.append(f"[{k}:a]volume=0.25,adelay={int(b*1000)}:all=1[v{k}]"); mix.append(f"[v{k}]"); k+=1
+inp+=["-i",V+"music_bed_instr.mp3"]; flt.append(f"[{k}:a]volume=0.12,afade=t=in:st=0:d=1.5,afade=t=out:st={max(T-2,0)}:d=2[v{k}]"); mix.append(f"[v{k}]"); k+=1
 fc=";".join(flt)+";"+"".join(mix)+f"amix=inputs={k}:normalize=0:duration=longest,atrim=0:{T}[a]"
 subprocess.check_call(["ffmpeg","-loglevel","error","-y",*inp,"-filter_complex",fc,"-map","[a]","-t",str(T),f"{W}/mix.wav"])
 subprocess.check_call(["node",eng,f"{W}/cfg.json",f"{W}/video.mp4"])
