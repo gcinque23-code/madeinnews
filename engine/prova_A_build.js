@@ -31,5 +31,5 @@ const scenes=[
  <g data-pop="1.4,0.45" ${C}><g filter="url(#wob)">${bx(180,1330,720,120,'#e63946','ACQUA DEL CIBO: SI AGITA','Luckiest Guy',62,'#fff')}</g></g>
  <g data-pop="2.6,0.45" ${C}><g filter="url(#wob)">${bx(230,1480,620,120,'#4cc9f0','IL PIATTO: QUASI NO','Luckiest Guy',62,INK)}</g></g>
  <g data-fade="0.2,0.3" style="opacity:0"><text x="540" y="560" text-anchor="middle" ${F('Luckiest Guy')} font-size="96" fill="${INK}">MICROONDE</text><path d="M330 600 q210 30 420 0" stroke="#e63946" stroke-width="10" fill="none" filter="url(#wob)" data-draw="0.5,0.6"/></g>`)}];
-const cfg={voiceId:'',title:[''],logo:true,accent:'#e63946',pad:0,scenes:scenes.map(s=>({...s,voice:'',words:[]}))};
+const cfg={voiceId:'',title:[''],logo:'plain',accent:'#e63946',pad:0,scenes:scenes.map(s=>({...s,voice:'',words:[]}))};
 fs.writeFileSync(process.argv[2],JSON.stringify(cfg));console.log('ok');
