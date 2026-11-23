@@ -52,3 +52,5 @@ Controlla: momenti vuoti (>2,2s di voce senza nuovi elementi), testo più largo 
 Si renderizza solo con "VERIFICA OK"; poi controllo visivo delle anteprime (centratura) prima di mandare.
 Attenzione alle parole-ancora (@parola): trovano la PRIMA parola che inizia così (es. @roma prende anche "romano").
 - Ogni novità (stile, mascotte, copertina, formato) va prima mostrata come PROVA all'utente; si adotta solo dopo la sua conferma.
+- Momenti vuoti: mai. Ogni ~2 secondi di voce deve entrare qualcosa di nuovo (verifica automatica + controllo secondo per secondo del video finito).
+- Testi bianchi con ombra: NO, in nessun elemento (sottotitoli compresi). Su sfondo chiaro testo scuro senza ombra; su sfondo scuro testo chiaro senza ombra o dentro un riquadro.
