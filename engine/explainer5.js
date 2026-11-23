@@ -84,6 +84,21 @@ window.render=t=>{if(!BXD){boxcenter();BXD=true;}if(!AC){autocenter();AC=true;}d
 </script></body></html>`;
 (async()=>{const tmp='fr_'+Date.now();fs.mkdirSync(tmp);const b=await chromium.launch();const p=await b.newPage({viewport:{width:1080,height:1920}});
  await p.setContent(html,{waitUntil:'networkidle'});await p.evaluate(()=>document.fonts.ready);
+ if(process.env.CHECK){await p.evaluate(()=>window.render(0.01));const rep=await p.evaluate(()=>{const out=[];const SEL={pop:0,stamp:0,rise:0,drop:0,slide:0,fade:0,win:0,type:0,draw:0,grow:0,fall:0,count:0,donut:0};
+ for(let i=0;i<N;i++){const sc=document.getElementById('s'+i);CUR=W[i];const ev=[];
+  for(const k of Object.keys(SEL)){sc.querySelectorAll('[data-'+k+']').forEach(el=>{const v=num(el,k);ev.push(k=='win'?v[0]+(v[1]||0):v[0]);});}
+  sc.querySelectorAll('[data-mv]').forEach(el=>{const v=num(el,'mv');for(let j=6;j<v.length;j+=6)ev.push(v[j]);});
+  sc.querySelectorAll('[data-lot]').forEach(el=>{ev.push(num(el,'lp')[0]||0)});
+  const ws=W[i];const tEnd=D[i];const evs=[...new Set(ev.filter(x=>x>=0&&x<tEnd).map(x=>Math.round(x*10)/10))].sort((a,b)=>a-b);
+  const pts=[0,...evs,tEnd];
+  for(let j=1;j<pts.length;j++){const gap=pts[j]-pts[j-1];if(gap>2.2&&i<N-1){const said=ws.filter(w=>w.t0>=pts[j-1]&&w.t0<pts[j]).map(w=>w.w).join(' ');if(said)out.push('VUOTO scena '+i+' da '+pts[j-1].toFixed(1)+'s a '+pts[j].toFixed(1)+'s ('+gap.toFixed(1)+'s): "'+said+'"');}}
+  // overflow / logo overlap at scene end
+  sc.style.display='block';anim(sc,tEnd-0.05,tEnd);const lg=document.querySelector('.lg').getBoundingClientRect();
+  sc.querySelectorAll('g.bx').forEach(g=>{const r=g.querySelector(':scope > rect, :scope > circle'),t=g.querySelector(':scope > text');if(!r||!t)return;const rb=r.getBoundingClientRect(),tb=t.getBoundingClientRect();if(tb.width>rb.width-20)out.push('TESTO LARGO scena '+i+': "'+t.textContent+'"');});
+  sc.querySelectorAll('g.bx > rect, g.bx > circle').forEach(r=>{const b=r.getBoundingClientRect();if(b.width>0&&parseFloat(getComputedStyle(r).opacity)>0&&b.bottom>lg.top-8&&b.top<lg.bottom&&b.right>lg.left&&b.left<lg.right)out.push('TOCCA IL LOGO scena '+i+': '+(r.parentNode.querySelector('text')||{}).textContent);});
+  sc.querySelectorAll('text').forEach(t=>{const b=t.getBoundingClientRect();if(b.width>0&&(b.left<20||b.right>1060))out.push('FUORI BORDO scena '+i+': "'+t.textContent+'"');});
+  sc.style.display='none';}
+ return out;});console.log(rep.length?rep.join('\n'):'VERIFICA OK: nessun problema');await b.close();fs.rmSync(tmp,{recursive:true});return;}
  if(process.env.PREVIEW){const ts=process.env.PREVIEW.split(',').map(Number);for(const [k,t] of ts.entries()){await p.evaluate(t=>window.render(t),t);await p.screenshot({path:`${out}_prev${k}.png`});}await b.close();fs.rmSync(tmp,{recursive:true});console.log('preview ok');return;}
  for(let f=0;f<Math.round(T*FPS);f++){await p.evaluate(t=>window.render(t),f/FPS);await p.screenshot({path:`${tmp}/f${String(f).padStart(5,'0')}.jpg`,type:'jpeg',quality:90});}
  await b.close();execSync(`ffmpeg -loglevel error -y -framerate ${FPS} -i ${tmp}/f%05d.jpg -c:v libx264 -pix_fmt yuv420p -crf 18 ${out}`);fs.rmSync(tmp,{recursive:true});console.log('ok',T);})();

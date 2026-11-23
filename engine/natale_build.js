@@ -37,8 +37,8 @@ const scenes=[
  cam:"0,1.1,0,0|@compare,1.0,0,0|@336,1.06,0,0",
  html:S(`${sky('n2',[[0,'#3b1d0b'],[1,'#1c0f06']])}${snow()}
  <g data-pop="0.15,0.5" ${C}>${at(540,1060,`<rect x="-380" y="-330" width="760" height="660" rx="10" fill="#f3e3bf"/><rect x="-420" y="-360" width="840" height="56" rx="28" fill="#a16207"/><rect x="-420" y="304" width="840" height="56" rx="28" fill="#a16207"/>${B(0,-220,52,'#7c2d12','CALENDARIO ROMANO')}${[...Array(5)].map((_,k)=>`<rect x="-300" y="${-170+k*44}" width="600" height="12" rx="6" fill="#d8c08f"/>`).join('')}<g data-pop="@25,0.45" ${C}><g class="bx"><rect x="-320" y="60" width="640" height="130" rx="16" fill="#dc2626"/>${T(0,158,100,'#fff','25 DICEMBRE')}</g></g>`)}</g>
- ${pop('@354',box(450,420,160,'#fde047',T(540,570,120,'#3b1d0b','354')))}
- ${stamp('@336',box(1470,620,170,'#dc2626',T(540,1600,120,'#fff','ROMA · 336')))}`)},
+ ${off('@354',pop('@prima',box(450,560,160,'#fff',T(540,570,110,'#3b1d0b','PRIMA VOLTA'))))}${pop('@354',box(450,420,160,'#fde047',T(540,570,120,'#3b1d0b','354')))}
+ ${off('@336',pop('@festa',box(1470,420,170,'#fde047',T(540,1600,120,'#3b1d0b','ROMA'))))}${stamp('@336',box(1470,620,170,'#dc2626',T(540,1600,120,'#fff','ROMA · 336')))}`)},
 {voice:"Ma perché proprio quel giorno? Gli storici hanno due ipotesi.",
  cam:"0,1.0,0,0|@due,1.08,0,0",
  html:S(`${sky('n3',NIGHT)}${stars(80,1920)}${snow()}
@@ -52,9 +52,9 @@ const scenes=[
  <path d="M0 1380 L1080 1380 L1080 1920 L0 1920Z" fill="#3b0d2e"/>
  ${at(540,1380,`<path d="M-330 0 L-330 -260 Q0 -330 330 -260 L330 0Z" fill="#2a0a22"/>${[0,1,2].map(r=>[-4,-3,-2,-1,0,1,2,3].map(c=>`<path d="M${c*76+8} ${-30-r*80} l0 -40 a30 30 0 0 1 60 0 l0 40z" fill="#9d174d"/>`).join('')).join('')}`)}
  ${off('@Roma',pop(0.1,box(460,520,140,'#dc2626',T(540,563,100,'#fff','IPOTESI 1'))))}${pop('@Roma',box(460,360,140,'#fff',T(540,563,100,'#3b0d2e','ROMA')))}
- ${off('@solstizio',pop('@Sole',box(640,640,150,'#dc2626',T(540,750,104,'#fff','SOLE INVITTO'))))}
+ ${off('@Sole',pop('@25',box(640,640,150,'#fff',T(540,750,104,'#3b0d2e','25 DICEMBRE'))))}${off('@solstizio',pop('@Sole',box(640,640,150,'#dc2626',T(540,750,104,'#fff','SOLE INVITTO'))))}
  ${pop('@solstizio',box(640,760,150,'#1e3a8a',B(540,738,62,'#fff',"SOLSTIZIO D'INVERNO")))}
- ${snowLayer(25,5,9,3)}`)},
+ ${pop('@calendario',box(1520,700,140,'#fde047',B(540,1610,64,'#3b0d2e','CALENDARIO ROMANO')))}${snowLayer(25,5,9,3)}`)},
 {voice:"La seconda è un calcolo: si credeva che Gesù fosse stato concepito il 25 marzo. Nove mesi dopo: 25 dicembre.",
  cam:"0,1.0,0,0|@nove,1.06,0,0",
  html:S(`${sky('n5',[[0,'#14532d'],[1,'#052e16']])}${snow()}
@@ -63,7 +63,7 @@ const scenes=[
   <g data-off="@nove"><g class="bx"><rect x="260" y="780" width="560" height="167" fill="none"/>${B(540,925,78,'#fff','MARZO')}</g></g>
   ${['APRILE','MAGGIO','GIUGNO','LUGLIO','AGOSTO','SETTEMBRE','OTTOBRE','NOVEMBRE'].map((m,k)=>`<g data-win="@nove,${(k*0.12).toFixed(2)},0.12"><g class="bx"><rect x="260" y="780" width="560" height="167" fill="none"/>${B(540,925,78,'#fff',m)}</g></g>`).join('')}
   <g data-win="@nove,0.96,99"><g class="bx"><rect x="260" y="780" width="560" height="167" fill="none"/>${B(540,925,78,'#fff','DICEMBRE')}</g></g></g>
- ${pop('@nove',box(1500,520,150,'#fff',T(540,1610,110,'#14532d','+9 MESI')))}`)},
+ ${off('@nove',pop('@concepito',box(1500,600,150,'#fde047',T(540,1610,100,'#14532d','CONCEPITO'))))}${pop('@nove',box(1500,520,150,'#fff',T(540,1610,110,'#14532d','+9 MESI')))}`)},
 {voice:"E ancora oggi alcune Chiese ortodosse, che seguono il calendario giuliano, festeggiano il Natale il 7 gennaio.",
  cam:"0,1.0,0,0|@7,1.08,0,0",
  html:S(`${sky('n6',NIGHT)}${stars(60,1000)}
