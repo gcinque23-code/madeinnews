@@ -39,7 +39,7 @@ function anim(root,lt,D){
  root.querySelectorAll('[data-slide]').forEach(p=>{const [s,d=0.5,dist=-400]=num(p,'slide');const k=e((lt-s)/d);p.style.opacity=k;p.style.transform='translateX('+(1-k)*dist+'px)'});
  root.querySelectorAll('[data-drop]').forEach(p=>{const [s,d=0.7,dist=-500]=num(p,'drop');const k=bounce((lt-s)/d);p.style.opacity=lt<s?0:1;p.style.transform='translateY('+(1-k)*dist+'px)'});
  root.querySelectorAll('[data-fall]').forEach(p=>{const [s,d=0.6,dist=-600]=num(p,'fall');const k=(lt-s)/d;p.style.opacity=k<0||k>1.05?0:1;p.style.transform='translateY('+(Math.min(k,1)*Math.min(k,1)*-dist+dist)+'px) rotate('+(1-cl(k))*25+'deg)'});
- root.querySelectorAll('[data-stamp]').forEach(p=>{const [s,d=0.35]=num(p,'stamp');const k=cl((lt-s)/d);p.style.opacity=lt<s?0:1;p.style.transform='scale('+(3-2*e(k))+') rotate('+(-12+0*k)+'deg)'});
+ root.querySelectorAll('[data-stamp]').forEach(p=>{const [s,d=0.35]=num(p,'stamp');const k=cl((lt-s)/d);p.style.opacity=lt<s?0:1;p.style.transform='scale('+(3-2*e(k))+')'});
  root.querySelectorAll('[data-count]').forEach(p=>{const [s,d,to]=num(p,'count');p.textContent=Math.round(to*e((lt-s)/d))+(p.dataset.suf||'')});
  root.querySelectorAll('[data-donut]').forEach(p=>{const [s,d,pct]=num(p,'donut');const L=+p.getAttribute('data-c');p.style.strokeDashoffset=L*(1-pct/100*e((lt-s)/d))});
  root.querySelectorAll('[data-spin]').forEach(p=>{const [sp]=num(p,'spin');p.style.transform='rotate('+lt*sp+'deg)'});
