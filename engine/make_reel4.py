@@ -29,8 +29,7 @@ for k,s in enumerate(c["scenes"]):
     s["words"]=[dict(w=w["w"],t0=round(G+w["t0"]-B[k],3),t1=round(G+w["t1"]-B[k],3)) for w in words if a<=w["i"]<b]
 c["pad"]=0; json.dump(c,open(f"{W}/cfg.json","w"),ensure_ascii=False)
 inp=["-i",f"{W}/voice.mp3"]; flt=[f"[0:a]adelay={int(G*1000)}:all=1[v0]"]; mix=["[v0]"]; k=1
-for j,b in enumerate(B):
-    if j==0: continue
+for j,b in enumerate([]):  # nessun effetto sonoro: solo voce e musica
     sfx=V+"sfx_whoosh.mp3"
     inp+=["-i",sfx]; flt.append(f"[{k}:a]volume=0.25,adelay={int(b*1000)}:all=1[v{k}]"); mix.append(f"[v{k}]"); k+=1
 inp+=["-i",V+"music_bed_instr.mp3"]; flt.append(f"[{k}:a]volume=0.12,afade=t=in:st=0:d=1.5,afade=t=out:st={max(T-2,0)}:d=2[v{k}]"); mix.append(f"[v{k}]"); k+=1
