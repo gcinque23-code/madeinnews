@@ -35,4 +35,4 @@
 - Prima di scrivere un reel: seguire risorse/instagram-agent-skill/skills/ig-reel/SKILL.md (formule di hook) e dare un punteggio all'hook con hookscore.py.
 - Didascalie: seguire ig-caption/SKILL.md (la prima riga prima del "...altro" deve agganciare).
 - Caroselli: ig-carousel/SKILL.md.
-- Prima di pubblicare un testo: passarlo in ig-human (detect.py / humanize.py) per togliere lo stile "da AI".
+- Non usare strumenti per mascherare l'origine AI dei testi (ig-human è stato rimosso). I testi devono essere chiari e naturali, ma senza nascondere come sono prodotti.
