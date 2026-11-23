@@ -2,7 +2,7 @@
 Uso:
   python3 tools/pubblica.py carosello <cartella_su_repo> <didascalia.txt>   (usa i .jpg in ordine)
   python3 tools/pubblica.py foto <file.jpg> <didascalia.txt>
-  python3 tools/pubblica.py reel <file.mp4> <didascalia.txt>
+  python3 tools/pubblica.py reel <file.mp4> <didascalia.txt> [copertina.jpg]
 I file devono essere già su GitHub (branch main): Instagram li scarica da raw.githubusercontent.com."""
 import sys, os, json, time, glob, urllib.request, urllib.parse
 IG="17841432447124067"; API="https://graph.facebook.com/v23.0"
@@ -42,5 +42,7 @@ elif kind=="carosello":
         k=call(f"{IG}/media",{"image_url":raw(f),"is_carousel_item":"true"}); wait(k["id"]); kids.append(k["id"])
     c=call(f"{IG}/media",{"media_type":"CAROUSEL","children":",".join(kids),"caption":cap}); wait(c["id"]); publish(c["id"])
 elif kind=="reel":
-    c=call(f"{IG}/media",{"media_type":"REELS","video_url":raw(src),"caption":cap,"share_to_feed":"true"}); wait(c["id"],900); publish(c["id"])
+    d={"media_type":"REELS","video_url":raw(src),"caption":cap,"share_to_feed":"true"}
+    if len(sys.argv)>4: d["cover_url"]=raw(sys.argv[4])
+    c=call(f"{IG}/media",d); wait(c["id"],900); publish(c["id"])
 else: raise SystemExit("tipo sconosciuto")
