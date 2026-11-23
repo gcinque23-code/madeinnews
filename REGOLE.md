@@ -44,3 +44,4 @@
 - Controllare ogni anteprima con una griglia di centro prima di mandarla all'utente.
 - Le scritte dentro i box/riquadri devono essere SEMPRE centrate sia in orizzontale sia in verticale.
   Nel motore (explainer5.js) ogni riquadro va dentro <g class="bx"> (rect + text): la centratura viene calcolata in automatico sull'inchiostro reale del testo, e se il testo è troppo largo viene ristretto per stare nel box.
+- Copertine dei reel (1080x1920): logo e scritte sempre dentro l'area 4:5 centrale (y 285–1635), così si vedono nella griglia del profilo.
