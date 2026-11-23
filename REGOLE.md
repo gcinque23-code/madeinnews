@@ -37,3 +37,8 @@
 - Didascalie: seguire ig-caption/SKILL.md (la prima riga prima del "...altro" deve agganciare).
 - Caroselli: ig-carousel/SKILL.md.
 - Non usare strumenti per mascherare l'origine AI dei testi (ig-human è stato rimosso). I testi devono essere chiari e naturali, ma senza nascondere come sono prodotti.
+
+## Allineamento (regola fissa)
+- Tutto dritto e centrato: niente scritte o riquadri ruotati/inclinati, niente timbri storti.
+- Composizione simmetrica sull'asse centrale (x=540); elementi decorativi bilanciati a destra e sinistra.
+- Controllare ogni anteprima con una griglia di centro prima di mandarla all'utente.
