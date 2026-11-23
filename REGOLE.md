@@ -1,6 +1,7 @@
 # Made in News – regole editoriali
 
 ## Contenuti
+- APPROVAZIONE: l'utente vuole sempre vedere il contenuto finito e dare l'ok esplicito prima di ogni pubblicazione. Mai pubblicare senza un suo 'ok' sul file finale.
 - Orari: contenuti pronti alle 8:00 (anteprima per approvazione), prima pubblicazione alle 9:00.
 - Ogni giorno:
   - 3 post di notizie, le più cercate del giorno: uno al mattino, uno al pomeriggio, uno alla sera.
