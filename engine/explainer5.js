@@ -7,7 +7,7 @@ const LIB=fs.readFileSync(__dirname+'/node_modules/lottie-web/build/player/lotti
 const LOT={};for(const s of cfg.scenes){for(const m of (s.html.match(/data-lot="([^"]+)"/g)||[])){const n=m.slice(10,-1);if(!LOT[n])LOT[n]=JSON.parse(fs.readFileSync(__dirname+'/assets/lottie/'+n+'.json','utf8'));}}
 const B64=f=>'data:image/jpeg;base64,'+fs.readFileSync(f).toString('base64');
 const html=`<html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@600;800;900&family=Gochi+Hand&family=Luckiest+Guy&display=block" rel="stylesheet"><style>
-*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:#07070a;color:#fff;font-family:'Inter Tight';overflow:hidden;position:relative}
+*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:${cfg.bg||'#07070a'};color:#fff;font-family:'Inter Tight';overflow:hidden;position:relative}
 #grid{display:none;position:absolute;inset:-200px;background-image:linear-gradient(#ffffff08 2px,transparent 2px),linear-gradient(90deg,#ffffff08 2px,transparent 2px);background-size:90px 90px}
 #glow{display:none;position:absolute;width:1300px;height:1300px;left:-110px;top:300px;border-radius:50%;background:radial-gradient(circle,${A}26,transparent 62%)}
 .ttl{display:none;position:absolute;top:170px;left:0;right:0;text-align:center;z-index:10}.ttl span{display:inline-block;background:#fff;color:#000;font:900 58px/1.1 'Inter Tight';letter-spacing:-2px;padding:6px 20px;margin:2px 0}
@@ -16,7 +16,7 @@ const html=`<html><head><meta charset="utf-8"><link href="https://fonts.googleap
 svg text{font-family:'Inter Tight'}
 .lbl{font:900 44px 'Inter Tight';letter-spacing:-1px}.anton{font-family:Anton}
 .cap{position:absolute;top:250px;left:70px;right:70px;text-align:center;font:900 92px/1.1 'Inter Tight';letter-spacing:-2px;text-transform:none;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 24px;z-index:10;text-shadow:0 6px 24px #000}
-.cap span{text-shadow:0 4px 18px #0009,0 2px 4px #0008}.cap span.on{color:#fff}
+.cap span{text-shadow:0 4px 18px #0009,0 2px 4px #0008}.cap span.on{color:#fff}${cfg.light?`.cap{text-shadow:none}.cap span{text-shadow:none}.cap span.on{color:#1b1b1f}`:''}
 .foot{display:none;position:absolute;bottom:150px;left:0;right:0;text-align:center;font:900 40px 'Inter Tight';letter-spacing:-1.5px;z-index:10}.foot b{color:${R}}
 .lg{position:absolute;bottom:62px;left:50%;transform:translateX(-50%);display:flex;justify-content:center;align-items:center;gap:14px;z-index:10;background:#000a;padding:10px 22px;border-radius:40px}.lgq{background:#fff;color:#000;font:400 34px Anton;padding:4px 10px;line-height:1.1}.lgt{color:#fff;font:900 36px 'Inter Tight';letter-spacing:-1.5px}.lg i{font-style:normal;color:#E63946}.lg.plain{background:none;padding:0}.lg.plain .lgq{background:#1b1b1f;color:#fff}.lg.plain .lgt{color:#1b1b1f}.src{position:absolute;bottom:60px;opacity:.6;left:0;right:0;text-align:center;font:600 24px 'Inter Tight';color:#777;z-index:10}
 .cr{position:absolute;right:30px;bottom:20px;font:600 20px 'Inter Tight';color:#fffc;background:#000a;padding:4px 10px}

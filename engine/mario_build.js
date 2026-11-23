@@ -34,8 +34,8 @@ const SCN=[
   ${[-200,-90,20].map((y,k)=>`<line x1="${k%2?-160:-120}" y1="${y}" x2="${k%2?120:160}" y2="${y+20}" stroke="#e76f51" stroke-width="12"/>`).join('')}
   <rect x="-250" y="60" width="500" height="120" fill="#a40e1a"/><circle cx="-90" cy="110" r="26" fill="${INK}"/><circle cx="40" cy="110" r="20" fill="${RED}"/><circle cx="110" cy="110" r="20" fill="${YEL}"/>
  </g></g>
- <g data-pop="@arcade,0.4" ${C}>${pix(BASE,470,950,7)}</g>
- ${pop('@Jumpman',tagAt(300,1640,400,'JUMPMAN',64,'#fff'))}${pop('@carpentiere',tagAt(780,1640,440,'CARPENTIERE',58,YEL))}`)},
+ <g data-pop="@arcade,0.4" ${C}>${pix(BASE,470,950,7)}</g>${pop('@Donkey',`<g class="bx"><rect x="320" y="680" width="440" height="80" fill="none"/><text x="540" y="735" text-anchor="middle" ${F('Luckiest Guy')} font-size="52" fill="${INK}">DONKEY KONG</text></g>`)}<g data-draw="@personaggio,0.5"><circle cx="470" cy="950" r="80" fill="none" stroke="${YEL}" stroke-width="10" filter="url(#wob)"/></g><g data-off="@Jumpman">${pop('@Mario',tagAt(540,1590,420,'MARIO? NO',64,'#fff'))}</g>
+ ${pop('@Jumpman',tagAt(300,1590,400,'JUMPMAN',64,'#fff'))}${pop('@carpentiere',tagAt(780,1590,440,'CARPENTIERE',58,YEL))}`)},
 {voice:"Gli schermi dell'epoca permettono di disegnarlo con pochissimi pixel e pochi colori.",cam:"0,1.0,0,0|@pixel,1.05,0,0",
  html:S(bg+`${pop('@pochissimi',hl(430,620,'POCHI PIXEL',84))}
  <g filter="url(#wob)">${pix(BASE,540,1080,40,0.4,true)}</g>
@@ -43,14 +43,14 @@ const SCN=[
 {voice:"Con così pochi pixel, una bocca non si riesce a far vedere. Così Shigeru Miyamoto gli disegna dei grossi baffi.",cam:"0,1.0,0,0|@baffi,1.08,0,40",
  html:S(bg+`<g data-off="@Miyamoto">${pop('@bocca',hl(430,560,'BOCCA? NO',84,'#ffffff'))}</g>${pop('@Miyamoto',hl(430,760,'SHIGERU MIYAMOTO',70))}
  ${pop(0.1,`<g filter="url(#wob)">${pix(NOMUST.slice(0,7),310,1060,34,null,true)}</g>`)}${hand(310,1300,'bocca',56)}
- ${pop('@bocca',`<path d="M140 960 L480 1160 M480 960 L140 1160" stroke="${RED}" stroke-width="16" stroke-linecap="round" filter="url(#wob)"/>`)}
+ ${pop('@riesce',hand(310,1380,'troppo pochi pixel!',50,RED))}${pop('@vedere',`<path d="M140 960 L480 1160 M480 960 L140 1160" stroke="${RED}" stroke-width="16" stroke-linecap="round" filter="url(#wob)"/>`)}
  ${pop('@baffi',`<g filter="url(#wob)">${pix(BASE.slice(0,7),770,1060,34,null,true)}</g>${hand(770,1300,'baffi!',60,RED)}`)}
- ${pop('@baffi',`<path d="M500 1060 q40 -34 80 0" stroke="${INK}" stroke-width="10" fill="none" filter="url(#wob)"/><path d="M570 1040 l24 22 -30 12" stroke="${INK}" stroke-width="10" fill="none"/>`)}`)},
+ ${pop('@Shigeru',`<path d="M500 1060 q40 -34 80 0" stroke="${INK}" stroke-width="10" fill="none" filter="url(#wob)"/><path d="M570 1040 l24 22 -30 12" stroke="${INK}" stroke-width="10" fill="none"/>`)}`)},
 {voice:"Anche i capelli erano difficili da animare: per questo ha il cappello.",cam:"0,1.0,0,0|@cappello,1.06,0,0",
  html:S(bg+`${pop('@capelli',hl(430,620,'CAPELLI? NO',84,'#ffffff'))}
  ${pop(0.1,`<g filter="url(#wob)">${pix(NOCAP.slice(0,7),310,1060,34,null,true)}</g>${hand(310,1300,'capelli',56)}`)}
  ${pop('@difficili',`<path d="M140 960 L480 1160 M480 960 L140 1160" stroke="${RED}" stroke-width="16" stroke-linecap="round" filter="url(#wob)"/>`)}
- ${pop('@cappello',`<g filter="url(#wob)">${pix(BASE.slice(0,7),770,1060,34,null,true)}</g>${hand(770,1300,'cappello!',60,RED)}`)}
+ ${pop('@questo',`<g filter="url(#wob)">${pix(BASE.slice(0,7),770,1060,34,null,true)}</g>${hand(770,1300,'cappello!',60,RED)}`)}
  ${pop('@cappello',hl(1420,560,'CAPPELLO',84))}`)},
 {voice:"E la salopette? Due colori diversi fanno risaltare le braccia sul corpo.",cam:"0,1.0,0,0|@braccia,1.06,0,0",
  html:S(bg+`${pop('@salopette',hl(430,600,'SALOPETTE?',84))}
@@ -71,4 +71,4 @@ const SCN=[
  <g data-rise="0.8,0.5"><text x="540" y="1170" text-anchor="middle" ${F('Inter Tight')} font-size="96" font-weight="900" fill="${INK}" letter-spacing="-4">madeinnews<tspan fill="${RED}">.</tspan></text></g>
  <g data-rise="1.2,0.5">${hand(540,1280,'una pillola di sapere al giorno',62)}</g>`)}];
 const preview=process.argv[3]=='still';
-fs.writeFileSync(process.argv[2],JSON.stringify({voiceId:"GOAZNavLupajyL3YafaD",title:["Perché Mario ha i baffi?"],logo:'plain',accent:RED,pad:0,scenes:SCN.map(s=>preview?{...s,dur:5,words:[]}:s)},null,1));console.log('ok');
+fs.writeFileSync(process.argv[2],JSON.stringify({voiceId:"GOAZNavLupajyL3YafaD",title:["Perché Mario ha i baffi?"],logo:'plain',bg:'#f6efe2',light:true,accent:RED,pad:0,scenes:SCN.map(s=>preview?{...s,dur:5,words:[]}:s)},null,1));console.log('ok');
