@@ -43,6 +43,7 @@ function anim(root,lt,D){
  root.querySelectorAll('[data-fall]').forEach(p=>{const [s,d=0.6,dist=-600]=num(p,'fall');const k=(lt-s)/d;p.style.opacity=k<0||k>1.05?0:1;p.style.transform='translateY('+(Math.min(k,1)*Math.min(k,1)*-dist+dist)+'px) rotate('+(1-cl(k))*25+'deg)'});
  root.querySelectorAll('[data-stamp]').forEach(p=>{const [s,d=0.35]=num(p,'stamp');const k=cl((lt-s)/d);p.style.opacity=lt<s?0:1;p.style.transform='scale('+(3-2*e(k))+')'});
  root.querySelectorAll('[data-count]').forEach(p=>{const [s,d,to]=num(p,'count');const dec=+(p.dataset.dec||0);p.textContent=(to*e((lt-s)/d)).toFixed(dec).replace('.',',')+(p.dataset.suf||'')});
+ root.querySelectorAll('[data-grow]').forEach(p=>{const [s,d]=num(p,'grow');p.style.transform='scaleX('+e((lt-s)/d)+')'});
  root.querySelectorAll('[data-donut]').forEach(p=>{const [s,d,pct]=num(p,'donut');const L=+p.getAttribute('data-c');p.style.strokeDashoffset=L*(1-pct/100*e((lt-s)/d))});
  root.querySelectorAll('[data-spin]').forEach(p=>{const [sp]=num(p,'spin');p.style.transform='rotate('+lt*sp+'deg)'});
  root.querySelectorAll('[data-ripple]').forEach(p=>{const [s,per=1.4]=num(p,'ripple');const k=((lt-s)%per)/per;p.setAttribute('r',lt<s?0:10+k*90);p.style.opacity=lt<s?0:1-k});
