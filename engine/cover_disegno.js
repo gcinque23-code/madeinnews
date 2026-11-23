@@ -38,4 +38,4 @@ const logo=`<g transform="translate(540,1590)"><rect x="-175" y="-38" width="350
 const cover=(t1,t2,size,art)=>defs+bg+small('Perché...')+title(t1,size)+mark(t2,size*0.8,620+size*0.95)+art+logo;
 module.exports={
  gta: cover('SI CHIAMA','GTA?',150, car(700,1350,0.95)+nino(270,1150,0.85,'point')),
- micro: cover('IL MICROONDE','NON SCALDA IL PIATTO?',96, mw(690,1310,0.72)+nino(250,1160,0.8,'wave'))};
+ micro: cover('IL MICROONDE','NON SCALDA IL PIATTO?',96, mw(710,1310,0.72)+nino(270,1160,0.8,'wave'))};
