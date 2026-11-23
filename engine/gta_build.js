@@ -7,10 +7,10 @@ const scenes=[
 {voice:"GTA sei è finalmente uscito: giovedì diciannove novembre, dopo due rinvii.",
  html:svg(`${pad}${g('data-stamp="@diciannove"',`<rect x="250" y="80" width="580" height="170" rx="16" fill="${A}"/><text x="540" y="200" text-anchor="middle" class="anton" font-size="120" fill="#000">19 NOVEMBRE</text>`)}${g('data-rise="@rinvii,0.4"',`<text x="540" y="900" text-anchor="middle" font-size="56" font-weight="900" fill="#fff">DOPO <tspan fill="${A}">2 RINVII</tspan></text>`)}`)},
 {voice:"Nelle prime ventiquattro ore ha venduto trentadue milioni e mezzo di copie, secondo Rockstar e Take-Two.",
- html:svg(`${g('data-rise="0.2,0.4"',`<text x="540" y="230" text-anchor="middle" font-size="54" font-weight="900" fill="#bbb">COPIE VENDUTE IN 24 ORE</text>`)}
- <text data-count="@trentadue,2.2,32.5" data-dec="1" x="540" y="560" text-anchor="middle" class="anton" font-size="300" fill="${T}">0</text>
- ${g('data-rise="@milioni,0.4"',`<text x="540" y="680" text-anchor="middle" class="anton" font-size="110" fill="#fff">MILIONI</text>`)}
- ${[...Array(12)].map((_,k)=>`<g data-pop="${0.6+k*0.15},0.35"><rect x="${150+(k%6)*135}" y="${780+Math.floor(k/6)*140}" width="100" height="120" rx="10" fill="#1c1c24" stroke="${A}" stroke-width="5"/><text x="${200+(k%6)*135}" y="${855+Math.floor(k/6)*140}" text-anchor="middle" class="anton" font-size="44" fill="${A}">VI</text></g>`).join('')}`)},
+ html:svg(`${g('data-rise="0.2,0.4"',`<text x="540" y="210" text-anchor="middle" font-size="54" font-weight="900" fill="#bbb">VENDUTE IN 24 ORE</text>`)}
+ <text data-count="@trentadue,2.2,32.5" data-dec="1" x="540" y="540" text-anchor="middle" class="anton" font-size="280" fill="${T}">0</text>
+ ${g('data-rise="@milioni,0.4"',`<text x="540" y="680" text-anchor="middle" class="anton" font-size="96" fill="#fff" letter-spacing="6">MILIONI DI COPIE</text>`)}
+ ${[...Array(12)].map((_,k)=>`<g data-pop="${0.6+k*0.15},0.35"><rect x="${150+(k%6)*135}" y="${790+Math.floor(k/6)*140}" width="100" height="120" rx="10" fill="#1c1c24" stroke="${A}" stroke-width="5"/><text x="${200+(k%6)*135}" y="${865+Math.floor(k/6)*140}" text-anchor="middle" class="anton" font-size="44" fill="${A}">VI</text></g>`).join('')}`)},
 {voice:"E ha incassato tre miliardi e settecentonovanta milioni di dollari. In un solo giorno.",
  html:svg(`${[...Array(8)].map((_,k)=>`<g data-drop="${0.3+k*0.18},0.6,-500"><rect x="${300+(k%2)*250}" y="${800-Math.floor(k/2)*90}" width="230" height="80" rx="8" fill="#16a34a" stroke="#0b3d1e" stroke-width="5"/><circle cx="${415+(k%2)*250}" cy="${840-Math.floor(k/2)*90}" r="24" fill="none" stroke="#0b3d1e" stroke-width="5"/></g>`).join('')}
  <text data-count="@tre,2.0,3.79" data-dec="2" data-suf=" MLD" x="540" y="300" text-anchor="middle" class="anton" font-size="220" fill="${Y}">0</text>
