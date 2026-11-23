@@ -53,11 +53,11 @@ const chase=(t0,dur)=>{ // red car + police along road loop: y=1010 lane, then u
 
 const bx=(y,w,h,fill,inner)=>`<g class="bx"><rect x="${540-w/2}" y="${y}" width="${w}" height="${h}" rx="26" fill="${fill}"/>${inner}</g>`;
 const svg=`${sky('zs0',[[0,'#0b1026'],[.55,'#2a1050'],[.8,'#5b1d5e'],[1,'#1c1b26']])}${stars(70,1100)}
- ${skyline(3,1360,'#24184a','#ffd36a',4)}${skyline(11,1360,'#160f30','#ffb347',2)}${lamps(1360,0.9)}${road(1360)}
- <g transform="translate(270,1560) scale(.95)">${police(0).replace(/<g data-flash[^>]*><circle[^>]*><\/g>/g,'')}</g><g transform="translate(790,1560) scale(.95)">${car('#e11d48')}</g>
+ ${skyline(3,1360,'#24184a','#ffd36a',4)}${skyline(11,1360,'#160f30','#ffb347',2)}${road(1360)}
+ <g transform="translate(535,1570) scale(1.25)">${car('#e11d48',900,false)}</g>
  <rect width="1080" height="1920" fill="url(#zfade)"/><defs><linearGradient id="zfade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset=".55" stop-color="#000" stop-opacity=".15"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient></defs>
  ${bx(515,800,140,'#fff',B(540,610,74,'#111827','PERCHÉ SI CHIAMA'))}
- <text x="540" y="1060" text-anchor="middle" class="anton" font-size="400" fill="#fff" stroke="#ff2e88" stroke-width="22" paint-order="stroke">GTA?</text>
+ <g class="bx"><rect x="0" y="700" width="1080" height="380" fill="none"/><text x="540" y="1060" text-anchor="middle" class="anton" font-size="400" fill="#fff" stroke="#ff2e88" stroke-width="22" paint-order="stroke">GTA?</text></g>
  ${bx(1115,840,120,'#ff2e88',B(540,1195,58,'#fff','LA RISPOSTA È UN REATO'))}
  <g transform="translate(540,1830)"><rect x="-175" y="-38" width="350" height="76" rx="38" fill="#000" opacity=".65"/><rect x="-150" y="-24" width="70" height="48" fill="#fff"/><text x="-115" y="14" text-anchor="middle" class="anton" font-size="34" fill="#000">MN.</text><text x="-66" y="13" font-family="Inter Tight" font-weight="900" font-size="38" fill="#fff" letter-spacing="-1.5">madeinnews.</text></g>`;
 module.exports=svg;
