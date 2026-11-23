@@ -23,7 +23,7 @@ const NOCAP=mod((r,i)=>i==0?"..H.H.H.H...":i==1?".HHHHHHHHH..":r);
 const ONECOL=mod((r,i)=>r.replace(/[YB]/g,'B'));
 const SCN=[
 {voice:"Super Mario ha i baffi. Ma non è per lo stile.",cam:"0,1.08,0,0|@stile,1.0,0,0",
- html:S(bg+`${pop('@baffi',title(430,'I BAFFI?',150))}${pop('@stile',hl(620,700,'NON È PER STILE',78))}
+ html:S(bg+`${pop('@Super',title(430,'I BAFFI?',150))}${pop('@non',hl(620,700,'NON È PER STILE',78))}
  <g data-pop="0.1,0.5" ${C}>${pix(BASE,540,1240,46)}</g>
  <g data-draw="@baffi,0.6"><ellipse cx="540" cy="1125" rx="200" ry="48" fill="none" stroke="${RED}" stroke-width="10" filter="url(#wob)"/></g>`)},
 {voice:"Siamo nel 1981, nel gioco arcade Donkey Kong. Il personaggio non si chiama ancora Mario: si chiama Jumpman, e fa il carpentiere.",cam:"0,1.0,0,0|@Jumpman,1.06,0,0",
@@ -44,8 +44,8 @@ const SCN=[
  html:S(bg+`<g data-off="@Miyamoto">${pop('@bocca',hl(430,560,'BOCCA? NO',84,'#ffffff'))}</g>${pop('@Miyamoto',hl(430,760,'SHIGERU MIYAMOTO',70))}
  ${pop(0.1,`<g filter="url(#wob)">${pix(NOMUST.slice(0,7),310,1060,34,null,true)}</g>`)}${hand(310,1300,'bocca',56)}
  ${pop('@riesce',hand(310,1380,'troppo pochi pixel!',50,RED))}${pop('@vedere',`<path d="M140 960 L480 1160 M480 960 L140 1160" stroke="${RED}" stroke-width="16" stroke-linecap="round" filter="url(#wob)"/>`)}
- ${pop('@baffi',`<g filter="url(#wob)">${pix(BASE.slice(0,7),770,1060,34,null,true)}</g>${hand(770,1300,'baffi!',60,RED)}`)}
- ${pop('@Shigeru',`<path d="M500 1060 q40 -34 80 0" stroke="${INK}" stroke-width="10" fill="none" filter="url(#wob)"/><path d="M570 1040 l24 22 -30 12" stroke="${INK}" stroke-width="10" fill="none"/>`)}`)},
+ ${pop('@Shigeru',`<g filter="url(#wob)">${pix(BASE.slice(0,7),770,1060,34,null,true)}</g>`)}${pop('@baffi',hand(770,1300,'baffi!',60,RED))}<g data-draw="@baffi,0.5"><ellipse cx="770" cy="1145" rx="170" ry="42" fill="none" stroke="${RED}" stroke-width="9"/></g>
+ ${pop('@Shigeru',`<path d="M500 1070 L585 1070" stroke="${RED}" stroke-width="14" stroke-linecap="round" fill="none"/><path d="M560 1045 L590 1070 L560 1095" stroke="${RED}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`)}`)},
 {voice:"Anche i capelli erano difficili da animare: per questo ha il cappello.",cam:"0,1.0,0,0|@cappello,1.06,0,0",
  html:S(bg+`${pop('@capelli',hl(430,620,'CAPELLI? NO',84,'#ffffff'))}
  ${pop(0.1,`<g filter="url(#wob)">${pix(NOCAP.slice(0,7),310,1060,34,null,true)}</g>${hand(310,1300,'capelli',56)}`)}
