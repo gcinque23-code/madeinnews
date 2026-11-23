@@ -18,7 +18,7 @@ const house=(x,y,w,h,wall,roof)=>`<g transform="translate(${x},${y})"><rect x="$
 const village=(y)=>`<path d="M0 ${y-40} Q270 ${y-90} 540 ${y-50} T1080 ${y-60} L1080 1920 L0 1920Z" fill="#dfe8f7"/>`+house(170,y-20,190,170,'#7f1d1d','#3f1d0b')+house(910,y-20,190,170,'#1e3a8a','#3f1d0b')+house(380,y+10,150,140,'#166534','#3f1d0b')+house(700,y+10,150,140,'#92400e','#3f1d0b');
 const tree=(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><rect x="-20" y="0" width="40" height="60" fill="#5b2a0e"/><path d="M0 -360 L140 -160 L75 -160 L190 0 L-190 0 L-75 -160 L-140 -160Z" fill="#15803d"/>${[[-60,-60,'#ef4444'],[60,-90,'#fde047'],[-30,-200,'#3b82f6'],[40,-230,'#ef4444'],[0,-120,'#fde047']].map(([a,b,c],k)=>`<circle cx="${a}" cy="${b}" r="14" fill="${c}" data-flash="${k*0.2},0.6,0.4"/>`).join('')}<path d="M0 -420 l16 36 40 4 -30 26 9 40 -35 -22 -35 22 9 -40 -30 -26 40 -4z" fill="#fde047"/></g>`;
 const book=(open)=>`<rect x="-360" y="-250" width="720" height="500" rx="22" fill="#7f1d1d"/><rect x="-340" y="-232" width="335" height="464" rx="10" fill="#fbf4e2"/><rect x="5" y="-232" width="335" height="464" rx="10" fill="#fbf4e2"/><rect x="-14" y="-232" width="28" height="464" fill="#000" opacity=".12"/>${[...Array(8)].map((_,k)=>`<rect x="-300" y="${-180+k*48}" width="${240+rnd(k)*30}" height="14" rx="7" fill="#d9cba6" style="transform-box:fill-box;transform-origin:left" data-grow="${open+k*0.05},0.3"/><rect x="45" y="${-180+k*48}" width="${240+rnd(k+9)*30}" height="14" rx="7" fill="#d9cba6" style="transform-box:fill-box;transform-origin:left" data-grow="${open+0.4+k*0.05},0.3"/>`).join('')}`;
-const cal=(w,h,head,hcol,inner)=>`<rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="26" fill="#fff"/><rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h*0.27}" rx="26" fill="${hcol}"/><rect x="${-w/2}" y="${-h/2+h*0.2}" width="${w}" height="${h*0.07}" fill="${hcol}"/>${B(0,-h/2+h*0.19,h*0.12,'#fff',head)}<circle cx="${-w/4}" cy="${-h/2}" r="14" fill="#334155"/><circle cx="${w/4}" cy="${-h/2}" r="14" fill="#334155"/>${inner}`;
+const cal=(w,h,head,hcol,inner)=>`<rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="26" fill="#fff"/><rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h*0.27}" rx="26" fill="${hcol}"/><rect x="${-w/2}" y="${-h/2+h*0.2}" width="${w}" height="${h*0.07}" fill="${hcol}"/><g class="bx"><rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h*0.27}" fill="none"/>${B(0,-h/2+h*0.19,h*0.12,'#fff',head)}</g><circle cx="${-w/4}" cy="${-h/2}" r="14" fill="#334155"/><circle cx="${w/4}" cy="${-h/2}" r="14" fill="#334155"/><g class="bx"><rect x="${-w/2}" y="${-h/2+h*0.27}" width="${w}" height="${h*0.73}" fill="none"/>${inner}</g>`;
 const NIGHT=[[0,'#0b1026'],[.6,'#1e2a5a'],[1,'#3b4a8a']];
 const scenes=[
 {voice:"Nella Bibbia non c'è scritto da nessuna parte che Gesù è nato il 25 dicembre.",
@@ -36,14 +36,14 @@ const scenes=[
 {voice:"Il 25 dicembre compare per la prima volta in un calendario romano del 354. E a Roma la festa si celebrava già dal 336.",
  cam:"0,1.1,0,0|@compare,1.0,0,0|@336,1.06,0,0",
  html:S(`${sky('n2',[[0,'#3b1d0b'],[1,'#1c0f06']])}${snow()}
- <g data-pop="@calendario,0.5" ${C}>${at(540,1060,`<rect x="-380" y="-330" width="760" height="660" rx="10" fill="#f3e3bf"/><rect x="-420" y="-360" width="840" height="56" rx="28" fill="#a16207"/><rect x="-420" y="304" width="840" height="56" rx="28" fill="#a16207"/>${B(0,-220,52,'#7c2d12','CALENDARIO ROMANO')}${[...Array(5)].map((_,k)=>`<rect x="-300" y="${-170+k*44}" width="600" height="12" rx="6" fill="#d8c08f"/>`).join('')}<rect x="-320" y="60" width="640" height="130" rx="16" fill="#dc2626"/>${T(0,158,100,'#fff','25 DICEMBRE')}`)}</g>
+ <g data-pop="@calendario,0.5" ${C}>${at(540,1060,`<rect x="-380" y="-330" width="760" height="660" rx="10" fill="#f3e3bf"/><rect x="-420" y="-360" width="840" height="56" rx="28" fill="#a16207"/><rect x="-420" y="304" width="840" height="56" rx="28" fill="#a16207"/>${B(0,-220,52,'#7c2d12','CALENDARIO ROMANO')}${[...Array(5)].map((_,k)=>`<rect x="-300" y="${-170+k*44}" width="600" height="12" rx="6" fill="#d8c08f"/>`).join('')}<g class="bx"><rect x="-320" y="60" width="640" height="130" rx="16" fill="#dc2626"/>${T(0,158,100,'#fff','25 DICEMBRE')}</g>`)}</g>
  ${pop('@354',box(450,420,160,'#fde047',T(540,570,120,'#3b1d0b','354')))}
  ${stamp('@336',box(1470,620,170,'#dc2626',T(540,1600,120,'#fff','ROMA · 336')))}`)},
 {voice:"Ma perché proprio quel giorno? Gli storici hanno due ipotesi.",
  cam:"0,1.0,0,0|@due,1.08,0,0",
  html:S(`${sky('n3',NIGHT)}${stars(80,1920)}${snow()}
  ${off('@due',pop('@perché',T(540,1180,520,'#fde047','?')))}
- ${pop('@due',at(320,1060,`<circle r="190" fill="#dc2626"/>${T(0,70,220,'#fff','1')}`))}${pop('@ipotesi',at(760,1060,`<circle r="190" fill="#15803d"/>${T(0,70,220,'#fff','2')}`))}
+ ${pop('@due',at(320,1060,`<g class="bx"><circle r="190" fill="#dc2626"/>${T(0,70,220,'#fff','1')}</g>`))}${pop('@ipotesi',at(760,1060,`<g class="bx"><circle r="190" fill="#15803d"/>${T(0,70,220,'#fff','2')}</g>`))}
  ${pop('@ipotesi',box(1340,620,150,'#fff',B(540,1440,72,'#1e2a5a','DUE IPOTESI')))}`)},
 {voice:"La prima: a Roma il 25 dicembre era la festa del Sole Invitto, nel giorno del solstizio d'inverno del calendario romano.",
  cam:"0,1.0,0,0|@sole,1.08,0,-40|@solstizio,1.0,0,0",
@@ -60,9 +60,9 @@ const scenes=[
  html:S(`${sky('n5',[[0,'#14532d'],[1,'#052e16']])}${snow()}
  ${pop('@calcolo',box(440,520,140,'#fde047',T(540,545,96,'#14532d','CALCOLO')))}
  <g data-pop="@concepito,0.5" ${C}>${at(540,1090,cal(560,620,'','#dc2626',T(0,190,300,'#1e293b','25')))}
-  <g data-off="@nove">${B(540,925,78,'#fff','MARZO')}</g>
-  ${['APRILE','MAGGIO','GIUGNO','LUGLIO','AGOSTO','SETTEMBRE','OTTOBRE','NOVEMBRE'].map((m,k)=>`<g data-win="@nove,${(k*0.12).toFixed(2)},0.12">${B(540,925,78,'#fff',m)}</g>`).join('')}
-  <g data-win="@nove,0.96,99">${B(540,925,78,'#fff','DICEMBRE')}</g></g>
+  <g data-off="@nove"><g class="bx"><rect x="260" y="780" width="560" height="167" fill="none"/>${B(540,925,78,'#fff','MARZO')}</g></g>
+  ${['APRILE','MAGGIO','GIUGNO','LUGLIO','AGOSTO','SETTEMBRE','OTTOBRE','NOVEMBRE'].map((m,k)=>`<g data-win="@nove,${(k*0.12).toFixed(2)},0.12"><g class="bx"><rect x="260" y="780" width="560" height="167" fill="none"/>${B(540,925,78,'#fff',m)}</g></g>`).join('')}
+  <g data-win="@nove,0.96,99"><g class="bx"><rect x="260" y="780" width="560" height="167" fill="none"/>${B(540,925,78,'#fff','DICEMBRE')}</g></g></g>
  ${pop('@nove',box(1500,520,150,'#fff',T(540,1610,110,'#14532d','+9 MESI')))}`)},
 {voice:"E ancora oggi alcune Chiese ortodosse, che seguono il calendario giuliano, festeggiano il Natale il 7 gennaio.",
  cam:"0,1.0,0,0|@7,1.08,0,0",
