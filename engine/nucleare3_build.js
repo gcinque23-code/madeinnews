@@ -12,7 +12,7 @@ const tower=(x,y,s,delay)=>`<g transform="translate(${x},${y}) scale(${s})">
 const scenes=[
 // 1. torri che si costruiscono + timbro CHIUSO 1987
 {voice:"L'Italia ha chiuso con il nucleare quasi quarant'anni fa. Ora il governo vuole riaprire la porta.",
- html:svg(`${tower(330,420,1.25,0.2)}${tower(720,470,1.0,0.5)}
+ html:svg(`${tower(360,420,1.25,0.2)}${tower(760,470,1.0,0.5)}
  <line data-draw="0,0.8" x1="80" y1="845" x2="1000" y2="845" stroke="#444" stroke-width="6"/>
  ${g('data-stamp="2.0"',`<rect x="300" y="90" width="480" height="170" rx="14" fill="none" stroke="${R}" stroke-width="12"/><text x="540" y="215" text-anchor="middle" class="anton" font-size="130" fill="${R}">CHIUSO</text>`)}
  ${g('data-rise="2.4,0.5"',`<text x="540" y="1000" text-anchor="middle" class="anton" font-size="150" fill="${A}">1987</text>`)}`)},
@@ -35,14 +35,14 @@ const scenes=[
  ${g('data-rise="2.4,0.4"',`<text x="540" y="1060" text-anchor="middle" font-size="48" font-weight="900" fill="#bbb">LE CENTRALI SI SPENGONO</text>`)}`)},
 // 5. mappa d'Italia che si disegna + pin
 {voice:"Erano quattro: Trino, in Piemonte. Caorso, in Emilia. Latina, nel Lazio. E il Garigliano, in Campania.",
- html:svg(`<g transform="translate(${(1080-IT.w*1.25)/2+40},40) scale(1.25)"><path data-draw="0,2.0" d="${IT.d}" fill="#1b1b22" fill-opacity="0" data-fill="1.6,0.6" stroke="#fff" stroke-width="3"/>
+ html:svg(`<g transform="translate(${(1080-IT.w*1.25)/2},40) scale(1.25)"><path data-draw="0,2.0" d="${IT.d}" fill="#1b1b22" fill-opacity="0" data-fill="1.6,0.6" stroke="#fff" stroke-width="3"/>
  ${Object.entries(IT.pins).map(([n,[x,y]],k)=>{const t=1.0+k*1.15;const left=(k%2===0);return `<circle data-ripple="${t},1.5" cx="${x}" cy="${y}" r="10" fill="none" stroke="${A}" stroke-width="4"/>
  <g data-drop="${t},0.7,-300" style="transform-box:fill-box;transform-origin:bottom"><path d="M${x} ${y} c-14 -22 -24 -32 -24 -46 a24 24 0 1 1 48 0 c0 14 -10 24 -24 46z" fill="${A}" stroke="#000" stroke-width="3"/><circle cx="${x}" cy="${y-46}" r="9" fill="#000"/></g>
  <g data-fade="${t+0.2},0.3"><rect x="${left?x-40-(n.length*22+30):x+30}" y="${left?y-40:y-78}" width="${n.length*22+30}" height="44" rx="8" fill="#fff"/><text x="${left?x-25-(n.length*22+30):x+45}" y="${left?y-8:y-46}" font-size="30" font-weight="900" fill="#000">${n}</text></g>`}).join('')}</g>`)},
 // 6. 2011 Fukushima: donut 94%
 {voice:"Nel 2011, dopo Fukushima, un secondo referendum. Il novantaquattro per cento dei votanti dice no al ritorno.",
- html:`<div style="position:absolute;left:90px;top:90px;width:300px;height:300px;border-radius:50%;overflow:hidden;border:8px solid #fff" data-pop="0.2,0.5"><div style="position:absolute;inset:0;background:url(PHOTO(${P}fukushima.jpg)) center/cover"></div></div><div class="cr" style="top:400px;bottom:auto;left:90px;right:auto">Foto: ${cr.fukushima}</div>`+
- svg(`${g('data-rise="0.4,0.5"',`<text x="460" y="200" font-size="54" font-weight="900" fill="#bbb">FUKUSHIMA</text><text x="460" y="330" class="anton" font-size="150" fill="#fff">2011</text>`)}
+ html:`<div style="position:absolute;left:200px;top:90px;width:300px;height:300px;border-radius:50%;overflow:hidden;border:8px solid #fff" data-pop="0.2,0.5"><div style="position:absolute;inset:0;background:url(PHOTO(${P}fukushima.jpg)) center/cover"></div></div><div class="cr" style="top:400px;bottom:auto;left:200px;right:auto">Foto: ${cr.fukushima}</div>`+
+ svg(`${g('data-rise="0.4,0.5"',`<text x="545" y="200" font-size="54" font-weight="900" fill="#bbb">FUKUSHIMA</text><text x="545" y="330" class="anton" font-size="150" fill="#fff">2011</text>`)}
  <circle cx="540" cy="760" r="230" fill="none" stroke="#2a2a2a" stroke-width="70"/>
  <circle data-donut="1.6,2.2,94" data-c="1445" cx="540" cy="760" r="230" fill="none" stroke="${R}" stroke-width="70" stroke-dasharray="1445" stroke-dashoffset="1445" transform="rotate(-90 540 760)"/>
  <text data-count="1.6,2.2,94" data-suf="%" x="540" y="800" text-anchor="middle" class="anton" font-size="140" fill="#fff">0%</text>
@@ -56,7 +56,7 @@ const scenes=[
  ${[[200,870,90,40],[330,930,60,-60]].map(([x,y,r,sp])=>`<g transform="translate(${x},${y})"><g data-spin="${sp}" style="transform-origin:0 0">${[...Array(8)].map((_,k)=>`<rect x="-14" y="${-r-22}" width="28" height="36" fill="${A}" transform="rotate(${k*45})"/>`).join('')}<circle r="${r}" fill="${A}"/><circle r="${r*0.4}" fill="#07070a"/></g></g>`).join('')}`)},
 // 8. chiusura logo
 {voice:"Segui Made in News per capire le notizie, ogni giorno.",
- html:svg(`${g('data-pop="0.2,0.5"',`<rect x="390" y="250" width="300" height="300" fill="#fff"/><text x="525" y="480" text-anchor="middle" class="anton" font-size="200" fill="#000">MN</text><rect x="640" y="480" width="34" height="34" fill="#E63946"/>`)}
+ html:svg(`${g('data-pop="0.2,0.5"',`<rect x="390" y="250" width="300" height="300" fill="#fff"/><text x="540" y="467" text-anchor="middle" class="anton" font-size="186" fill="#000">MN<tspan fill="#E63946">.</tspan></text>`)}
  ${g('data-rise="0.8,0.5"',`<text x="540" y="720" text-anchor="middle" font-size="96" font-weight="900" fill="#fff" letter-spacing="-4">madeinnews<tspan fill="#E63946">.</tspan></text>`)}
  ${g('data-rise="1.2,0.5"',`<text x="540" y="820" text-anchor="middle" font-size="46" font-weight="800" fill="${A}">LE NOTIZIE SPIEGATE, OGNI GIORNO</text>`)}`)}
 ];
