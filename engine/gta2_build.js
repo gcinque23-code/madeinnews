@@ -9,10 +9,10 @@ const rnd=(k)=>{const x=Math.sin(k*999.7)*43758.5;return x-Math.floor(x)};
 // ---------- components
 const wheel=(x,y,sp)=>`<g transform="translate(${x},${y})"><g data-spin="${sp}" ${C}><circle r="42" fill="#15151c"/><circle r="22" fill="#c7c9d1"/>${[0,60,120].map(a=>`<rect x="-3" y="-22" width="6" height="44" fill="#6b6f7a" transform="rotate(${a})"/>`).join('')}<circle r="6" fill="#333"/></g></g>`;
 const carBody=(col,glass='#9fd8ff')=>`<ellipse cx="5" cy="74" rx="215" ry="16" fill="#000" opacity=".35"/>
-<path d="M-205 40 L-205 -5 Q-200 -38 -150 -44 L-92 -50 L-42 -96 Q-26 -106 2 -106 L72 -106 Q98 -106 114 -90 L152 -50 L192 -42 Q214 -36 214 -2 L214 40 Q214 52 200 52 L-192 52 Q-205 52 -205 40Z" fill="${col}"/>
+<g transform="translate(9,0) scale(-1,1)"><path d="M-205 40 L-205 -5 Q-200 -38 -150 -44 L-92 -50 L-42 -96 Q-26 -106 2 -106 L72 -106 Q98 -106 114 -90 L152 -50 L192 -42 Q214 -36 214 -2 L214 40 Q214 52 200 52 L-192 52 Q-205 52 -205 40Z" fill="${col}"/>
 <path d="M-205 18 L214 18 L214 40 Q214 52 200 52 L-192 52 Q-205 52 -205 40Z" fill="#000" opacity=".18"/>
 <path d="M-74 -52 L-34 -92 L22 -92 L22 -52Z" fill="${glass}"/><path d="M34 -92 L70 -92 Q86 -92 97 -80 L124 -52 L34 -52Z" fill="${glass}"/>
-<path d="M-60 -60 L-40 -82" stroke="#fff" stroke-width="6" opacity=".7" stroke-linecap="round"/>
+<path d="M-60 -60 L-40 -82" stroke="#fff" stroke-width="6" opacity=".7" stroke-linecap="round"/></g>
 <rect x="196" y="-30" width="18" height="16" rx="4" fill="#fde68a"/><rect x="-205" y="-26" width="14" height="16" rx="4" fill="#ef4444"/>
 <rect x="-20" y="-30" width="34" height="7" rx="3" fill="#000" opacity=".3"/>`;
 const car=(col,sp=900,beam=true)=>`${beam?`<path d="M214 -22 L620 -90 L620 60 Z" fill="#fde68a" opacity=".22"/>`:''}${carBody(col)}${wheel(-122,48,sp)}${wheel(132,48,sp)}`;
