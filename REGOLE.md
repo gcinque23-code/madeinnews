@@ -29,4 +29,4 @@
 - Stile: animazioni illustrate (explainer3.js), una notizia spiegata per reel; musica solo strumentale. Nessun effetto sonoro (niente colpi né whoosh): solo voce e musica in dissolvenza.
 - Formato motion graphic: testi e grafiche animati (entrate, numeri che salgono, transizioni), non slide statiche.
 - 2 al giorno, su notizie diverse dai post.
-- Voce: ElevenLabs, modello eleven_multilingual_v2. Si alternano: Sami (femminile, b8jhBTcGAq4kQGWmKprT) e Francesco (maschile, GOAZNavLupajyL3YafaD).
+- Voce: ElevenLabs, modello eleven_multilingual_v2, SEMPRE Francesco (GOAZNavLupajyL3YafaD). Stabilità 0.6, una sola registrazione continua per reel.
