@@ -25,10 +25,11 @@ const scenes=[{voice:"Nessun film nella storia ha mai incassato quanto GTA 6 nel
  html:svg(`${g('data-pop="0.2,0.6"',`<path d="M400 260 h280 v120 a140 140 0 0 1 -280 0z" fill="${Y}"/><path d="M400 290 h-70 a70 70 0 0 0 70 110 M680 290 h70 a70 70 0 0 1 -70 110" stroke="${Y}" stroke-width="22" fill="none"/><rect x="510" y="520" width="60" height="110" fill="${Y}"/><rect x="420" y="630" width="240" height="60" rx="10" fill="${Y}"/>`)}
  ${g('data-rise="@sempre,0.4"',`<text x="540" y="840" text-anchor="middle" class="anton" font-size="104" fill="#fff">IL LANCIO PIÙ GRANDE</text><text x="540" y="950" text-anchor="middle" class="anton" font-size="104" fill="${A}">DI SEMPRE</text>`)}`)},
 {voice:"E dopo il primo weekend, secondo le stime della società Alinea Analytics, le copie sarebbero già quarantacinque milioni.",
- html:svg(`${g('data-rise="0.2,0.4"',`<text x="540" y="230" text-anchor="middle" font-size="50" font-weight="900" fill="#bbb">DOPO IL PRIMO WEEKEND · STIMA</text>`)}
- <text data-count="0.4,2.0,45" x="540" y="560" text-anchor="middle" class="anton" font-size="320" fill="${A}">0</text>
- ${g('data-rise="@milioni,0.4"',`<text x="540" y="680" text-anchor="middle" class="anton" font-size="110" fill="#fff">MILIONI DI COPIE</text>`)}
- ${g('data-fade="@alinea,0.4"',`<text x="540" y="820" text-anchor="middle" font-size="40" font-weight="800" fill="#888">Fonte: Alinea Analytics (dato non ufficiale)</text>`)}`)},
+ html:svg(`${g('data-rise="@weekend,0.4"',`<text x="540" y="190" text-anchor="middle" font-size="50" font-weight="900" fill="#bbb">DOPO IL PRIMO WEEKEND · STIMA</text>`)}
+ <path data-draw="@secondo,3.0" d="M200 900 L330 860 L460 870 L590 780 L720 700 L880 560" stroke="${A}" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".35"/>
+ <text data-count="@quarantacinque,0.6,45" x="540" y="560" text-anchor="middle" class="anton" font-size="320" fill="${A}" data-fade="@quarantacinque,0.15">0</text>
+ ${g('data-rise="@milioni,0.3"',`<text x="540" y="680" text-anchor="middle" class="anton" font-size="110" fill="#fff">MILIONI DI COPIE</text>`)}
+ ${g('data-fade="@alinea,0.4"',`<text x="540" y="1000" text-anchor="middle" font-size="40" font-weight="800" fill="#888">Fonte: Alinea Analytics (dato non ufficiale)</text>`)}`)},
 {voice:"Per ora è disponibile su PlayStation 5 e Xbox Series. La versione per PC non è ancora stata annunciata.",
  html:svg(`${g('data-pop="@playstation,0.5"',`<rect x="110" y="320" width="380" height="300" rx="24" fill="#1c1c24" stroke="${T}" stroke-width="8"/><text x="300" y="490" text-anchor="middle" class="anton" font-size="96" fill="${T}">PS5</text>`)}
  ${g('data-pop="@xbox,0.5"',`<rect x="590" y="320" width="380" height="300" rx="24" fill="#1c1c24" stroke="#22c55e" stroke-width="8"/><text x="780" y="490" text-anchor="middle" class="anton" font-size="62" fill="#22c55e">XBOX SERIES</text>`)}
