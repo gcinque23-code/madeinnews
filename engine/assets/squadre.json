@@ -1,0 +1,102 @@
+{
+ "Lazio": [
+  "LAZ",
+  "#87CEEB",
+  "#fff"
+ ],
+ "Lecce": [
+  "LEC",
+  "#FFD200",
+  "#D71920"
+ ],
+ "Como": [
+  "COM",
+  "#0A3A7A",
+  "#fff"
+ ],
+ "Cagliari": [
+  "CAG",
+  "#A6192E",
+  "#002B5C"
+ ],
+ "Parma": [
+  "PAR",
+  "#FFD100",
+  "#0047AB"
+ ],
+ "Roma": [
+  "ROM",
+  "#8E1F2F",
+  "#F0BC42"
+ ],
+ "Napoli": [
+  "NAP",
+  "#12A0D7",
+  "#fff"
+ ],
+ "Torino": [
+  "TOR",
+  "#8B1A1A",
+  "#fff"
+ ],
+ "Juventus": [
+  "JUV",
+  "#000",
+  "#fff"
+ ],
+ "Venezia": [
+  "VEN",
+  "#F26A21",
+  "#0B6E3E"
+ ],
+ "Bologna": [
+  "BOL",
+  "#1A2F48",
+  "#A21C26"
+ ],
+ "Udinese": [
+  "UDI",
+  "#000",
+  "#fff"
+ ],
+ "Sassuolo": [
+  "SAS",
+  "#00A752",
+  "#000"
+ ],
+ "Genoa": [
+  "GEN",
+  "#A6192E",
+  "#002D62"
+ ],
+ "Milan": [
+  "MIL",
+  "#D51920",
+  "#000"
+ ],
+ "Frosinone": [
+  "FRO",
+  "#FFD200",
+  "#0033A0"
+ ],
+ "Atalanta": [
+  "ATA",
+  "#1E71B8",
+  "#000"
+ ],
+ "Inter": [
+  "INT",
+  "#0068A8",
+  "#000"
+ ],
+ "Monza": [
+  "MON",
+  "#E30613",
+  "#fff"
+ ],
+ "Fiorentina": [
+  "FIO",
+  "#5B2B82",
+  "#fff"
+ ]
+}
