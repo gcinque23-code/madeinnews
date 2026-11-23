@@ -32,34 +32,34 @@ const scenes=[
  html:S(`${sky('n1',[[0,'#1e2a5a'],[1,'#0b1026']])}${snow()}
  ${off("@all'anno",`${at(540,980,book(0.1))}${pop('@giorno',at(330,1340,`<rect x="-180" y="-60" width="360" height="120" rx="20" fill="#fff"/>${B(0,22,60,'#1e2a5a','GIORNO ?')}`))}${pop('@mese',at(750,1340,`<rect x="-180" y="-60" width="360" height="120" rx="20" fill="#fff"/>${B(0,22,60,'#1e2a5a','MESE ?')}`))}`)}
  ${pop("@all'anno",box(480,560,170,'#dc2626',T(540,600,120,'#fff','ANNO 200')))}
- ${[[270,'@proponevano'],[540,'@date'],[810,'@diverse']].map(([x,t])=>`<g data-pop="${t},0.45" ${C}><g data-bob="10,3,${x}">${at(x,1050,cal(220,260,'?','#dc2626',T(0,95,130,'#1e2a5a','?')))}</g></g>`).join('')}`)},
+ ${[[270,'@cristiani'],[540,'@proponevano'],[810,'@ancora']].map(([x,t])=>`<g data-pop="${t},0.45" ${C}><g data-bob="10,3,${x}">${at(x,1050,cal(220,260,'?','#dc2626',T(0,95,130,'#1e2a5a','?')))}</g></g>`).join('')}`)},
 {voice:"Il 25 dicembre compare per la prima volta in un calendario romano del 354. E a Roma la festa si celebrava già dal 336.",
  cam:"0,1.1,0,0|@compare,1.0,0,0|@336,1.06,0,0",
  html:S(`${sky('n2',[[0,'#3b1d0b'],[1,'#1c0f06']])}${snow()}
- <g data-pop="@calendario,0.5" ${C}>${at(540,1060,`<rect x="-380" y="-330" width="760" height="660" rx="10" fill="#f3e3bf"/><rect x="-420" y="-360" width="840" height="56" rx="28" fill="#a16207"/><rect x="-420" y="304" width="840" height="56" rx="28" fill="#a16207"/>${B(0,-220,52,'#7c2d12','CALENDARIO ROMANO')}${[...Array(5)].map((_,k)=>`<rect x="-300" y="${-170+k*44}" width="600" height="12" rx="6" fill="#d8c08f"/>`).join('')}<g class="bx"><rect x="-320" y="60" width="640" height="130" rx="16" fill="#dc2626"/>${T(0,158,100,'#fff','25 DICEMBRE')}</g>`)}</g>
+ <g data-pop="0.15,0.5" ${C}>${at(540,1060,`<rect x="-380" y="-330" width="760" height="660" rx="10" fill="#f3e3bf"/><rect x="-420" y="-360" width="840" height="56" rx="28" fill="#a16207"/><rect x="-420" y="304" width="840" height="56" rx="28" fill="#a16207"/>${B(0,-220,52,'#7c2d12','CALENDARIO ROMANO')}${[...Array(5)].map((_,k)=>`<rect x="-300" y="${-170+k*44}" width="600" height="12" rx="6" fill="#d8c08f"/>`).join('')}<g data-pop="@25,0.45" ${C}><g class="bx"><rect x="-320" y="60" width="640" height="130" rx="16" fill="#dc2626"/>${T(0,158,100,'#fff','25 DICEMBRE')}</g></g>`)}</g>
  ${pop('@354',box(450,420,160,'#fde047',T(540,570,120,'#3b1d0b','354')))}
  ${stamp('@336',box(1470,620,170,'#dc2626',T(540,1600,120,'#fff','ROMA · 336')))}`)},
 {voice:"Ma perché proprio quel giorno? Gli storici hanno due ipotesi.",
  cam:"0,1.0,0,0|@due,1.08,0,0",
  html:S(`${sky('n3',NIGHT)}${stars(80,1920)}${snow()}
- ${off('@due',pop('@perché',T(540,1180,520,'#fde047','?')))}
+ ${off('@due',`${pop(0.1,at(540,1040,cal(380,420,'DICEMBRE','#dc2626',T(0,140,220,'#1e293b','25'))))}${pop('@perché',T(190,1130,300,'#fde047','?'))}${pop('@giorno',T(890,1130,300,'#fde047','?'))}${pop('@storici',box(1340,520,140,'#fff',B(540,1430,72,'#1e2a5a','STORICI')))}`)}
  ${pop('@due',at(320,1060,`<g class="bx"><circle r="190" fill="#dc2626"/>${T(0,70,220,'#fff','1')}</g>`))}${pop('@ipotesi',at(760,1060,`<g class="bx"><circle r="190" fill="#15803d"/>${T(0,70,220,'#fff','2')}</g>`))}
  ${pop('@ipotesi',box(1340,620,150,'#fff',B(540,1440,72,'#1e2a5a','DUE IPOTESI')))}`)},
 {voice:"La prima: a Roma il 25 dicembre era la festa del Sole Invitto, nel giorno del solstizio d'inverno del calendario romano.",
  cam:"0,1.0,0,0|@sole,1.08,0,-40|@solstizio,1.0,0,0",
  html:S(`${sky('n4',[[0,'#1e1b4b'],[.5,'#9d174d'],[1,'#f59e0b']])}
- <g data-mv="0,0.01,0,500,0,500,@sole,1.2,0,500,0,0">${at(540,1150,`<g data-spin="12">${[...Array(16)].map((_,k)=>`<rect x="-14" y="-560" width="28" height="200" rx="14" fill="#fde68a" opacity=".5" transform="rotate(${k*22.5})"/>`).join('')}</g><circle r="260" fill="#fde047"/><circle r="210" fill="#fbbf24"/>`)}</g>
+ <g data-mv="0,0.01,0,520,0,520,0.2,2.6,0,520,0,60,@sole,1.0,0,60,0,0">${at(540,1150,`<g data-spin="12">${[...Array(16)].map((_,k)=>`<rect x="-14" y="-560" width="28" height="200" rx="14" fill="#fde68a" opacity=".5" transform="rotate(${k*22.5})"/>`).join('')}</g><circle r="260" fill="#fde047"/><circle r="210" fill="#fbbf24"/>`)}</g>
  <path d="M0 1380 L1080 1380 L1080 1920 L0 1920Z" fill="#3b0d2e"/>
  ${at(540,1380,`<path d="M-330 0 L-330 -260 Q0 -330 330 -260 L330 0Z" fill="#2a0a22"/>${[0,1,2].map(r=>[-4,-3,-2,-1,0,1,2,3].map(c=>`<path d="M${c*76+8} ${-30-r*80} l0 -40 a30 30 0 0 1 60 0 l0 40z" fill="#9d174d"/>`).join('')).join('')}`)}
- ${pop('@Roma',box(460,360,140,'#fff',T(540,563,100,'#3b0d2e','ROMA')))}
+ ${off('@Roma',pop(0.1,box(460,520,140,'#dc2626',T(540,563,100,'#fff','IPOTESI 1'))))}${pop('@Roma',box(460,360,140,'#fff',T(540,563,100,'#3b0d2e','ROMA')))}
  ${off('@solstizio',pop('@Sole',box(640,640,150,'#dc2626',T(540,750,104,'#fff','SOLE INVITTO'))))}
  ${pop('@solstizio',box(640,760,150,'#1e3a8a',B(540,738,62,'#fff',"SOLSTIZIO D'INVERNO")))}
  ${snowLayer(25,5,9,3)}`)},
 {voice:"La seconda è un calcolo: si credeva che Gesù fosse stato concepito il 25 marzo. Nove mesi dopo: 25 dicembre.",
  cam:"0,1.0,0,0|@nove,1.06,0,0",
  html:S(`${sky('n5',[[0,'#14532d'],[1,'#052e16']])}${snow()}
- ${pop('@calcolo',box(440,520,140,'#fde047',T(540,545,96,'#14532d','CALCOLO')))}
- <g data-pop="@concepito,0.5" ${C}>${at(540,1090,cal(560,620,'','#dc2626',T(0,190,300,'#1e293b','25')))}
+ ${off('@calcolo',pop(0.1,box(440,520,140,'#15803d',T(540,545,96,'#fff','IPOTESI 2'))))}${pop('@calcolo',box(440,520,140,'#fde047',T(540,545,96,'#14532d','CALCOLO')))}
+ <g data-pop="@credeva,0.5" ${C}>${at(540,1090,cal(560,620,'','#dc2626',T(0,190,300,'#1e293b','25')))}
   <g data-off="@nove"><g class="bx"><rect x="260" y="780" width="560" height="167" fill="none"/>${B(540,925,78,'#fff','MARZO')}</g></g>
   ${['APRILE','MAGGIO','GIUGNO','LUGLIO','AGOSTO','SETTEMBRE','OTTOBRE','NOVEMBRE'].map((m,k)=>`<g data-win="@nove,${(k*0.12).toFixed(2)},0.12"><g class="bx"><rect x="260" y="780" width="560" height="167" fill="none"/>${B(540,925,78,'#fff',m)}</g></g>`).join('')}
   <g data-win="@nove,0.96,99"><g class="bx"><rect x="260" y="780" width="560" height="167" fill="none"/>${B(540,925,78,'#fff','DICEMBRE')}</g></g></g>
