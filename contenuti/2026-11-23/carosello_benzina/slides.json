@@ -16,7 +16,7 @@
   },
   {
    "dark": true,
-   "html": "<div style=\"font:900 110px/1.02 'Inter Tight';letter-spacing:-4px;margin-top:60px\">Le notizie,<br><span style='color:#3B82F6'>spiegate semplici.</span></div><div style=\"font:800 52px 'Inter Tight';margin-top:70px\">Segui <span style='color:#E63946'>@madeinnews.it</span></div><div style=\"position:absolute;left:0;right:0;top:660px\">\n<svg width=\"150\" height=\"150\" viewBox=\"0 0 150 150\"><path d=\"M75 15 c-30 0 -48 24 -48 54 v30 l-15 20 h126 l-15 -20 v-30 c0 -30 -18 -54 -48 -54z\" fill=\"#3B82F6\"/><circle cx=\"75\" cy=\"132\" r=\"15\" fill=\"#3B82F6\"/><circle cx=\"118\" cy=\"30\" r=\"16\" fill=\"#E63946\"/></svg>\n<div style=\"display:flex;gap:20px;margin-top:40px\"><div style=\"background:#1c1c1c;border:3px solid #333;border-radius:16px;padding:22px 34px;font:900 54px Anton;color:#fff\">09:00</div><div style=\"background:#1c1c1c;border:3px solid #333;border-radius:16px;padding:22px 34px;font:900 54px Anton;color:#fff\">14:30</div><div style=\"background:#1c1c1c;border:3px solid #333;border-radius:16px;padding:22px 34px;font:900 54px Anton;color:#fff\">20:00</div></div>\n<div style=\"font:700 34px 'Inter Tight';color:#aaa;margin-top:24px\">Attiva le notifiche per non perderti niente</div></div>"
+   "html": "<div style=\"font:900 110px/1.02 'Inter Tight';letter-spacing:-4px;margin-top:330px\">Le notizie,<br><span style='color:#3B82F6'>spiegate semplici.</span></div><div style=\"font:800 52px 'Inter Tight';margin-top:70px\">Segui <span style='color:#E63946'>@madeinnews.it</span></div>"
   }
  ]
 }
