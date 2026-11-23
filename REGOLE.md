@@ -16,6 +16,7 @@
 ## Grafica
 - Logo: monogramma "MN." (punto rosso #E63946) + scritta "madeinnews." – niente bandiere.
 - Etichette categoria solo testo, senza emoji.
+- Niente scritta "Scorri" nei caroselli.
 - Colori categoria: calcio #22C55E, economia #3B82F6, esteri #F97316, politica #EF4444.
 
 ## Foto

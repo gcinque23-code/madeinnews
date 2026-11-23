@@ -17,7 +17,7 @@ const css=`*{margin:0;box-sizing:border-box}body{width:1080px;height:1350px;posi
 (async()=>{fs.mkdirSync(out,{recursive:true});const b=await chromium.launch();const p=await b.newPage({viewport:{width:1080,height:1350}});
  for(const [i,s] of S.slides.entries()){
   const dots=`<div class="dots">${S.slides.map((_,k)=>`<span class="${k===i?'on':''}"></span>`).join('')}</div>`;
-  const html=`<html><head><meta charset="utf-8">${FONTS}<style>${css}</style></head><body class="${s.dark?'dark':''}">${dots}<div class="badge">MN<i>.</i></div><div class="w">${s.html}</div>${i<S.slides.length-1?'<div class="swipe">Scorri →</div>':''}<div class="foot"><b>madeinnews<i>.</i></b><span>${s.src||''}</span></div></body></html>`;
+  const html=`<html><head><meta charset="utf-8">${FONTS}<style>${css}</style></head><body class="${s.dark?'dark':''}">${dots}<div class="badge">MN<i>.</i></div><div class="w">${s.html}</div><div class="foot"><b>madeinnews<i>.</i></b><span>${s.src||''}</span></div></body></html>`;
   await p.setContent(html,{waitUntil:'networkidle'});await p.evaluate(()=>document.fonts.ready);
   await p.screenshot({path:`${out}/${String(i+1).padStart(2,'0')}.png`});}
  await b.close();console.log('ok',S.slides.length);})();
