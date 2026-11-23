@@ -51,3 +51,4 @@ Prima di ogni rendering completo eseguire: `CHECK=1 node explainer5.js <cfg.json
 Controlla: momenti vuoti (>2,2s di voce senza nuovi elementi), testo più largo del box, box che toccano il logo, testo fuori bordo.
 Si renderizza solo con "VERIFICA OK"; poi controllo visivo delle anteprime (centratura) prima di mandare.
 Attenzione alle parole-ancora (@parola): trovano la PRIMA parola che inizia così (es. @roma prende anche "romano").
+- Ogni novità (stile, mascotte, copertina, formato) va prima mostrata come PROVA all'utente; si adotta solo dopo la sua conferma.
