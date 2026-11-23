@@ -14,7 +14,7 @@ const scenes=[
 {voice:"L'Italia ha chiuso con il nucleare quasi quarant'anni fa. Ora il governo vuole riaprire la porta.",
  html:svg(`${tower(360,420,1.25,0.2)}${tower(760,470,1.0,0.5)}
  <line data-draw="0,0.8" x1="80" y1="845" x2="1000" y2="845" stroke="#444" stroke-width="6"/>
- ${g('data-stamp="2.0"',`<rect x="300" y="90" width="480" height="170" rx="14" fill="none" stroke="${R}" stroke-width="12"/><text x="540" y="215" text-anchor="middle" class="anton" font-size="130" fill="${R}">CHIUSO</text>`)}
+ ${g('data-stamp="2.0"',`<rect x="300" y="90" width="480" height="170" rx="14" fill="none" stroke="${R}" stroke-width="12"/><text x="540" y="231" text-anchor="middle" class="anton" font-size="130" fill="${R}">CHIUSO</text>`)}
  ${g('data-rise="2.4,0.5"',`<text x="540" y="1000" text-anchor="middle" class="anton" font-size="150" fill="${A}">1987</text>`)}`)},
 // 2. calendario che conta 10 giorni + documento
 {voice:"Il ministro dell'Ambiente Pichetto Fratin annuncia la proposta dei decreti attuativi entro dieci giorni.",
