@@ -33,7 +33,7 @@ const cl=x=>Math.min(Math.max(x,0),1), e=t=>1-Math.pow(1-cl(t),3), eio=t=>{t=cl(
 const bounce=t=>{t=cl(t);const n=7.5625,d=2.75;if(t<1/d)return n*t*t;if(t<2/d)return n*(t-=1.5/d)*t+.75;if(t<2.5/d)return n*(t-=2.25/d)*t+.9375;return n*(t-=2.625/d)*t+.984375};
 document.querySelectorAll('[data-draw]').forEach(p=>{const L=p.getTotalLength?p.getTotalLength():1000;p.dataset.len=L;p.style.strokeDasharray=L;p.style.strokeDashoffset=L});
 const CH=W.map(ws=>{const o=[];let c=[];ws.forEach(w=>{c.push(w);if(c.length>=2||/[.,:;!?]$/.test(w.w)){o.push(c);c=[]}});if(c.length)o.push(c);return o});
-let CUR=[];const wt=s=>{const w=s.slice(1).toLowerCase();const f=CUR.find(x=>x.w.toLowerCase().replace(/[^a-zàèéìòù']/g,'').startsWith(w));return f?f.t0-PAD*0:0};
+let CUR=[];const wt=s=>{const w=s.slice(1).toLowerCase();const f=CUR.find(x=>x.w.toLowerCase().replace(/[^a-z0-9àèéìòù']/g,'').startsWith(w));return f?f.t0-PAD*0:0};
 const num=(el,a)=>(el.dataset[a]||'0').split(',').map(v=>v.startsWith('@')?wt(v):Number(v));
 function anim(root,lt,D){
  root.querySelectorAll('[data-draw]').forEach(p=>{const [s,d]=num(p,'draw');p.style.strokeDashoffset=p.dataset.len*(1-eio((lt-s)/d))});
