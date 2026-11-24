@@ -12,13 +12,13 @@ const tagAt=(cx,y,w,t,size,fill,col=INK)=>`<g filter="url(#wob)"><g class="bx"><
 const hand=(x,y,t,size=56,col=INK)=>`<text x="${x}" y="${y}" text-anchor="middle" ${F('Gochi Hand')} font-size="${size}" fill="${col}">${t}</text>`;
 const M=JSON.parse(fs.readFileSync(__dirname+'/assets/atlantico.json','utf8'));
 const W='stroke="'+INK+'" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"';
-const car=(x,y,s,col=RED,flip=false)=>`<g transform="translate(${x},${y}) scale(${flip?-s:s},${s})" filter="url(#wob)" ${W}>
+const car=(x,y,s,col=RED,flip=false)=>`<g transform="translate(${x},${y}) scale(${flip?s:-s},${s})" filter="url(#wob)" ${W}>
  <ellipse cx="0" cy="78" rx="220" ry="14" fill="${INK}" opacity=".15" stroke="none"/>
  <path d="M-210 40 L-210 -2 Q-205 -38 -150 -44 L-110 -50 L-62 -96 Q-46 -106 -18 -106 L58 -106 Q84 -106 100 -92 L146 -50 L196 -42 Q216 -36 216 0 L216 40 Z" fill="${col}"/>
  <path d="M-94 -52 L-54 -90 L2 -90 L2 -52Z M14 -90 L56 -90 Q72 -90 84 -80 L116 -52 L14 -52Z" fill="#bfe6ff"/>
  <circle cx="-122" cy="48" r="44" fill="#3a3a44"/><circle cx="-122" cy="48" r="18" fill="#ddd"/><circle cx="132" cy="48" r="44" fill="#3a3a44"/><circle cx="132" cy="48" r="18" fill="#ddd"/>
- <rect x="198" y="-30" width="18" height="18" rx="4" fill="${YEL}"/><rect x="-210" y="-26" width="14" height="18" rx="4" fill="#ff8a8a"/></g>`;
-const police=(x,y,s,t0)=>`<g transform="translate(${x},${y}) scale(${s})"><g filter="url(#wob)" ${W}>
+ <rect x="198" y="-30" width="18" height="18" rx="4" fill="#ff8a8a"/><rect x="-210" y="-26" width="14" height="18" rx="4" fill="${YEL}"/></g>`;
+const police=(x,y,s,t0)=>`<g transform="translate(${x},${y}) scale(${-s},${s})"><g filter="url(#wob)" ${W}>
  <path d="M-210 40 L-210 -2 Q-205 -38 -150 -44 L-110 -50 L-62 -96 Q-46 -106 -18 -106 L58 -106 Q84 -106 100 -92 L146 -50 L196 -42 Q216 -36 216 0 L216 40 Z" fill="#fff"/>
  <path d="M-210 10 L216 10 L216 40 L-210 40Z" fill="#2b2d42"/><path d="M-94 -52 L-54 -90 L2 -90 L2 -52Z M14 -90 L56 -90 Q72 -90 84 -80 L116 -52 L14 -52Z" fill="#bfe6ff"/>
  <circle cx="-122" cy="48" r="44" fill="#3a3a44"/><circle cx="-122" cy="48" r="18" fill="#ddd"/><circle cx="132" cy="48" r="44" fill="#3a3a44"/><circle cx="132" cy="48" r="18" fill="#ddd"/>
@@ -76,8 +76,8 @@ const SCN=[
  ${pop('@esempio',hand(540,650,'per esempio…',58))}
  <g data-mv="0,0.01,-1300,0,-1300,0,@rubare,0.7,-1300,0,0,0">${car(540,1300,1.05,'#7b5cd6')}</g>
  ${pop('@grand',hl(690,620,'GRAND THEFT',84,RED,'#fff'))}
- <g data-pop="@qualunque,0.4" ${C}><g filter="url(#wob)" ${W}><path d="M330 900 L700 900 L770 980 L700 1060 L330 1060Z" fill="#fff"/><circle cx="715" cy="980" r="14" fill="${INK}"/></g>
-  <g data-off="@sia">${hand(520,1000,'$ 80.000',84)}</g><g data-win="@sia,0,0.35">${hand(520,1000,'$ 5.000',84)}</g><g data-win="@suo,0,99">${hand(520,1000,'$ 500',84)}</g></g>
+ <g data-pop="@sempre,0.4" ${C}><g filter="url(#wob)" ${W}><path d="M330 900 L700 900 L770 980 L700 1060 L330 1060Z" fill="#fff"/><circle cx="715" cy="980" r="14" fill="${INK}"/></g>
+  <g data-off="@qualunque">${hand(520,1000,'$ 80.000',84)}</g><g data-win="@qualunque,0,0.7">${hand(520,1000,'$ 5.000',84)}</g><g data-win="@suo,0,99">${hand(520,1000,'$ 500',84)}</g></g>
  ${pop('@valore',tagAt(540,1480,620,'IL VALORE NON CONTA',56,YEL))}`)},
 {voice:"Ma la parte più curiosa arriva adesso. Se ti piacciono queste storie, segui Made in News.",cam:"0,1.0,0,0|@segui,1.05,0,20",
  html:S(bg+`${pop('@curiosa',hl(420,700,'LA PARTE PIÙ CURIOSA…',62))}
