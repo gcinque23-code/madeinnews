@@ -57,7 +57,7 @@ const SCN=[
  ${road(1330)}<g data-mv="0,0.8,-900,0,0,0">${car(720,1265,0.85)}</g><g data-mv="0,0.01,-1300,0,-1300,0,@È,0.8,-900,0,0,0">${police(290,1265,0.8,1.5)}</g>
  <g data-off="@codice">${pop('@reato',cuffs(540,1500,0.7))}</g>${pop('@codice',book(540,1520,0.55,'CODICE','PENALE'))}`)},
 {voice:"Grand Theft Auto, in inglese, vuol dire furto d'auto. E negli Stati Uniti, grand theft è il furto grave, quello punito più duramente.",cam:"0,1.0,0,0|@Stati,1.03,0,10|@duramente,1.05,0,20",
- html:S(bg+`<g data-off="@Stati">${pop('@inglese',hl(420,520,'IN INGLESE',80))}</g><g data-off="@duramente">${pop('@Stati',hl(420,560,'NEGLI USA',80,'#a8c7e6'))}</g>${pop('@duramente',hl(420,680,'PUNITO DI PIÙ',76,RED,'#fff'))}
+ html:S(bg+`<g data-off="@negli">${pop('@inglese',hl(420,520,'IN INGLESE',80))}</g><g data-off="@più">${pop('@Stati',hl(420,560,'NEGLI USA',80,'#a8c7e6'))}</g>${pop('@duramente',hl(420,680,'PUNITO DI PIÙ',76,RED,'#fff'))}
  ${[['@Grand',225,'GRAND','@grave','grave'],['@Theft',540,'THEFT','@furto','furto'],['@Auto',855,'AUTO',"@d'auto","d'auto"]].map(([t,x,w,t2,tr])=>`${pop(t,`<g filter="url(#wob)"><g class="bx"><rect x="${x-135}" y="600" width="270" height="120" rx="16" fill="#fff" stroke="${INK}" stroke-width="8"/><text x="${x}" y="690" text-anchor="middle" ${F('Luckiest Guy')} font-size="64" fill="${INK}">${w}</text></g></g>`)}${pop(t2,hand(x,800,'= '+tr,64,RED))}`).join('')}
  <g filter="url(#wob)" ${W}>
   <rect x="60" y="900" width="960" height="480" fill="#e9d3b0"/>${[0,1,2,3,4,5].map(k=>`<line x1="${60+k*192}" y1="900" x2="${60+k*192}" y2="1380" stroke-width="6" stroke="#c9a77a"/>`).join('')}
@@ -81,11 +81,11 @@ const SCN=[
  ${pop('@valore',tagAt(540,1480,620,'IL VALORE NON CONTA',56,YEL))}`)},
 {voice:"Ma la parte più curiosa arriva adesso. Se ti piacciono queste storie, segui Made in News.",cam:"0,1.0,0,0|@segui,1.05,0,20",
  html:S(bg+`${pop('@curiosa',hl(420,700,'LA PARTE PIÙ CURIOSA…',62))}
- <g data-rise="@piacciono,0.6,600">${phone(540,1100,0.85)}</g>
+ <g data-rise="@arriva,0.6,600">${phone(540,1100,0.85)}</g>
  <g data-pop="@segui,0.4" ${C}><g filter="url(#wob)"><g class="bx"><rect x="370" y="1330" width="340" height="100" rx="20" fill="#3a86ff" stroke="${INK}" stroke-width="7"/><text x="540" y="1400" text-anchor="middle" ${F('Luckiest Guy')} font-size="56" fill="#fff">SEGUI</text></g></g></g>
  <g data-win="@Made,0,99"><g filter="url(#wob)"><g class="bx"><rect x="370" y="1330" width="340" height="100" rx="20" fill="#e5e7eb" stroke="${INK}" stroke-width="7"/><text x="540" y="1400" text-anchor="middle" ${F('Luckiest Guy')} font-size="50" fill="${INK}">SEGUITO</text></g></g></g>
- <g data-mv="0,0.01,300,300,300,300,@segui,0.5,300,300,0,0"><g transform="translate(680,1460)" filter="url(#wob)" ${W}><path d="M0 0 L0 -60 Q0 -80 20 -80 Q40 -80 40 -60 L40 -10 L70 -10 Q100 -10 100 20 L100 90 Q100 130 60 130 L20 130 Q-20 130 -40 90 L-70 30 Q-80 10 -60 0 Q-40 -8 -25 10Z" fill="#f3c9a0"/></g></g>
- ${pop('@storie',hand(540,690,'se ti piacciono queste storie',56,RED))}`)},
+ <g data-fade="@storie,0.3" style="opacity:0"><g data-mv="0,0.01,300,300,300,300,@segui,0.5,300,300,0,0"><g transform="translate(680,1460)" filter="url(#wob)" ${W}><path d="M0 0 L0 -60 Q0 -80 20 -80 Q40 -80 40 -60 L40 -10 L70 -10 Q100 -10 100 20 L100 90 Q100 130 60 130 L20 130 Q-20 130 -40 90 L-70 30 Q-80 10 -60 0 Q-40 -8 -25 10Z" fill="#f3c9a0"/></g></g></g>
+ ${pop('@piacciono',hand(540,690,'se ti piacciono queste storie',56,RED))}`)},
 {voice:"Il gioco non nasce in America. Nasce in Scozia, a Dundee, nello studio DMA Design, nel 1995.",cam:"0,1.0,0,0",
  html:S(bg+`<rect width="1080" height="1920" fill="#cfe8f5"/>
  <g transform="translate(540,1150)"><g data-sc="0,0.01,1.1,1.1,@Nasce,1.2,1.1,3.1" style="transform-origin:0 0"><g data-mv="0,0.01,${-M.usa[0]},${-M.usa[1]},${-M.usa[0]},${-M.usa[1]},@Nasce,1.2,${-M.usa[0]},${-M.usa[1]},${-M.dundee[0]},${-M.dundee[1]}">
