@@ -6,7 +6,6 @@
  "logo": "plain",
  "bg": "#f6efe2",
  "light": true,
- "boil": true,
  "accent": "#e63946",
  "pad": 0,
  "scenes": [
