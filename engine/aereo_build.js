@@ -96,13 +96,13 @@ const V=["Si può cadere da un aereo senza paracadute e sopravvivere? Sì, ed è
 const SCN=[
 {cam:"0,1.04,0,20|@Sì,1.0,0,0|@Resta,1.03,0,10",
  html:S(bg+`${skyBg()}${clouds()}
- <g data-off="@Resta">${pop('@cadere',title(420,'CADERE DA UN AEREO?',84))}${pop('@Sì',hl(600,620,'SÌ, SI PUÒ',84,YEL))}</g>
- ${pop('@Resta',hl(420,760,'RESTA FINO ALLA FINE',66,RED,'#fff'))}${pop('@record',hl(600,600,'IL RECORD…',76,YEL))}
+ <g data-off="@Resta">${pop('@cadere',title(420,'CADERE DA UN AEREO?',84))}${pop('@Sì',hl(600,620,'SÌ, SI PUÒ',84,YEL))}${pop('@successo',hand(540,780,'è successo davvero',56,RED))}</g>
+ ${pop('@Resta',hl(420,760,'RESTA FINO ALLA FINE',66,RED,'#fff'))}${pop('@record',hl(600,600,'IL RECORD…',76,YEL))}${pop('@parole',hand(540,780,'ti lascerà senza parole',54,RED))}
  <g data-mv="0,0.01,-900,0,-900,0,0.1,1.6,-900,0,1400,0"><g transform="translate(0,860)">${plane(0,0,0.55)}</g></g>
  <g data-drop="@paracadute,0.8,-900"><g data-wig="6,3" style="transform-box:fill-box;transform-origin:center">${faller(540,1280,0.9)}</g></g>${wind('@paracadute')}`)},
 {cam:"0,1.0,0,0|@sensi,1.04,0,10",
  html:S(bg+`${skyBg('#9cc9ee','#dff1ff')}${clouds()}
- ${pop('@10',hl(420,560,'10 CHILOMETRI',80,'#fff'))}
+ ${pop('@10',hl(420,560,'10 CHILOMETRI',80,'#fff'))}${pop("@d'altezza",hand(540,690,"d'altezza",58,RED))}
  ${pop('@gradi',thermo(260,1180,'@50','1.2'))}${pop('@gradi',tagAt(260,1500,300,'-50°C',80,'#3a86ff','#fff'))}
  ${[[160,880],[360,900],[200,1060]].map(([x,y],k)=>`<g data-pop="@zero,0.3" ${C}><path d="M${x} ${y} l12 -30 l12 30 l30 12 l-30 12 l-12 30 l-12 -30 l-30 -12z" fill="#e0f2ff" stroke="${INK}" stroke-width="5"/></g>`).join('')}
  <g data-off="@sensi">${pop('@aria',`<g data-wig="5,3" style="transform-box:fill-box;transform-origin:center">${faller(760,1180,0.65)}</g>`)}</g>
@@ -112,35 +112,35 @@ const SCN=[
  html:S(bg+`${skyBg()}${clouds()}
  ${pop('@cadi',hl(420,620,'SMETTI DI ACCELERARE',62))}
  ${pop('@frena',hand(540,690,"l'aria ti frena",60,RED))}
- ${pop('@decina',speedo(540,1150,'@decina'))}${pop('@200',tagAt(540,1250,460,'~200 KM/H',80,RED,'#fff'))}
+ ${pop('@decina',speedo(540,1150,'@decina'))}${pop('@200',tagAt(540,1250,460,'~200 KM/H',80,RED,'#fff'))}${pop('@orari',hand(540,820,'più veloce di un\'auto in autostrada',48,INK))}
  <g data-pop="@aria,0.4" ${C}><g data-wig="5,3" style="transform-box:fill-box;transform-origin:center">${faller(540,1530,0.5)}</g></g>${wind('@accelerare')}`)},
 {cam:"0,1.0,0,0|@atterri,1.05,0,10",
  html:S(bg+`${skyBg()}${clouds()}
  ${[[330,'@3','3 KM',520],[750,'@10','10 KM',1000]].map(([x,t,l,h])=>`${pop(t,`<g filter="url(#wob)" ${W}><rect x="${x-80}" y="${1450-h*0.6}" width="160" height="${h*0.6}" rx="14" fill="${x<540?'#a8c7e6':'#3a86ff'}"/></g><g class="bx"><rect x="${x-110}" y="1470" width="220" height="90" fill="none"/><text x="${x}" y="1540" text-anchor="middle" ${F('Luckiest Guy')} font-size="64" fill="${INK}">${l}</text></g>`)}`).join('')}
  ${pop('@poco',`<text x="540" y="1180" text-anchor="middle" ${F('Luckiest Guy')} font-size="140" fill="${RED}">=</text>`)}
- ${pop('@poco',hl(420,640,'CAMBIA POCO',84,YEL))}${pop('@atterri',hl(600,700,'CONTA DOVE ATTERRI',62,RED,'#fff'))}`)},
+ ${pop('@poco',hl(420,640,'CAMBIA POCO',84,YEL))}${pop('@conta',hl(600,700,'CONTA DOVE ATTERRI',62,RED,'#fff'))}${pop('@atterri',hand(540,780,'e come atterri',56,RED))}${pop(5.4,`<g data-loop="0,40,0.8"><path d="M540 1560 l0 -60 M510 1530 l30 30 l30 -30" stroke="${RED}" stroke-width="12" fill="none" stroke-linecap="round"/></g>`)}`)},
 {cam:"0,1.0,0,0|@sfonda,1.05,0,20",
  html:S(bg+`${skyBg('#ffe3c2','#fff4e6')}
- <g data-off="@Sopravvive">${pop('@1943',hl(420,420,'1943',100,RED,'#fff'))}</g>${pop('@Magee',hand(540,690,'Alan Magee, mitragliere USA',56))}
- ${pop('@Francia',station())}
- <g data-mv="0,0.01,0,-900,0,-900,@cade,1.4,0,-900,0,0"><g data-wig="6,3" style="transform-box:fill-box;transform-origin:center">${faller(540,960,0.5)}</g></g>
- ${shards('@sfonda')}${pop('@6',tagAt(860,830,300,'6 KM',60,'#fff'))}
+ <g data-off="@Sopravvive">${pop('@1943',hl(420,420,'1943',100,RED,'#fff'))}</g>${pop('@mitragliere',hand(540,690,'Alan Magee, mitragliere USA',56))}
+ ${pop(0.15,station())}
+ <g data-fade="@cade,0.1" style="opacity:0"><g data-mv="0,0.01,0,-900,0,-900,@cade,1.4,0,-900,0,0"><g data-wig="6,3" style="transform-box:fill-box;transform-origin:center">${faller(540,960,0.5)}</g></g></g>
+ ${shards('@sfonda')}${pop('@6',tagAt(860,830,300,'6 KM',60,'#fff'))}${pop('@stazione',tagAt(240,830,300,'FRANCIA',54,'#a8c7e6'))}
  ${pop('@Sopravvive',hl(420,560,'SOPRAVVIVE',90,YEL))}`)},
 {cam:"0,1.0,0,0|@11,1.05,0,10",
  html:S(bg+`<g data-off="@11">${pop('@1971',hl(420,420,'1971',100,RED,'#fff'))}</g>${pop('@Juliane',hand(540,690,'Juliane Koepcke, 17 anni',58))}
- ${pop('@foresta',jungle())}
- <g data-mv="0,0.01,0,-900,0,-900,@precipita,1.2,0,-900,0,0"><g data-wig="4,2.5" style="transform-box:fill-box;transform-origin:center">${seat(540,1150,0.85)}</g></g>
- ${pop('@sedile',tagAt(820,830,360,'LEGATA AL SEDILE',44,'#fff'))}
- <g data-draw="@cammina,1.5"><path d="M540 1260 Q380 1340 520 1420 T560 1560" stroke="${RED}" stroke-width="12" stroke-dasharray="20 14" fill="none" stroke-linecap="round"/></g>
- ${pop('@11',hl(420,560,'11 GIORNI',90,YEL))}`)},
+ ${pop(0.15,jungle())}${pop('@17',tagAt(260,830,260,'17 ANNI',50,YEL))}
+ <g data-fade="@precipita,0.1" style="opacity:0"><g data-mv="0,0.01,0,-900,0,-900,@precipita,1.2,0,-900,0,0"><g data-wig="4,2.5" style="transform-box:fill-box;transform-origin:center">${seat(540,1150,0.85)}</g></g></g>
+ ${pop('@foresta',tagAt(820,830,360,'AMAZZONIA',44,'#fff'))}<g data-off="@Sopravvive">${pop('@legata',tagAt(540,1500,460,'LEGATA AL SEDILE',48,'#fff'))}</g>
+ <g data-draw="@cammina,1.5"><path d="M540 1260 Q380 1340 520 1420 T560 1560" stroke="${RED}" stroke-width="12" fill="none" stroke-linecap="round"/></g>
+ <g data-off="@cammina">${pop('@Sopravvive',tagAt(540,1500,420,'SOPRAVVIVE',56,RED,'#fff'))}</g>${pop('@11',hl(420,560,'11 GIORNI',90,YEL))}${pop('@trovare',`<g transform="translate(560,1530)" filter="url(#wob)" ${W}><rect x="-90" y="-70" width="180" height="110" fill="#c8915a"/><path d="M-110 -70 L0 -150 L110 -70Z" fill="#8a5a2b"/><rect x="-20" y="-20" width="40" height="60" fill="#5b3a1e"/></g>`)}${pop('@aiuto',tagAt(820,1480,260,'AIUTO!',50,'#fff'))}`)},
 {cam:"0,1.0,0,0|@segui,1.05,0,20",
  html:S(bg+`${pop('@Prima',hl(420,640,'PRIMA DEL RECORD…',70))}${pop('@piacciono',hand(540,690,'se ti piacciono queste storie',54,RED))}
  ${phoneCTA('@Prima','@segui','@Made')}`)},
 {cam:"0,1.0,0,0|@10,1.05,0,10|@Guinness,1.02,0,0",
  html:S(bg+`${skyBg('#bfe3fa','#f6efe2')}${clouds()}
- ${pop('@Vesna',hl(420,700,'VESNA VULOVIĆ',80,'#fff'))}${pop('@1972',hand(540,690,'assistente di volo, 1972',56))}
+ ${pop('@Vesna',hl(420,700,'VESNA VULOVIĆ',80,'#fff'))}<g data-off="@caduta">${pop('@assistente',hand(540,690,'assistente di volo, 1972',56))}</g>${pop('@caduta',hand(540,690,'caduta da oltre 10 km',56,RED))}<g data-off="@rimasta">${pop('@1972',tagAt(540,770,240,'1972',56,RED,'#fff'))}</g>${pop('@10',`<g data-loop="0,40,0.8"><path d="M960 960 l0 -80 M925 925 l35 35 l35 -35" stroke="${RED}" stroke-width="12" fill="none" stroke-linecap="round" transform="rotate(180 960 920)"/></g>`)}
  ${pop('@sopravvive',altim(540,1040,'@caduta'))}
- ${pop('@incastrata',tagAt(540,1290,600,'INCASTRATA NEL SUO AEREO',46,'#fff'))}
+ ${pop('@rimasta',tagAt(330,1290,380,'INCASTRATA',46,'#fff'))}${pop('@aereo',tagAt(760,1290,400,'NEL SUO AEREO',46,'#fff'))}
  <g data-stamp="@Guinness" ${C}><g filter="url(#wob)"><g class="bx"><rect x="240" y="1410" width="600" height="140" rx="20" fill="${RED}" stroke="${INK}" stroke-width="8"/><text x="540" y="1510" text-anchor="middle" ${F('Luckiest Guy')} font-size="74" fill="#fff">RECORD GUINNESS</text></g></g></g>`)},
 {cam:"0,1.1,0,0|1.5,1.0,0,0",
  html:S(bg+`${pop(0.3,`<rect x="390" y="700" width="300" height="300" fill="${INK}"/><text x="540" y="917" text-anchor="middle" ${F('Anton')} font-size="186" fill="#fff">MN<tspan fill="${RED}">.</tspan></text>`,0.5)}
