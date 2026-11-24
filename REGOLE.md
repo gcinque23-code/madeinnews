@@ -50,3 +50,4 @@ Attenzione alle parole-ancora (@parola): trovano la PRIMA parola che inizia cos�
 - Ogni novità (stile, mascotte, copertina, formato) va prima mostrata come PROVA all'utente; si adotta solo dopo la sua conferma.
 - Momenti vuoti: mai. Ogni ~2 secondi di voce deve entrare qualcosa di nuovo (verifica automatica + controllo secondo per secondo del video finito).
 - Testi bianchi con ombra: NO, in nessun elemento (sottotitoli compresi). Su sfondo chiaro testo scuro senza ombra; su sfondo scuro testo chiaro senza ombra o dentro un riquadro.
+- MODELLO DI RIFERIMENTO: il reel "caduta dall'aereo" (engine/aereo_build.js) è il preferito dall'utente. Struttura: gancio + promessa ("resta fino alla fine"), storie vere con date e nomi, scene piene con sfondi colorati e oggetti grandi, CTA "segui" a metà con telefono e pulsante, chicca finale, chiusura "Hai altre curiosità? Scrivile nei commenti". Pause di 0,6 s tra le frasi (pause.py).
