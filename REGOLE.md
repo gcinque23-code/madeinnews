@@ -2,11 +2,8 @@
 
 ## Contenuti
 - APPROVAZIONE: l'utente vuole sempre vedere il contenuto finito e dare l'ok esplicito prima di ogni pubblicazione. Mai pubblicare senza un suo 'ok' sul file finale.
-- Orari: contenuti pronti alle 8:00 (anteprima per approvazione), prima pubblicazione alle 9:00.
-- Ogni giorno:
-  - 3 post di notizie, le più cercate del giorno: uno al mattino, uno al pomeriggio, uno alla sera.
-  - 1 post di sport (calcio in primo piano).
-  - almeno 2 reel.
+- NIENTE routine automatica di notizie: non cercare né preparare notizie del giorno di mia iniziativa. Si lavora solo sugli argomenti che sceglie l'utente (pillole di sapere).
+- Nessun orario fisso di pubblicazione: si pubblica solo quando l'utente lo chiede.
 - Ogni post ha una didascalia curata che spiega la notizia (contesto, fatti, fonte, hashtag).
 - I reel hanno una didascalia breve: è il video a raccontare la notizia.
 - Tono: solo i fatti. Niente opinioni, pro/contro, domande retoriche o ipotesi.
@@ -29,7 +26,6 @@
 - Voce generata in UNA sola registrazione continua per reel (make_reel4.py), mai frase per frase: il timbro resta identico.
 - Stile: animazioni illustrate (explainer3.js), una notizia spiegata per reel; musica solo strumentale. Nessun effetto sonoro (niente colpi né whoosh): solo voce e musica in dissolvenza.
 - Formato motion graphic: testi e grafiche animati (entrate, numeri che salgono, transizioni), non slide statiche.
-- 2 al giorno, su notizie diverse dai post.
 - Voce: ElevenLabs, modello eleven_multilingual_v2, SEMPRE Francesco (GOAZNavLupajyL3YafaD). Stabilità 0.6, una sola registrazione continua per reel.
 
 ## Guida di scrittura (instagram-agent-skill, MIT, in risorse/instagram-agent-skill/)
