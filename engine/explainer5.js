@@ -61,6 +61,10 @@ function anim(root,lt,D){
  root.querySelectorAll('[data-type]').forEach(p=>{const [s,d]=num(p,'type');const t=p.dataset.text;p.textContent=t.slice(0,Math.round(t.length*cl((lt-s)/d)))});
  root.querySelectorAll('[data-wig]').forEach(p=>{const [amp=4,sp=20]=num(p,'wig');p.style.transform='rotate('+Math.sin(lt*sp)*amp+'deg)'});
  root.querySelectorAll('[data-win]').forEach(p=>{const [s,o=0,d=1]=num(p,'win');const t=s+o;p.style.opacity=lt>=t&&lt<t+d?1:0});
+ root.querySelectorAll('[data-idle]').forEach(p=>{const [amp=6,sp=2.2,ph=0]=num(p,'idle');p.style.transform='translateY('+(Math.sin(lt*sp+ph)*amp)+'px) rotate('+(Math.sin(lt*sp*0.7+ph)*amp*0.25)+'deg)'});
+ root.querySelectorAll('[data-flip]').forEach(p=>{const [sp=4]=num(p,'flip');p.style.transform='scaleX('+Math.cos(lt*sp)+')'});
+ root.querySelectorAll('[data-saw]').forEach(p=>{const [s=0,amp=30,sp=14,d=99]=num(p,'saw');const on=lt>=s&&lt<s+d;p.style.transform='translateY('+(on?Math.abs(Math.sin((lt-s)*sp))*amp:0)+'px)'});
+ root.querySelectorAll('[data-blink]').forEach(p=>{const [per=2.6]=num(p,'blink');const k=(lt%per);p.style.transform='scaleY('+(k<0.12?Math.max(0.1,Math.abs(1-k/0.06)):1)+')'});
  root.querySelectorAll('[data-off]').forEach(p=>{const [s]=num(p,'off');p.style.opacity=lt<s?1:Math.max(0,1-(lt-s)/0.3)});
  root.querySelectorAll('[data-kb]').forEach(p=>{p.style.transform='scale('+(1.08+0.12*lt/D)+')'});
  root.querySelectorAll('[data-shake]').forEach(p=>{const [s]=num(p,'shake');const k=lt-s;p.style.transform=k>0&&k<0.5?'translate('+Math.sin(k*90)*14*(0.5-k)+'px,0)':''});

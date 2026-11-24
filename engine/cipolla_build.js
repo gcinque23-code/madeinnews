@@ -5,7 +5,7 @@ const C='style="transform-box:fill-box;transform-origin:center"';
 const defs=`<defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
 <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="8"/><feColorMatrix values="0 0 0 0 0.45  0 0 0 0 0.38  0 0 0 0 0.28  0 0 0 0.07 0"/></filter></defs>`;
 const bg=defs+`<rect width="1080" height="1920" fill="#f6efe2"/><rect width="1080" height="1920" filter="url(#paper)"/>`;
-const pop=(t,inner,d=.45)=>`<g data-pop="${t},${d}" ${C}>${inner}</g>`;
+let IDK=0;const pop=(t,inner,d=.45)=>`<g data-pop="${t},${d}" ${C}><g data-idle="5,${(2+(IDK%3)*0.4).toFixed(1)},${(IDK++)*1.3}" ${C}>${inner}</g></g>`;
 const title=(y,t,size=110)=>`<g class="bx"><rect x="0" y="${y}" width="1080" height="${size*1.1}" fill="none"/><text x="540" y="${y+size}" text-anchor="middle" ${F('Luckiest Guy')} font-size="${size}" fill="${INK}">${t}</text></g>`;
 const hl=(y,w,t,size=72,fill=YEL,col=INK)=>`<g filter="url(#wob)"><g class="bx"><rect x="${540-w/2}" y="${y}" width="${w}" height="${size*1.5}" rx="12" fill="${fill}"/><text x="540" y="${y+size*1.1}" text-anchor="middle" ${F('Luckiest Guy')} font-size="${size}" fill="${col}">${t}</text></g></g>`;
 const tagAt=(cx,y,w,t,size,fill,col=INK)=>`<g filter="url(#wob)"><g class="bx"><rect x="${cx-w/2}" y="${y}" width="${w}" height="${size*1.5}" rx="12" fill="${fill}"/><text x="${cx}" y="${y+size*1.1}" text-anchor="middle" ${F('Luckiest Guy')} font-size="${size}" fill="${col}">${t}</text></g></g>`;
@@ -37,15 +37,15 @@ const cell=(x,y,mix)=>`<g transform="translate(${x},${y})"><g filter="url(#wob)"
 const SCN=[
 {voice:"Quando tagli una cipolla e piangi, non è il succo che ti schizza negli occhi.",cam:"0,1.06,0,0|@succo,1.0,0,0",
  html:S(bg+`${pop('@cipolla',title(430,'LA CIPOLLA',130))}${pop('@succo',hl(610,640,'NON È IL SUCCO',80))}
- ${board(540,1440)}<g data-drop="0.1,0.6,-700">${half(540,1360,1.1)}</g>
- <g data-drop="@tagli,0.4,-500">${knife(560,1180,-12)}</g>
+ ${board(540,1440)}<g data-drop="0.1,0.6,-700"><g data-shake="@tagli">${half(540,1360,1.1)}</g></g>
+ <g data-drop="@tagli,0.4,-500"><g data-saw="@tagli,26,12,2.5">${knife(560,1180,-12)}</g></g>
  ${[[420,1080],[660,1040],[540,980]].map(([x,y],k)=>`<g data-pop="@schizza,0.3" ${C}><path d="M${x} ${y-36} Q${x+24} ${y} ${x} ${y+18} Q${x-24} ${y} ${x} ${y-36}Z" fill="#f7e7b0" stroke="${INK}" stroke-width="6"/></g>`).join('')}
  ${pop('@succo',`<path d="M380 920 L700 1120 M700 920 L380 1120" stroke="${RED}" stroke-width="18" stroke-linecap="round"/>`)}`)},
 {voice:"È un gas. E si forma solo nel momento in cui la tagli.",cam:"0,1.0,0,0|@tagli,1.05,0,0",
  html:S(bg+`${pop('@gas',hl(430,520,'È UN GAS',96))}${pop('@momento',hl(610,820,'SOLO QUANDO LA TAGLI',64,'#fff'))}
  ${board(540,1470)}${half(540,1390,1.1)}
  ${gasW(400,1280,0,'@gas')}${gasW(540,1240,1,'@gas')}${gasW(680,1280,2,'@gas')}${gasW(470,1200,3,'@forma')}${gasW(610,1200,4,'@forma')}
- <g data-drop="@tagli,0.35,-400">${knife(580,1300,-8)}</g>`)},
+ <g data-drop="@tagli,0.35,-400"><g data-saw="@tagli,26,12,9">${knife(580,1300,-8)}</g></g>`)},
 {voice:"Dentro la cipolla ci sono sostanze che contengono zolfo e, separati da loro, degli enzimi.",cam:"0,1.0,0,0|@enzimi,1.05,0,0",
  html:S(bg+`${pop('@Dentro',hl(430,700,'DENTRO LA CIPOLLA',72))}
  <g data-pop="0.2,0.5" ${C}>${cell(540,1100,false)}</g>
@@ -61,7 +61,7 @@ const SCN=[
  ${pop('@sale',`<path d="M540 800 L540 660 M500 700 L540 660 L580 700" stroke="${GAS}" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`)}
  ${pop('@viso',hand(790,760,'verso il viso',58,INK))}`)},
 {voice:"Quando arriva agli occhi li irrita, e gli occhi producono lacrime per lavarlo via.",cam:"0,1.0,0,0|@lacrime,1.06,0,0",
- html:S(bg+`<g data-off="@irrita">${eye(540,1000,1.2,false)}</g><g data-fade="@irrita,0.3" style="opacity:0">${eye(540,1000,1.2,true)}</g>
+ html:S(bg+`<g data-blink="2.2" style="transform-box:fill-box;transform-origin:center"><g data-off="@irrita">${eye(540,1000,1.2,false)}</g><g data-fade="@irrita,0.3" style="opacity:0">${eye(540,1000,1.2,true)}</g></g>
  ${gasW(300,1420,0,0.1)}${gasW(780,1420,1,0.1)}${gasW(540,1460,2,'@arriva')}
  ${pop('@irrita',hl(430,520,'IRRITA',96,RED,'#fff'))}
  ${[[430,1210,'@producono'],[650,1220,'@lacrime'],[400,1300,'@lacrime'],[680,1310,'@lavarlo']].map(([x,y,t],k)=>`<g data-pop="${t},0.35" ${C}><g data-loop="0,60,${1.2+k*0.2}"><path d="M${x} ${y-40} Q${x+28} ${y} ${x} ${y+20} Q${x-28} ${y} ${x} ${y-40}Z" fill="#8fd3ff" stroke="${INK}" stroke-width="6"/></g></g>`).join('')}
@@ -71,7 +71,7 @@ const SCN=[
  <g data-pop="@ricercatori,0.5" ${C}><g transform="translate(540,1130)" filter="url(#wob)" ${W}>
   <path d="M-70 -260 L70 -260 L70 -120 L220 200 Q230 240 190 240 L-190 240 Q-230 240 -220 200 L-70 -120Z" fill="#fff"/>
   <path d="M-150 80 L150 80 L210 210 Q215 225 195 225 L-195 225 Q-215 225 -210 210Z" fill="${GAS}" stroke="none"/><rect x="-90" y="-290" width="180" height="40" rx="12" fill="#e6e9ee"/>
-  ${[[-60,150],[40,120],[100,180]].map(([a,b])=>`<circle cx="${a}" cy="${b}" r="16" fill="#fff" stroke="${INK}" stroke-width="5"/>`).join('')}</g></g>
+  ${[[-60,150],[40,120],[100,180]].map(([a,b],k)=>`<g data-loop="0,-90,${1.1+k*0.3}"><circle cx="${a}" cy="${b}" r="16" fill="#fff" stroke="${INK}" stroke-width="5"/></g>`).join('')}</g></g>
  ${pop("@l'enzima",`<g transform="translate(540,1130)"><path d="M0 0 m-60 0 a60 60 0 1 0 120 0 l-60 0 l46 -38 a60 60 0 0 0 -106 38z" fill="${PUR}" stroke="${INK}" stroke-width="8" filter="url(#wob)"/></g>`)}
  <g data-draw="@scoperto,0.5"><circle cx="540" cy="1130" r="120" fill="none" stroke="${RED}" stroke-width="10"/></g>
  ${pop('@gas',hl(1470,640,"L'ENZIMA DEL GAS",66))}`)},
