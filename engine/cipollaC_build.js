@@ -51,8 +51,8 @@ const lens=(inner,q)=>`<defs><clipPath id="ln${q}"><circle cx="540" cy="1120" r=
 const lab=()=>`<g filter="url(#wob)" ${W}><rect x="0" y="860" width="1080" height="560" fill="#eef3f8" stroke="none"/><rect x="80" y="900" width="420" height="260" rx="10" fill="#fff"/>${[0,1,2].map(k=>`<line x1="110" y1="${950+k*60}" x2="${440-k*60}" y2="${950+k*60}" stroke="#c9d6e3" stroke-width="10"/>`).join('')}
  <rect x="-10" y="1420" width="1100" height="90" fill="#9aa3ad"/><g transform="translate(860,1200)"><rect x="-70" y="200" width="160" height="30" rx="8" fill="#555"/><path d="M0 200 L0 80 Q0 40 40 30 L60 -120" fill="none" stroke="#555" stroke-width="26"/><rect x="30" y="-200" width="60" height="110" rx="10" fill="#777" transform="rotate(15 60 -150)"/><rect x="-30" y="110" width="140" height="26" rx="6" fill="#777"/></g></g>`;
 const phone=(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})" filter="url(#wob)" ${W}><rect x="-230" y="-430" width="460" height="860" rx="60" fill="${INK}"/><rect x="-200" y="-390" width="400" height="780" rx="36" fill="#fffaf0"/>
- <circle cx="-110" cy="-260" r="70" fill="${INK}"/><text x="-110" y="-235" text-anchor="middle" ${F('Anton')} font-size="62" fill="#fff" stroke="none">MN<tspan fill="${RED}">.</tspan></text>
- <text x="40" y="-270" ${F('Inter Tight')} font-weight="900" font-size="36" fill="${INK}" stroke="none">madeinnews.it</text><text x="40" y="-225" ${F('Gochi Hand')} font-size="30" fill="#666" stroke="none">pillole di sapere</text>
+ <circle cx="-110" cy="-260" r="70" fill="${INK}"/><text x="-110" y="-238" text-anchor="middle" ${F('Anton')} font-size="52" fill="#fff" stroke="none">MN<tspan fill="${RED}">.</tspan></text>
+ <text x="-30" y="-270" ${F('Inter Tight')} font-weight="900" font-size="27" fill="${INK}" stroke="none">madeinnews.it</text><text x="-30" y="-230" ${F('Gochi Hand')} font-size="28" fill="#666" stroke="none">pillole di sapere</text>
  ${[0,1,2].map(r=>[0,1,2].map(c=>`<rect x="${-180+c*124}" y="${-140+r*170}" width="110" height="155" rx="8" fill="${['#ffd23f','#a8c7e6','#f2c6a0','#c7e3c0','#e8b4b8','#f3e1a1'][(r*3+c)%6]}" stroke-width="5"/>`).join('')).join('')}</g>`;
 const SCN=[
 {voice:"",cam:"0,1.04,0,20|@succo,1.0,0,0",
@@ -123,7 +123,7 @@ const cta={cam:"0,1.0,0,0|@segui,1.05,0,20",html:S(bg+`${pop('@Prima',hl(420,640
  <g data-rise="@Prima,0.6,600">${phone(540,1100,0.85)}</g>
  <g data-pop="@segui,0.4" ${C}><g filter="url(#wob)"><g class="bx"><rect x="370" y="1330" width="340" height="100" rx="20" fill="#3a86ff" stroke="${INK}" stroke-width="7"/><text x="540" y="1400" text-anchor="middle" ${F('Luckiest Guy')} font-size="56" fill="#fff">SEGUI</text></g></g></g>
  <g data-win="@Made,0,99"><g filter="url(#wob)"><g class="bx"><rect x="370" y="1330" width="340" height="100" rx="20" fill="#e5e7eb" stroke="${INK}" stroke-width="7"/><text x="540" y="1400" text-anchor="middle" ${F('Luckiest Guy')} font-size="50" fill="${INK}">SEGUITO</text></g></g></g>
- <g data-fade="@curiosità,0.3" style="opacity:0"><g data-mv="0,0.01,300,300,300,300,@segui,0.5,300,300,0,0"><g transform="translate(680,1460)" filter="url(#wob)" ${W}><path d="M0 0 L0 -60 Q0 -80 20 -80 Q40 -80 40 -60 L40 -10 L70 -10 Q100 -10 100 20 L100 90 Q100 130 60 130 L20 130 Q-20 130 -40 90 L-70 30 Q-80 10 -60 0 Q-40 -8 -25 10Z" fill="#f3c9a0"/></g></g></g>
+ <g data-fade="@segui,0.15" style="opacity:0"><g data-mv="0,0.01,500,500,500,500,@segui,0.5,500,500,0,0"><g transform="translate(680,1460)" filter="url(#wob)" ${W}><path d="M0 0 L0 -60 Q0 -80 20 -80 Q40 -80 40 -60 L40 -10 L70 -10 Q100 -10 100 20 L100 90 Q100 130 60 130 L20 130 Q-20 130 -40 90 L-70 30 Q-80 10 -60 0 Q-40 -8 -25 10Z" fill="#f3c9a0"/></g></g></g>
  ${pop('@piacciono',hand(540,690,'se ti piacciono queste curiosità',52,RED))}`)};
 let tip=SCN[6];
 tip.html=tip.html.replace("pop('@piangere',hl(430,760,'PER PIANGERE MENO',72))","pop('@Ecco',hl(430,560,'IL TRUCCO',84,RED,'#fff'))");
