@@ -109,7 +109,7 @@ const SCN=[
 {cam:"0,1.0,0,0",
  html:S(bg+`
  <g data-off="@Resta">${pop('@Chi',hand(540,420,'chi ha inventato…',58,INK))}${pop('@internet',title(450,'INTERNET?',140))}${pop('@persona',hl(680,700,'NON UNA PERSONA SOLA',64,YEL))}</g>
- ${pop('@Resta',hl(420,760,'RESTA FINO ALLA FINE',66,RED,'#fff'))}${pop('@italiano',hl(600,700,'UN PEZZO È ITALIANO',64,YEL))}
+ ${pop('@Resta',hl(420,760,'RESTA FINO ALLA FINE',66,RED,'#fff'))}${pop('@pezzo',hl(600,700,'UN PEZZO È ITALIANO',64,YEL))}${pop('@italiano',hand(540,790,'aspetta e vedrai…',52,INK))}
  <g data-pop="0.2,0.6" ${C}><g transform="translate(540,1150)"><g data-spin="12"><g filter="url(#wob)" ${W}><circle r="300" fill="#7cc4ff"/><path d="M-200 -120 Q-120 -200 -40 -150 Q20 -60 -80 -10 Q-180 40 -220 -40Z M60 -220 Q160 -180 200 -80 Q240 40 140 60 Q80 20 100 -80 Q60 -140 60 -220Z M-100 80 Q0 60 40 140 Q20 240 -60 260 Q-140 200 -100 80Z" fill="#a8e0b0"/></g></g></g></g>
  ${[[300,950],[780,980],[420,1330],[720,1320],[540,1100]].map(([x,y],k)=>`<g data-pop="${0.6+k*0.25},0.3" ${C}><circle cx="${x}" cy="${y}" r="20" fill="${YEL}" stroke="${INK}" stroke-width="6"/></g>`).join('')}
  <g stroke="${RED}" stroke-width="8" fill="none" stroke-linecap="round">${[[300,950,540,1100],[780,980,540,1100],[420,1330,540,1100],[720,1320,540,1100],[300,950,420,1330],[780,980,720,1320]].map(([a,b,c,d],k)=>`<path d="M${a} ${b} L${c} ${d}" data-draw="${0.9+k*0.2},0.4"/>`).join('')}</g>`)},
@@ -122,7 +122,7 @@ const SCN=[
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop('@29',hl(420,760,'29 OTTOBRE 1969',72,'#fff'))}${pop('@primo',hand(540,690,'il primo messaggio della storia',52,RED))}
  <g data-pop="0.2,0.6" ${C}>${terminal(540,1150)}</g>
- <text x="540" y="1010" text-anchor="middle" ${F('Luckiest Guy')} font-size="120" fill="#7bd389" data-type="@LOGIN,0.6" data-text="LOGIN"></text>
+ <g data-off="@LOGIN">${pop('@1969',`<rect x="300" y="930" width="40" height="80" fill="#7bd389"/>`)}</g><text x="540" y="1010" text-anchor="middle" ${F('Luckiest Guy')} font-size="120" fill="#7bd389" data-type="@LOGIN,0.6" data-text="LOGIN"></text>${pop('@dovevano',`<g transform="translate(700,1380)" filter="url(#wob)" ${W}><path d="M0 0 L0 -60 Q0 -80 20 -80 Q40 -80 40 -60 L40 -10 L70 -10 Q100 -10 100 20 L100 90 Q100 130 60 130 L20 130 Q-20 130 -40 90 L-70 30 Q-80 10 -60 0 Q-40 -8 -25 10Z" fill="#f3c9a0"/></g>`)}
  <g data-fade="@solo,0.2" style="opacity:0"><rect x="250" y="890" width="580" height="160" fill="#0d1a10"/><text x="540" y="1010" text-anchor="middle" ${F('Luckiest Guy')} font-size="120" fill="#7bd389" data-type="@L,0.3" data-text="LO"></text></g>
  <g data-flash="@blocca,0.12,0" style="opacity:0"><rect x="250" y="900" width="580" height="320" fill="#fff" opacity=".4"/></g>
  ${smoke(540,880,'@blocca')}
@@ -131,24 +131,24 @@ const SCN=[
  html:S(bg+`${pop("@'70",hl(420,520,"ANNI '70",84,'#fff'))}
  ${netCloud(260,1100,'#3a86ff','@reti')}${netCloud(820,1100,'#e76f51','@diverse')}
  <g stroke="${INK}" stroke-width="10" fill="none" stroke-linecap="round"><path d="M430 1100 Q540 1020 650 1100" data-draw="@parlarsi,0.6"/></g>
- ${pop('@TCP/IP',tagAt(540,960,300,'TCP/IP',64,YEL))}
+ ${pop('@TCP',tagAt(540,960,300,'TCP/IP',64,YEL))}${pop('@regole',hand(540,690,'le regole per parlarsi',56,RED))}${pop('@questo',`<g data-draw="@questo,0.6"><ellipse cx="540" cy="1100" rx="470" ry="230" fill="none" stroke="${YEL}" stroke-width="12"/></g>`)}
  ${pop('@Vint',tagAt(260,1330,320,'VINT CERF',48,'#fff'))}${pop('@Bob',tagAt(820,1330,320,'BOB KAHN',48,'#fff'))}
  ${pop('@padri',hl(1440,700,'I PADRI DI INTERNET',62,RED,'#fff'))}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`<g data-off="@1991">${pop('@web?',hl(420,500,'E IL WEB?',90,YEL))}</g>${pop('@1991',hl(420,600,'1991: PRIMO SITO',72,YEL))}
+ html:S(bg+`<g data-off="@1991">${pop('@web',hl(420,500,'E IL WEB?',90,YEL))}${pop("@un'altra",hand(540,780,"è un'altra cosa",54,INK))}</g>${pop('@1991',hl(420,600,'1991: PRIMO SITO',72,YEL))}
  ${pop('@Tim',hand(540,690,'Tim Berners-Lee',60,RED))}
  ${mountains()}${pop('@CERN',cern(330,1300))}${pop('@1989',tagAt(330,1470,220,'1989',60,RED,'#fff'))}
- ${pop('@online',monitor(780,1250,'@sito'))}${pop('@Ginevra',tagAt(330,980,260,'GINEVRA',44,'#fff'))}`)},
+ ${pop(5.9,monitor(780,1250,'@sito'))}${pop('@mette',tagAt(780,1420,260,'ONLINE',50,'#7bd389'))}${pop('@Ginevra',tagAt(330,980,260,'GINEVRA',44,'#fff'))}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop('@Prima',hl(420,760,'PRIMA DELLA PARTE ITALIANA…',54))}${pop('@piacciono',hand(540,690,'se ti piacciono queste curiosità',52,RED))}
- ${phoneCTA('@Prima','@segui','@Made')}`)},
+ ${phoneCTA('@italiana','@segui','@Made')}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`<g data-off="@Europa">${pop('@30',hl(420,700,'30 APRILE 1986',76,RED,'#fff'))}</g>${pop('@Pisa',hand(540,690,'da Pisa',64,INK))}
- ${sat(760,880)}
+ html:S(bg+`<g data-off="@Una">${pop('@30',hl(420,700,'30 APRILE 1986',76,RED,'#fff'))}</g>${pop('@Pisa',hand(540,690,'da Pisa',64,INK))}
+ ${pop('@1986',sat(760,880))}
  <path d="M0 1440 Q540 1380 1080 1440 L1080 1560 L0 1560Z" fill="#a8d5a2" stroke="${INK}" stroke-width="8" filter="url(#wob)"/>
  ${pop('@Pisa',pisa(330,1440))}${pop('@collega',dish(760,1330))}
  <g data-fade="@collega,0.2" style="opacity:0">${[0,1,2].map(k=>`<g data-loop="0,-150,${1.0}"><path d="M${780+k*0} ${1230-k*60} q30 -20 60 0" stroke="${RED}" stroke-width="10" fill="none" stroke-linecap="round" opacity="${1-k*0.25}"/></g>`).join('')}</g>
- ${pop('@internet.',tagAt(760,1500,340,'ITALIA ONLINE',46,YEL))}${pop('@Europa',hl(420,820,'TRA LE PRIME IN EUROPA',62,YEL))}`)},
+ ${pop('@internet',tagAt(760,1500,340,'ITALIA ONLINE',46,YEL))}${pop('@Una',hl(420,820,'TRA LE PRIME IN EUROPA',62,YEL))}<g data-draw="@Europa,0.5"><path d="M140 545 Q540 585 940 545" stroke="${RED}" stroke-width="10" fill="none" stroke-linecap="round"/></g>`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`<g data-off="@Made">${pop('@Hai',hl(560,760,'HAI ALTRE CURIOSITÀ?',66,YEL))}
  <g data-pop="@Scrivile,0.5" ${C}><g data-idle="8,2.2,0" ${C}><g transform="translate(540,1080)" filter="url(#wob)" ${W}><path d="M-300 -180 Q-300 -220 -260 -220 L260 -220 Q300 -220 300 -180 L300 120 Q300 160 260 160 L-60 160 L-160 260 L-140 160 L-260 160 Q-300 160 -300 120Z" fill="#fff"/>

@@ -102,8 +102,14 @@ window.render=t=>{if(BOIL){const k=Math.floor(t*8)%4;TURB.forEach(f=>f.setAttrib
   sc.querySelectorAll('g.bx').forEach(g=>{const r=g.querySelector(':scope > rect, :scope > circle'),t=g.querySelector(':scope > text');if(!r||!t)return;const rb=r.getBoundingClientRect(),tb=t.getBoundingClientRect();if(tb.width>rb.width-20)out.push('TESTO LARGO scena '+i+': "'+t.textContent+'"');});
   sc.querySelectorAll('g.bx > rect, g.bx > circle').forEach(r=>{const b=r.getBoundingClientRect();if(b.width>0&&parseFloat(getComputedStyle(r).opacity)>0&&b.bottom>lg.top-8&&b.top<lg.bottom&&b.right>lg.left&&b.left<lg.right)out.push('TOCCA IL LOGO scena '+i+': '+(r.parentNode.querySelector('text')||{}).textContent);});
   sc.querySelectorAll('text').forEach(t=>{const b=t.getBoundingClientRect();if(b.width>0&&(b.left<20||b.right>1060))out.push('FUORI BORDO scena '+i+': "'+t.textContent+'"');});
+  // sovrapposizioni tra testi visibili, campionate ogni 0.5s
+  const vis=el=>{let e=el,o=1;while(e&&e!==sc){const cs=getComputedStyle(e);if(cs.display=='none')return false;o*=parseFloat(cs.opacity);e=e.parentElement;}return o>0.9;};
+  const seen=new Set();
+  for(let tt=0.5;tt<tEnd;tt+=0.5){anim(sc,tt,tEnd);const T=[...sc.querySelectorAll('text')].filter(t=>t.textContent.trim()&&vis(t)).map(t=>[t.textContent.trim(),t.getBoundingClientRect()]).filter(x=>x[1].width>4);
+   for(let a2=0;a2<T.length;a2++)for(let b2=a2+1;b2<T.length;b2++){const A=T[a2][1],B=T[b2][1];const ix=Math.min(A.right,B.right)-Math.max(A.left,B.left),iy=Math.min(A.bottom,B.bottom)-Math.max(A.top,B.top);const cx=Math.abs((A.left+A.right)/2-(B.left+B.right)/2),cy=Math.abs((A.top+A.bottom)/2-(B.top+B.bottom)/2);if(ix>6&&iy>6&&!(cx<12&&cy<12)){const k=i+':'+T[a2][0]+'|'+T[b2][0];if(!seen.has(k)){seen.add(k);out.push('SOVRAPPOSTI scena '+i+' a '+tt.toFixed(1)+'s: "'+T[a2][0]+'" e "'+T[b2][0]+'"');}}}}
+  if(sc.dataset.cam&&sc.dataset.cam.split('|').some(k=>{const v=k.split(',');return Math.abs(+v[1]-1)>0.051||Math.abs(+v[2])>20||Math.abs(+v[3])>20;}))out.push('CAMERA scena '+i+': zoom/spostamento troppo forte (regola: camera ferma)');
   sc.style.display='none';}
- return out;});console.log(rep.length?rep.join('\n'):'VERIFICA OK: nessun problema');await b.close();fs.rmSync(tmp,{recursive:true});return;}
+ if(typeof BOIL!=='undefined'&&BOIL)out.push('TREMOLIO attivo (regola: vietato)');return out;});console.log(rep.length?rep.join('\n'):'VERIFICA OK: nessun problema');await b.close();fs.rmSync(tmp,{recursive:true});return;}
  if(process.env.PREVIEW){const ts=process.env.PREVIEW.split(',').map(Number);for(const [k,t] of ts.entries()){await p.evaluate(t=>window.render(t),t);await p.screenshot({path:`${out}_prev${k}.png`});}await b.close();fs.rmSync(tmp,{recursive:true});console.log('preview ok');return;}
  for(let f=0;f<Math.round(T*FPS);f++){await p.evaluate(t=>window.render(t),f/FPS);await p.screenshot({path:`${tmp}/f${String(f).padStart(5,'0')}.jpg`,type:'jpeg',quality:90});}
  await b.close();execSync(`ffmpeg -loglevel error -y -framerate ${FPS} -i ${tmp}/f%05d.jpg -c:v libx264 -pix_fmt yuv420p -crf 18 ${out}`);fs.rmSync(tmp,{recursive:true});console.log('ok',T);})();
