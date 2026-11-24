@@ -107,20 +107,20 @@ const V=["Chi ha inventato internet? Non una persona sola. Resta fino alla fine:
 "Hai altre curiosità? Scrivile nei commenti. Made in News: una pillola di sapere al giorno."];
 const SCN=[
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBand('#bfe3fa','#eaf6ff')}${clouds()}
+ html:S(bg+`
  <g data-off="@Resta">${pop('@Chi',hand(540,420,'chi ha inventato…',58,INK))}${pop('@internet',title(450,'INTERNET?',140))}${pop('@persona',hl(680,700,'NON UNA PERSONA SOLA',64,YEL))}</g>
  ${pop('@Resta',hl(420,760,'RESTA FINO ALLA FINE',66,RED,'#fff'))}${pop('@italiano',hl(600,700,'UN PEZZO È ITALIANO',64,YEL))}
  <g data-pop="0.2,0.6" ${C}><g transform="translate(540,1150)"><g data-spin="12"><g filter="url(#wob)" ${W}><circle r="300" fill="#7cc4ff"/><path d="M-200 -120 Q-120 -200 -40 -150 Q20 -60 -80 -10 Q-180 40 -220 -40Z M60 -220 Q160 -180 200 -80 Q240 40 140 60 Q80 20 100 -80 Q60 -140 60 -220Z M-100 80 Q0 60 40 140 Q20 240 -60 260 Q-140 200 -100 80Z" fill="#a8e0b0"/></g></g></g></g>
  ${[[300,950],[780,980],[420,1330],[720,1320],[540,1100]].map(([x,y],k)=>`<g data-pop="${0.6+k*0.25},0.3" ${C}><circle cx="${x}" cy="${y}" r="20" fill="${YEL}" stroke="${INK}" stroke-width="6"/></g>`).join('')}
  <g stroke="${RED}" stroke-width="8" fill="none" stroke-linecap="round">${[[300,950,540,1100],[780,980,540,1100],[420,1330,540,1100],[720,1320,540,1100],[300,950,420,1330],[780,980,720,1320]].map(([a,b,c,d],k)=>`<path d="M${a} ${b} L${c} ${d}" data-draw="${0.9+k*0.2},0.4"/>`).join('')}</g>`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBand('#ffe3c2','#fff4e6')}${pop('@1969',hl(420,420,'1969',100,RED,'#fff'))}${pop('@Stati',hand(540,690,'Stati Uniti',60))}
+ html:S(bg+`${pop('@1969',hl(420,420,'1969',100,RED,'#fff'))}${pop('@Stati',hand(540,690,'Stati Uniti',60))}
  <defs><clipPath id="usaclip"><rect x="40" y="790" width="1000" height="760" rx="30"/></clipPath></defs><g data-pop="0.2,0.6" ${C}><rect x="40" y="790" width="1000" height="760" rx="30" fill="#cfe8f7" stroke="${INK}" stroke-width="8"/><g clip-path="url(#usaclip)"><g transform="translate(540,1170) scale(1.7) translate(-344.1,-1134.3)"><path d="${usaD}" fill="#ffd9a0" stroke="${INK}" stroke-width="3" vector-effect="non-scaling-stroke"/></g></g></g>
  ${node(400,1380,'@rete','UCLA')}${node(270,1360,'@computer','UCSB')}${node(217,1180,'@computer','SRI')}${node(682,1009,'@università','UTAH')}
  <g stroke="${RED}" stroke-width="8" fill="none" stroke-linecap="round"><path d="M400 1380 L270 1360" data-draw="@pochi,0.4"/><path d="M400 1380 L217 1180" data-draw="@pochi,0.4"/><path d="M217 1180 L682 1009" data-draw="@alcune,0.4"/><path d="M270 1360 L217 1180" data-draw="@alcune,0.4"/></g>
  ${pop('@ARPANET',tagAt(760,1400,380,'ARPANET',64,'#1d4ed8','#fff'))}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBand('#d7d0f5','#f5f2ff')}${pop('@29',hl(420,760,'29 OTTOBRE 1969',72,'#fff'))}${pop('@primo',hand(540,690,'il primo messaggio della storia',52,RED))}
+ html:S(bg+`${pop('@29',hl(420,760,'29 OTTOBRE 1969',72,'#fff'))}${pop('@primo',hand(540,690,'il primo messaggio della storia',52,RED))}
  <g data-pop="0.2,0.6" ${C}>${terminal(540,1150)}</g>
  <text x="540" y="1010" text-anchor="middle" ${F('Luckiest Guy')} font-size="120" fill="#7bd389" data-type="@LOGIN,0.6" data-text="LOGIN"></text>
  <g data-fade="@solo,0.2" style="opacity:0"><rect x="250" y="890" width="580" height="160" fill="#0d1a10"/><text x="540" y="1010" text-anchor="middle" ${F('Luckiest Guy')} font-size="120" fill="#7bd389" data-type="@L,0.3" data-text="LO"></text></g>
@@ -128,22 +128,22 @@ const SCN=[
  ${smoke(540,880,'@blocca')}
  <g data-stamp="@blocca" ${C}><g filter="url(#wob)"><g class="bx"><rect x="300" y="1070" width="480" height="130" rx="16" fill="${RED}" stroke="${INK}" stroke-width="7"/><text x="540" y="1160" text-anchor="middle" ${F('Luckiest Guy')} font-size="90" fill="#fff">CRASH!</text></g></g></g>`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBand('#c7e9d6','#f2fbf5')}${clouds()}${pop("@'70",hl(420,520,"ANNI '70",84,'#fff'))}
+ html:S(bg+`${pop("@'70",hl(420,520,"ANNI '70",84,'#fff'))}
  ${netCloud(260,1100,'#3a86ff','@reti')}${netCloud(820,1100,'#e76f51','@diverse')}
  <g stroke="${INK}" stroke-width="10" fill="none" stroke-linecap="round"><path d="M430 1100 Q540 1020 650 1100" data-draw="@parlarsi,0.6"/></g>
  ${pop('@TCP/IP',tagAt(540,960,300,'TCP/IP',64,YEL))}
  ${pop('@Vint',tagAt(260,1330,320,'VINT CERF',48,'#fff'))}${pop('@Bob',tagAt(820,1330,320,'BOB KAHN',48,'#fff'))}
  ${pop('@padri',hl(1440,700,'I PADRI DI INTERNET',62,RED,'#fff'))}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBand('#bfe3fa','#eaf6ff')}${clouds()}<g data-off="@1991">${pop('@web?',hl(420,500,'E IL WEB?',90,YEL))}</g>${pop('@1991',hl(420,600,'1991: PRIMO SITO',72,YEL))}
+ html:S(bg+`<g data-off="@1991">${pop('@web?',hl(420,500,'E IL WEB?',90,YEL))}</g>${pop('@1991',hl(420,600,'1991: PRIMO SITO',72,YEL))}
  ${pop('@Tim',hand(540,690,'Tim Berners-Lee',60,RED))}
  ${mountains()}${pop('@CERN',cern(330,1300))}${pop('@1989',tagAt(330,1470,220,'1989',60,RED,'#fff'))}
  ${pop('@online',monitor(780,1250,'@sito'))}${pop('@Ginevra',tagAt(330,980,260,'GINEVRA',44,'#fff'))}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBand('#bfe3fa','#eaf6ff')}${clouds()}${pop('@Prima',hl(420,760,'PRIMA DELLA PARTE ITALIANA…',54))}${pop('@piacciono',hand(540,690,'se ti piacciono queste curiosità',52,RED))}
+ html:S(bg+`${pop('@Prima',hl(420,760,'PRIMA DELLA PARTE ITALIANA…',54))}${pop('@piacciono',hand(540,690,'se ti piacciono queste curiosità',52,RED))}
  ${phoneCTA('@Prima','@segui','@Made')}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBand('#ffd9a8','#fff4e0')}<g data-off="@Europa">${pop('@30',hl(420,700,'30 APRILE 1986',76,RED,'#fff'))}</g>${pop('@Pisa',hand(540,690,'da Pisa',64,INK))}
+ html:S(bg+`<g data-off="@Europa">${pop('@30',hl(420,700,'30 APRILE 1986',76,RED,'#fff'))}</g>${pop('@Pisa',hand(540,690,'da Pisa',64,INK))}
  ${sat(760,880)}
  <path d="M0 1440 Q540 1380 1080 1440 L1080 1560 L0 1560Z" fill="#a8d5a2" stroke="${INK}" stroke-width="8" filter="url(#wob)"/>
  ${pop('@Pisa',pisa(330,1440))}${pop('@collega',dish(760,1330))}
