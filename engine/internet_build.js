@@ -86,11 +86,12 @@ const phoneCTA=(t1,t2,t3)=>`<g data-rise="${t1},0.6,600">${phone(540,1100,0.85)}
  <g data-fade="${t2},0.15" style="opacity:0"><g data-mv="0,0.01,500,500,500,500,${t2},0.5,500,500,0,0"><g transform="translate(680,1460)" filter="url(#wob)" ${W}><path d="M0 0 L0 -60 Q0 -80 20 -80 Q40 -80 40 -60 L40 -10 L70 -10 Q100 -10 100 20 L100 90 Q100 130 60 130 L20 130 Q-20 130 -40 90 L-70 30 Q-80 10 -60 0 Q-40 -8 -25 10Z" fill="#f3c9a0"/></g></g></g>`;
 const M=JSON.parse(fs.readFileSync(__dirname+'/assets/atlantico.json','utf8'));
 const usaD=M.paths['United States of America'];
+let SBI=0;const skyBand=(c1,c2)=>{const id='sb'+(SBI++);return `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs><rect x="0" y="800" width="1080" height="760" fill="url(#${id})"/><g filter="url(#wob)"><line x1="-10" y1="800" x2="1090" y2="800" stroke="${INK}" stroke-width="8"/><line x1="-10" y1="1560" x2="1090" y2="1560" stroke="${INK}" stroke-width="8"/></g>`};
 const node=(x,y,t,l)=>`<g data-pop="${t},0.4" ${C}><g filter="url(#wob)" ${W}><rect x="${x-46}" y="${y-36}" width="92" height="64" rx="8" fill="#fff"/><rect x="${x-34}" y="${y-26}" width="68" height="40" rx="4" fill="#1b1b2f"/><rect x="${x-20}" y="${y+28}" width="40" height="16" fill="#9aa3ad"/></g><circle cx="${x}" cy="${y-6}" r="8" fill="#7bd389" data-flash="${t},0.5,0.3"/>${l?`<text x="${x}" y="${y+86}" text-anchor="middle" ${F('Luckiest Guy')} font-size="34" fill="${INK}">${l}</text>`:''}</g>`;
 const terminal=(x,y)=>`<g transform="translate(${x},${y})"><g filter="url(#wob)" ${W}><rect x="-340" y="-250" width="680" height="440" rx="30" fill="#d9c9a8"/><rect x="-290" y="-200" width="580" height="320" rx="20" fill="#0d1a10"/><rect x="-300" y="190" width="600" height="90" rx="16" fill="#c4b393"/>${[...Array(10)].map((_,k)=>`<rect x="${-270+k*55}" y="210" width="44" height="22" rx="4" fill="#efe4cc"/>`).join('')}${[...Array(9)].map((_,k)=>`<rect x="${-245+k*55}" y="242" width="44" height="22" rx="4" fill="#efe4cc"/>`).join('')}</g></g>`;
 const smoke=(x,y,t)=>`<g data-fade="${t},0.3" style="opacity:0">${[0,1,2].map(k=>`<g data-loop="0,-160,${1.3+k*0.3}"><circle cx="${x-60+k*60}" cy="${y}" r="${44+k*10}" fill="#9aa3ad" opacity=".7" stroke="${INK}" stroke-width="6"/></g>`).join('')}</g>`;
 const netCloud=(x,y,c,t)=>`<g data-pop="${t},0.5" ${C}><g filter="url(#wob)" ${W}><circle cx="${x}" cy="${y}" r="170" fill="${c}"/></g>${[[-80,-60],[70,-80],[-60,70],[80,60],[0,0]].map(([a,b],k)=>`<circle cx="${x+a}" cy="${y+b}" r="22" fill="#fff" stroke="${INK}" stroke-width="6"/>`).join('')}<g stroke="#fff" stroke-width="7"><line x1="${x-80}" y1="${y-60}" x2="${x}" y2="${y}"/><line x1="${x+70}" y1="${y-80}" x2="${x}" y2="${y}"/><line x1="${x-60}" y1="${y+70}" x2="${x}" y2="${y}"/><line x1="${x+80}" y1="${y+60}" x2="${x}" y2="${y}"/></g></g>`;
-const mountains=()=>`<g filter="url(#wob)" ${W}><path d="M-20 1420 L230 1020 L380 1200 L560 940 L760 1220 L900 1060 L1100 1420Z" fill="#cfd8e3"/><path d="M230 1020 L190 1085 L270 1085Z M560 940 L510 1020 L615 1020Z M900 1060 L865 1115 L940 1115Z" fill="#fff"/><rect x="-20" y="1420" width="1120" height="200" fill="#a8d5a2"/></g>`;
+const mountains=()=>`<g filter="url(#wob)" ${W}><path d="M-20 1420 L230 1020 L380 1200 L560 940 L760 1220 L900 1060 L1100 1420Z" fill="#cfd8e3"/><path d="M230 1020 L190 1085 L270 1085Z M560 940 L510 1020 L615 1020Z M900 1060 L865 1115 L940 1115Z" fill="#fff"/><rect x="-20" y="1420" width="1120" height="140" fill="#a8d5a2"/></g>`;
 const cern=(x,y)=>`<g transform="translate(${x},${y})" filter="url(#wob)" ${W}><rect x="-200" y="-150" width="400" height="230" fill="#fff"/>${[0,1].map(r=>[0,1,2,3].map(c=>`<rect x="${-170+c*90}" y="${-120+r*80}" width="60" height="50" fill="#bfe6ff"/>`).join('')).join('')}<rect x="-140" y="-200" width="280" height="60" rx="10" fill="#1d4ed8"/><text x="0" y="-158" text-anchor="middle" ${F('Luckiest Guy')} font-size="44" fill="#fff" stroke="none">CERN</text></g>`;
 const monitor=(x,y,t)=>`<g transform="translate(${x},${y})"><g filter="url(#wob)" ${W}><rect x="-170" y="-140" width="340" height="250" rx="18" fill="#e8e4da"/><rect x="-140" y="-112" width="280" height="190" rx="8" fill="#fff"/><rect x="-40" y="110" width="80" height="40" fill="#d9d4c8"/><rect x="-90" y="145" width="180" height="20" rx="6" fill="#d9d4c8"/></g><g data-fade="${t},0.3" style="opacity:0"><text x="0" y="-60" text-anchor="middle" ${F('Luckiest Guy')} font-size="40" fill="#1d4ed8">WWW</text>${[0,1,2].map(k=>`<rect x="-110" y="${-30+k*28}" width="${220-k*50}" height="12" rx="6" fill="#c9d6e3"/>`).join('')}</g></g>`;
 const pisa=(x,y)=>`<g transform="translate(${x},${y}) rotate(5)" filter="url(#wob)" ${W}>${[0,1,2,3,4,5].map(k=>`<rect x="-70" y="${-k*70-70}" width="140" height="70" fill="#fbf7ee"/>${[-45,-15,15,45].map(a=>`<path d="M${a-8} ${-k*70-15} l0 -30 a8 8 0 0 1 16 0 l0 30z" fill="#e5ddcc"/>`).join('')}`).join('')}<rect x="-55" y="-490" width="110" height="70" fill="#fbf7ee"/><rect x="-80" y="0" width="160" height="16" fill="#e5ddcc"/></g>`;
@@ -106,20 +107,20 @@ const V=["Chi ha inventato internet? Non una persona sola. Resta fino alla fine:
 "Hai altre curiosità? Scrivile nei commenti. Made in News: una pillola di sapere al giorno."];
 const SCN=[
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBg('#bfe3fa','#eaf6ff')}${clouds()}
+ html:S(bg+`${skyBand('#bfe3fa','#eaf6ff')}${clouds()}
  <g data-off="@Resta">${pop('@Chi',hand(540,420,'chi ha inventato…',58,INK))}${pop('@internet',title(450,'INTERNET?',140))}${pop('@persona',hl(680,700,'NON UNA PERSONA SOLA',64,YEL))}</g>
  ${pop('@Resta',hl(420,760,'RESTA FINO ALLA FINE',66,RED,'#fff'))}${pop('@italiano',hl(600,700,'UN PEZZO È ITALIANO',64,YEL))}
  <g data-pop="0.2,0.6" ${C}><g transform="translate(540,1150)"><g data-spin="12"><g filter="url(#wob)" ${W}><circle r="300" fill="#7cc4ff"/><path d="M-200 -120 Q-120 -200 -40 -150 Q20 -60 -80 -10 Q-180 40 -220 -40Z M60 -220 Q160 -180 200 -80 Q240 40 140 60 Q80 20 100 -80 Q60 -140 60 -220Z M-100 80 Q0 60 40 140 Q20 240 -60 260 Q-140 200 -100 80Z" fill="#a8e0b0"/></g></g></g></g>
  ${[[300,950],[780,980],[420,1330],[720,1320],[540,1100]].map(([x,y],k)=>`<g data-pop="${0.6+k*0.25},0.3" ${C}><circle cx="${x}" cy="${y}" r="20" fill="${YEL}" stroke="${INK}" stroke-width="6"/></g>`).join('')}
  <g stroke="${RED}" stroke-width="8" fill="none" stroke-linecap="round">${[[300,950,540,1100],[780,980,540,1100],[420,1330,540,1100],[720,1320,540,1100],[300,950,420,1330],[780,980,720,1320]].map(([a,b,c,d],k)=>`<path d="M${a} ${b} L${c} ${d}" data-draw="${0.9+k*0.2},0.4"/>`).join('')}</g>`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBg('#ffe3c2','#fff4e6')}${pop('@1969',hl(420,420,'1969',100,RED,'#fff'))}${pop('@Stati',hand(540,690,'Stati Uniti',60))}
+ html:S(bg+`${skyBand('#ffe3c2','#fff4e6')}${pop('@1969',hl(420,420,'1969',100,RED,'#fff'))}${pop('@Stati',hand(540,690,'Stati Uniti',60))}
  <defs><clipPath id="usaclip"><rect x="40" y="790" width="1000" height="760" rx="30"/></clipPath></defs><g data-pop="0.2,0.6" ${C}><rect x="40" y="790" width="1000" height="760" rx="30" fill="#cfe8f7" stroke="${INK}" stroke-width="8"/><g clip-path="url(#usaclip)"><g transform="translate(540,1170) scale(1.7) translate(-344.1,-1134.3)"><path d="${usaD}" fill="#ffd9a0" stroke="${INK}" stroke-width="3" vector-effect="non-scaling-stroke"/></g></g></g>
  ${node(400,1380,'@rete','UCLA')}${node(270,1360,'@computer','UCSB')}${node(217,1180,'@computer','SRI')}${node(682,1009,'@università','UTAH')}
  <g stroke="${RED}" stroke-width="8" fill="none" stroke-linecap="round"><path d="M400 1380 L270 1360" data-draw="@pochi,0.4"/><path d="M400 1380 L217 1180" data-draw="@pochi,0.4"/><path d="M217 1180 L682 1009" data-draw="@alcune,0.4"/><path d="M270 1360 L217 1180" data-draw="@alcune,0.4"/></g>
  ${pop('@ARPANET',tagAt(760,1400,380,'ARPANET',64,'#1d4ed8','#fff'))}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBg('#d7d0f5','#f5f2ff')}${pop('@29',hl(420,760,'29 OTTOBRE 1969',72,'#fff'))}${pop('@primo',hand(540,690,'il primo messaggio della storia',52,RED))}
+ html:S(bg+`${skyBand('#d7d0f5','#f5f2ff')}${pop('@29',hl(420,760,'29 OTTOBRE 1969',72,'#fff'))}${pop('@primo',hand(540,690,'il primo messaggio della storia',52,RED))}
  <g data-pop="0.2,0.6" ${C}>${terminal(540,1150)}</g>
  <text x="540" y="1010" text-anchor="middle" ${F('Luckiest Guy')} font-size="120" fill="#7bd389" data-type="@LOGIN,0.6" data-text="LOGIN"></text>
  <g data-fade="@solo,0.2" style="opacity:0"><rect x="250" y="890" width="580" height="160" fill="#0d1a10"/><text x="540" y="1010" text-anchor="middle" ${F('Luckiest Guy')} font-size="120" fill="#7bd389" data-type="@L,0.3" data-text="LO"></text></g>
@@ -127,29 +128,29 @@ const SCN=[
  ${smoke(540,880,'@blocca')}
  <g data-stamp="@blocca" ${C}><g filter="url(#wob)"><g class="bx"><rect x="300" y="1070" width="480" height="130" rx="16" fill="${RED}" stroke="${INK}" stroke-width="7"/><text x="540" y="1160" text-anchor="middle" ${F('Luckiest Guy')} font-size="90" fill="#fff">CRASH!</text></g></g></g>`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBg('#c7e9d6','#f2fbf5')}${clouds()}${pop("@'70",hl(420,520,"ANNI '70",84,'#fff'))}
+ html:S(bg+`${skyBand('#c7e9d6','#f2fbf5')}${clouds()}${pop("@'70",hl(420,520,"ANNI '70",84,'#fff'))}
  ${netCloud(260,1100,'#3a86ff','@reti')}${netCloud(820,1100,'#e76f51','@diverse')}
  <g stroke="${INK}" stroke-width="10" fill="none" stroke-linecap="round"><path d="M430 1100 Q540 1020 650 1100" data-draw="@parlarsi,0.6"/></g>
  ${pop('@TCP/IP',tagAt(540,960,300,'TCP/IP',64,YEL))}
  ${pop('@Vint',tagAt(260,1330,320,'VINT CERF',48,'#fff'))}${pop('@Bob',tagAt(820,1330,320,'BOB KAHN',48,'#fff'))}
  ${pop('@padri',hl(1440,700,'I PADRI DI INTERNET',62,RED,'#fff'))}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBg('#bfe3fa','#eaf6ff')}${clouds()}<g data-off="@1991">${pop('@web?',hl(420,500,'E IL WEB?',90,YEL))}</g>${pop('@1991',hl(420,600,'1991: PRIMO SITO',72,YEL))}
+ html:S(bg+`${skyBand('#bfe3fa','#eaf6ff')}${clouds()}<g data-off="@1991">${pop('@web?',hl(420,500,'E IL WEB?',90,YEL))}</g>${pop('@1991',hl(420,600,'1991: PRIMO SITO',72,YEL))}
  ${pop('@Tim',hand(540,690,'Tim Berners-Lee',60,RED))}
  ${mountains()}${pop('@CERN',cern(330,1300))}${pop('@1989',tagAt(330,1470,220,'1989',60,RED,'#fff'))}
  ${pop('@online',monitor(780,1250,'@sito'))}${pop('@Ginevra',tagAt(330,980,260,'GINEVRA',44,'#fff'))}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBg('#bfe3fa','#eaf6ff')}${clouds()}${pop('@Prima',hl(420,760,'PRIMA DELLA PARTE ITALIANA…',54))}${pop('@piacciono',hand(540,690,'se ti piacciono queste curiosità',52,RED))}
+ html:S(bg+`${skyBand('#bfe3fa','#eaf6ff')}${clouds()}${pop('@Prima',hl(420,760,'PRIMA DELLA PARTE ITALIANA…',54))}${pop('@piacciono',hand(540,690,'se ti piacciono queste curiosità',52,RED))}
  ${phoneCTA('@Prima','@segui','@Made')}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBg('#ffd9a8','#fff4e0')}<g data-off="@Europa">${pop('@30',hl(420,700,'30 APRILE 1986',76,RED,'#fff'))}</g>${pop('@Pisa',hand(540,690,'da Pisa',64,INK))}
+ html:S(bg+`${skyBand('#ffd9a8','#fff4e0')}<g data-off="@Europa">${pop('@30',hl(420,700,'30 APRILE 1986',76,RED,'#fff'))}</g>${pop('@Pisa',hand(540,690,'da Pisa',64,INK))}
  ${sat(760,880)}
- <path d="M0 1440 Q540 1380 1080 1440 L1080 1620 L0 1620Z" fill="#a8d5a2" stroke="${INK}" stroke-width="8" filter="url(#wob)"/>
+ <path d="M0 1440 Q540 1380 1080 1440 L1080 1560 L0 1560Z" fill="#a8d5a2" stroke="${INK}" stroke-width="8" filter="url(#wob)"/>
  ${pop('@Pisa',pisa(330,1440))}${pop('@collega',dish(760,1330))}
  <g data-fade="@collega,0.2" style="opacity:0">${[0,1,2].map(k=>`<g data-loop="0,-150,${1.0}"><path d="M${780+k*0} ${1230-k*60} q30 -20 60 0" stroke="${RED}" stroke-width="10" fill="none" stroke-linecap="round" opacity="${1-k*0.25}"/></g>`).join('')}</g>
  ${pop('@internet.',tagAt(760,1500,340,'ITALIA ONLINE',46,YEL))}${pop('@Europa',hl(420,820,'TRA LE PRIME IN EUROPA',62,YEL))}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${skyBg('#ffd9a8','#fff4e0')}${clouds()}<g data-off="@Made">${pop('@Hai',hl(560,760,'HAI ALTRE CURIOSITÀ?',66,YEL))}
+ html:S(bg+`<g data-off="@Made">${pop('@Hai',hl(560,760,'HAI ALTRE CURIOSITÀ?',66,YEL))}
  <g data-pop="@Scrivile,0.5" ${C}><g data-idle="8,2.2,0" ${C}><g transform="translate(540,1080)" filter="url(#wob)" ${W}><path d="M-300 -180 Q-300 -220 -260 -220 L260 -220 Q300 -220 300 -180 L300 120 Q300 160 260 160 L-60 160 L-160 260 L-140 160 L-260 160 Q-300 160 -300 120Z" fill="#fff"/>
   ${[0,1,2].map(k=>`<rect x="-230" y="${-150+k*80}" width="${[400,460,300][k]}" height="30" rx="15" fill="#e5e7eb" stroke="none" style="transform-box:fill-box;transform-origin:left" data-grow="@commenti,0.4"/>`).join('')}</g></g></g>
  ${pop('@commenti',hl(1330,700,'SCRIVILE NEI COMMENTI',60,RED,'#fff'))}</g>
