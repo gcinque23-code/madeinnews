@@ -14,13 +14,17 @@ const W='stroke="'+INK+'" stroke-width="9" stroke-linejoin="round" stroke-lineca
 const ONC='#e9b872',ONL='#c98a3e',ONIN='#f7efd9',PUR='#8e5aa8',GAS='#9ccf7a';
 // cipolla intera
 const onion=(x,y,s=1)=>`<g transform="translate(${x},${y}) scale(${s})" filter="url(#wob)" ${W}>
+ <ellipse cx="10" cy="200" rx="170" ry="22" fill="${INK}" opacity=".12" stroke="none"/>
  <path d="M0 -230 Q30 -170 120 -110 Q210 -40 200 60 Q190 170 0 190 Q-190 170 -200 60 Q-210 -40 -120 -110 Q-30 -170 0 -230Z" fill="${ONC}"/>
+ <path d="M60 -150 Q170 -60 170 60 Q160 150 20 175 Q150 120 140 20 Q130 -80 60 -150Z" fill="${ONL}" opacity=".45" stroke="none"/>
  <path d="M0 -220 Q-60 -60 -40 180 M0 -220 Q60 -60 40 180 M0 -220 Q-140 -40 -120 160 M0 -220 Q140 -40 120 160" fill="none" stroke="${ONL}" stroke-width="6"/>
- <path d="M-14 -228 Q0 -290 14 -228" fill="#7a8f3a"/><path d="M-40 188 q40 30 80 0" fill="none"/></g>`;
-// mezza cipolla (sezione) con anelli
+ <path d="M-120 -60 Q-140 0 -130 60" stroke="#fff" stroke-width="14" fill="none" opacity=".7"/>
+ <path d="M-14 -228 Q0 -300 14 -228" fill="#7a8f3a"/><path d="M-40 188 q10 24 20 4 q10 24 20 0 q10 24 20 0 q10 24 20 -4" fill="none" stroke="#b8925a" stroke-width="6"/></g>`;
 const half=(x,y,s=1)=>`<g transform="translate(${x},${y}) scale(${s})" filter="url(#wob)" ${W}>
- <ellipse cx="0" cy="0" rx="210" ry="150" fill="${ONIN}"/>${[170,130,92,56,24].map((r,i)=>`<ellipse cx="0" cy="${i*4}" rx="${r}" ry="${r*0.7}" fill="none" stroke="#e0cfa6" stroke-width="7"/>`).join('')}
- <path d="M-210 0 Q-200 120 0 150 Q200 120 210 0" fill="none" stroke="${ONL}" stroke-width="14"/></g>`;
+ <ellipse cx="10" cy="160" rx="200" ry="20" fill="${INK}" opacity=".12" stroke="none"/>
+ <path d="M-210 0 Q-200 140 0 160 Q200 140 210 0Z" fill="${ONC}"/><path d="M-210 0 Q-200 140 0 160 Q200 140 210 0" fill="none" stroke="${ONL}" stroke-width="12"/>
+ <ellipse cx="0" cy="0" rx="210" ry="150" fill="#fbf3dc"/>${[[175,'#f3e2b8'],[140,'#fbf3dc'],[104,'#f3e2b8'],[70,'#fbf3dc'],[38,'#efd9a6']].map(([r,c],i)=>`<ellipse cx="0" cy="${i*3}" rx="${r}" ry="${r*0.7}" fill="${c}" stroke="#d9bf86" stroke-width="5"/>`).join('')}
+ <path d="M-150 -60 Q-110 -110 -40 -125" stroke="#fff" stroke-width="12" fill="none" opacity=".8"/></g>`;
 const board=(x,y)=>`<g filter="url(#wob)" ${W}><rect x="${x-360}" y="${y}" width="720" height="70" rx="30" fill="#c8915a"/><circle cx="${x+300}" cy="${y+35}" r="14" fill="#f6efe2"/></g>`;
 const knife=(x,y,r=0)=>`<g transform="translate(${x},${y}) rotate(${r})" filter="url(#wob)" ${W}><path d="M-20 -20 L320 -20 Q360 -20 360 20 L-20 20Z" fill="#e6e9ee"/><rect x="-200" y="-26" width="180" height="52" rx="18" fill="#3b2a20"/><path d="M40 -8 L300 -8" stroke="#fff" stroke-width="5"/></g>`;
 const gasW=(x,y,k,t)=>`<g data-fade="${t},0.4" style="opacity:0"><g data-bob="18,2.2,${k}"><path d="M${x} ${y} q-30 -40 0 -80 q30 -40 0 -80 q-30 -40 0 -80" fill="none" stroke="${GAS}" stroke-width="16" stroke-linecap="round" opacity=".85"/></g></g>`;
@@ -28,8 +32,8 @@ const eye=(x,y,s=1,red=false)=>`<g transform="translate(${x},${y}) scale(${s})" 
 const drop=(x,y,t,k)=>`<g data-fall="${t},0.9,-200"><path d="M${x} ${y-40} Q${x+28} ${y} ${x} ${y+20} Q${x-28} ${y} ${x} ${y-40}Z" fill="#8fd3ff" stroke="${INK}" stroke-width="6"/></g>`;
 const cell=(x,y,mix)=>`<g transform="translate(${x},${y})"><g filter="url(#wob)" ${W}><ellipse rx="380" ry="300" fill="#f3f7e8"/></g>
  ${mix?'':`<g data-draw="@separati,0.5"><path d="M0 -290 L0 290" stroke="${INK}" stroke-width="10" stroke-dasharray="26 16" fill="none"/></g>`}
- ${[[-250,-90],[-180,40],[-280,120],[-120,-170],[-130,170],[-60,-40]].map(([a,b],k)=>`<g data-pop="@zolfo,0.4" ${C}><g ${mix?`data-mv="@incontrano,1.0,0,0,${-a*0.55},${-b*0.3}"`:''}><circle cx="${a}" cy="${b}" r="30" fill="${YEL}" stroke="${INK}" stroke-width="6"/><text x="${a}" y="${b+11}" text-anchor="middle" ${F('Luckiest Guy')} font-size="30" fill="${INK}">S</text></g></g>`).join('')}
- ${[[220,-100],[150,40],[270,110],[110,-180],[120,170],[60,-30]].map(([a,b],k)=>`<g data-pop="@enzimi,0.4" ${C}><g ${mix?`data-mv="@incontrano,1.0,0,0,${-a*0.55},${-b*0.3}"`:''}><path d="M${a} ${b} m-34 0 a34 34 0 1 0 68 0 l-34 0 l26 -22 a34 34 0 0 0 -60 22z" fill="${PUR}" stroke="${INK}" stroke-width="6"/></g></g>`).join('')}</g>`;
+ ${[[-250,-90],[-180,40],[-280,120],[-120,-170],[-130,170],[-60,-40]].map(([a,b],k)=>`<g data-pop="${mix?'0.1':'@sostanze'},0.4" ${C}><g ${mix?`data-mv="@incontrano,1.0,0,0,${-a*0.55},${-b*0.3}"`:''}><circle cx="${a}" cy="${b}" r="30" fill="${YEL}" stroke="${INK}" stroke-width="6"/><text x="${a}" y="${b+11}" text-anchor="middle" ${F('Luckiest Guy')} font-size="30" fill="${INK}">S</text></g></g>`).join('')}
+ ${[[220,-100],[150,40],[270,110],[110,-180],[120,170],[60,-30]].map(([a,b],k)=>`<g data-pop="${mix?'0.1':'@enzimi'},0.4" ${C}><g ${mix?`data-mv="@incontrano,1.0,0,0,${-a*0.55},${-b*0.3}"`:''}><path d="M${a} ${b} m-34 0 a34 34 0 1 0 68 0 l-34 0 l26 -22 a34 34 0 0 0 -60 22z" fill="${PUR}" stroke="${INK}" stroke-width="6"/></g></g>`).join('')}</g>`;
 const SCN=[
 {voice:"Quando tagli una cipolla e piangi, non è il succo che ti schizza negli occhi.",cam:"0,1.06,0,0|@succo,1.0,0,0",
  html:S(bg+`${pop('@cipolla',title(430,'LA CIPOLLA',130))}${pop('@succo',hl(610,640,'NON È IL SUCCO',80))}
@@ -52,7 +56,7 @@ const SCN=[
  ${cell(540,1180,true)}
  <g data-off="@incontrano"><g data-drop="@coltello,0.4,-500">${knife(380,850,0)}</g></g>
  <g data-draw="@rompe,0.4"><path d="M540 880 L520 1000 L560 1100 L520 1200 L550 1300 L540 1480" stroke="${RED}" stroke-width="12" fill="none" stroke-linecap="round"/></g>
- ${pop('@incontrano',tagAt(540,1520,560,'SI INCONTRANO',64,'#fff'))}
+ <g data-off="@incontrano">${pop('@sostanze',hand(540,1580,'zolfo + enzimi',64,RED))}</g>${pop('@incontrano',tagAt(540,1520,560,'SI INCONTRANO',64,'#fff'))}
  ${gasW(470,1080,0,'@nasce')}${gasW(610,1080,1,'@nasce')}
  ${pop('@sale',`<path d="M540 800 L540 660 M500 700 L540 660 L580 700" stroke="${GAS}" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`)}
  ${pop('@viso',hand(790,760,'verso il viso',58,INK))}`)},
@@ -62,13 +66,13 @@ const SCN=[
  ${pop('@irrita',hl(430,520,'IRRITA',96,RED,'#fff'))}
  ${[[430,1210,'@producono'],[650,1220,'@lacrime'],[400,1300,'@lacrime'],[680,1310,'@lavarlo']].map(([x,y,t],k)=>`<g data-pop="${t},0.35" ${C}><g data-loop="0,60,${1.2+k*0.2}"><path d="M${x} ${y-40} Q${x+28} ${y} ${x} ${y+20} Q${x-28} ${y} ${x} ${y-40}Z" fill="#8fd3ff" stroke="${INK}" stroke-width="6"/></g></g>`).join('')}
  ${pop('@lavarlo',hl(1500,760,'LACRIME PER LAVARLO',64))}`)},
-{voice:"Nel 2002 alcuni ricercatori giapponesi hanno scoperto l'enzima che produce proprio questo gas.",cam:"0,1.0,0,0|@enzima,1.06,0,0",
+{voice:"Nel 2002 alcuni ricercatori giapponesi hanno scoperto l'enzima che produce proprio questo gas.",cam:"0,1.0,0,0|@l'enzima,1.06,0,0",
  html:S(bg+`${pop('@2002',hl(430,420,'2002',100,RED,'#fff'))}${pop('@giapponesi',hand(540,690,'ricercatori giapponesi',62))}
  <g data-pop="@ricercatori,0.5" ${C}><g transform="translate(540,1130)" filter="url(#wob)" ${W}>
   <path d="M-70 -260 L70 -260 L70 -120 L220 200 Q230 240 190 240 L-190 240 Q-230 240 -220 200 L-70 -120Z" fill="#fff"/>
   <path d="M-150 80 L150 80 L210 210 Q215 225 195 225 L-195 225 Q-215 225 -210 210Z" fill="${GAS}" stroke="none"/><rect x="-90" y="-290" width="180" height="40" rx="12" fill="#e6e9ee"/>
   ${[[-60,150],[40,120],[100,180]].map(([a,b])=>`<circle cx="${a}" cy="${b}" r="16" fill="#fff" stroke="${INK}" stroke-width="5"/>`).join('')}</g></g>
- ${pop('@enzima',`<g transform="translate(540,1130)"><path d="M0 0 m-60 0 a60 60 0 1 0 120 0 l-60 0 l46 -38 a60 60 0 0 0 -106 38z" fill="${PUR}" stroke="${INK}" stroke-width="8" filter="url(#wob)"/></g>`)}
+ ${pop("@l'enzima",`<g transform="translate(540,1130)"><path d="M0 0 m-60 0 a60 60 0 1 0 120 0 l-60 0 l46 -38 a60 60 0 0 0 -106 38z" fill="${PUR}" stroke="${INK}" stroke-width="8" filter="url(#wob)"/></g>`)}
  <g data-draw="@scoperto,0.5"><circle cx="540" cy="1130" r="120" fill="none" stroke="${RED}" stroke-width="10"/></g>
  ${pop('@gas',hl(1470,640,"L'ENZIMA DEL GAS",66))}`)},
 {voice:"Per piangere meno: cipolla fredda di frigo e coltello ben affilato, che rompe meno cellule.",cam:"0,1.0,0,0|@affilato,1.04,0,0",
@@ -78,7 +82,7 @@ const SCN=[
  <g data-pop="@coltello,0.5" ${C}>${knife(700,1080,-40)}</g>
  ${pop('@affilato',`<path d="M860 920 l20 40 40 20 -40 20 -20 40 -20 -40 -40 -20 40 -20z" fill="${YEL}" stroke="${INK}" stroke-width="6"/>`)}
  ${pop('@affilato',tagAt(780,1400,320,'AFFILATO',60,YEL))}
- ${pop('@rompe',hl(1530,700,'MENO CELLULE ROTTE',62,'#fff'))}`)},
+ ${pop('@rompe',hl(1530,700,'MENO CELLULE ROTTE',62,'#fff'))}<g data-draw="@cellule,0.5"><path d="M220 1645 q320 22 640 0" stroke="${RED}" stroke-width="10" fill="none" stroke-linecap="round"/></g>`)},
 {voice:"Segui Made in News: una pillola di sapere al giorno.",cam:"0,1.1,0,0|1.5,1.0,0,0",
  html:S(bg+`${pop(0.3,`<rect x="390" y="700" width="300" height="300" fill="${INK}"/><text x="540" y="917" text-anchor="middle" ${F('Anton')} font-size="186" fill="#fff">MN<tspan fill="${RED}">.</tspan></text>`,0.5)}
  <g data-rise="0.8,0.5"><text x="540" y="1170" text-anchor="middle" ${F('Inter Tight')} font-size="96" font-weight="900" fill="${INK}" letter-spacing="-4">madeinnews<tspan fill="${RED}">.</tspan></text></g>
