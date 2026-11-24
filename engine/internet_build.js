@@ -129,7 +129,7 @@ const SCN=[
  <g data-stamp="@blocca" ${C}><g filter="url(#wob)"><g class="bx"><rect x="300" y="1070" width="480" height="130" rx="16" fill="${RED}" stroke="${INK}" stroke-width="7"/><text x="540" y="1160" text-anchor="middle" ${F('Luckiest Guy')} font-size="90" fill="#fff">CRASH!</text></g></g></g>`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop("@'70",hl(420,520,"ANNI '70",84,'#fff'))}
- ${netCloud(260,1100,'#3a86ff','@reti')}${netCloud(820,1100,'#e76f51','@diverse')}
+ ${netCloud(260,1100,'#3a86ff','@Vint')}${netCloud(820,1100,'#e76f51','@Bob')}
  <g stroke="${INK}" stroke-width="10" fill="none" stroke-linecap="round"><path d="M430 1100 Q540 1020 650 1100" data-draw="@parlarsi,0.6"/></g>
  ${pop('@TCP',tagAt(540,960,300,'TCP/IP',64,YEL))}${pop('@regole',hand(540,690,'le regole per parlarsi',56,RED))}${pop('@questo',`<g data-draw="@questo,0.6"><ellipse cx="540" cy="1100" rx="470" ry="230" fill="none" stroke="${YEL}" stroke-width="12"/></g>`)}
  ${pop('@Vint',tagAt(260,1330,320,'VINT CERF',48,'#fff'))}${pop('@Bob',tagAt(820,1330,320,'BOB KAHN',48,'#fff'))}
@@ -146,7 +146,7 @@ const SCN=[
  html:S(bg+`<g data-off="@Una">${pop('@30',hl(420,700,'30 APRILE 1986',76,RED,'#fff'))}</g>${pop('@Pisa',hand(540,690,'da Pisa',64,INK))}
  ${pop('@1986',sat(760,880))}
  <path d="M0 1440 Q540 1380 1080 1440 L1080 1560 L0 1560Z" fill="#a8d5a2" stroke="${INK}" stroke-width="8" filter="url(#wob)"/>
- ${pop('@Pisa',pisa(330,1440))}${pop('@collega',dish(760,1330))}
+ ${pop(0.2,pisa(330,1440))}${pop('@collega',dish(760,1330))}
  <g data-fade="@collega,0.2" style="opacity:0">${[0,1,2].map(k=>`<g data-loop="0,-150,${1.0}"><path d="M${780+k*0} ${1230-k*60} q30 -20 60 0" stroke="${RED}" stroke-width="10" fill="none" stroke-linecap="round" opacity="${1-k*0.25}"/></g>`).join('')}</g>
  ${pop('@internet',tagAt(760,1500,340,'ITALIA ONLINE',46,YEL))}${pop('@Una',hl(420,820,'TRA LE PRIME IN EUROPA',62,YEL))}<g data-draw="@Europa,0.5"><path d="M140 545 Q540 585 940 545" stroke="${RED}" stroke-width="10" fill="none" stroke-linecap="round"/></g>`)},
 {cam:"0,1.0,0,0",
