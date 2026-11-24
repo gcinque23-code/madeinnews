@@ -57,15 +57,13 @@ const phone=(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})" filter="ur
 const SCN=[
 {voice:"",cam:"0,1.04,0,20|@succo,1.0,0,0",
  html:S(bg+`${kitchen()}
- ${board(540,1440)}<g data-drop="0.1,0.6,-700"><g data-shake="@tagli">${half(540,1360,1.1)}</g></g>${onion(870,1300,0.45)}
- <g data-drop="@tagli,0.4,-500"><g data-saw="@tagli,26,12,2.5">${knife(560,1180,-12)}</g></g>
+ ${board(540,1440)}<g data-drop="@tagli,0.4,-500"><g data-saw="@tagli,40,10,3">${knife(560,1010,70)}</g></g><g data-drop="0.1,0.6,-700"><g data-shake="@tagli">${half(540,1360,1.1)}</g></g>${onion(870,1300,0.45)}
  ${[[420,1080],[660,1040],[540,980]].map(([x,y],k)=>`<g data-pop="@schizza,0.3" ${C}><path d="M${x} ${y-36} Q${x+24} ${y} ${x} ${y+18} Q${x-24} ${y} ${x} ${y-36}Z" fill="#f7e7b0" stroke="${INK}" stroke-width="6"/></g>`).join('')}
  ${pop('@succo',`<path d="M380 920 L700 1120 M700 920 L380 1120" stroke="${RED}" stroke-width="18" stroke-linecap="round"/>`)}`)},
 {voice:"",cam:"0,1.0,0,0|@tagli,1.04,0,10",
  html:S(bg+`${kitchen()}${pop('@gas',hl(430,520,'È UN GAS',96))}${pop('@momento',hl(610,820,'SOLO QUANDO LA TAGLI',64,'#fff'))}
- ${board(540,1470)}${half(540,1390,1.1)}
- ${gasW(360,1280,0,'@gas')}${gasW(540,1240,1,'@gas')}${gasW(720,1280,2,'@gas')}${gasW(450,1200,3,'@forma')}${gasW(630,1200,4,'@forma')}${gasW(300,1150,5,'@solo')}${gasW(780,1150,6,'@solo')}
- <g data-drop="@tagli,0.35,-400"><g data-saw="@tagli,26,12,9">${knife(580,1300,-8)}</g></g>`)},
+ ${board(540,1470)}<g data-drop="@tagli,0.35,-400"><g data-saw="@tagli,40,10,9">${knife(580,1040,70)}</g></g>${half(540,1390,1.1)}
+ ${gasW(360,1280,0,'@gas')}${gasW(540,1240,1,'@gas')}${gasW(720,1280,2,'@gas')}${gasW(450,1200,3,'@forma')}${gasW(630,1200,4,'@forma')}${gasW(300,1150,5,'@solo')}${gasW(780,1150,6,'@solo')}`)},
 {voice:"",cam:"0,1.0,0,0|@enzimi,1.04,0,10",
  html:S(bg+`${pop('@Dentro',hl(430,700,'DENTRO LA CIPOLLA',72))}${pop('@sostanze',hand(540,640+40,'al microscopio',56,RED))}
  <g data-pop="0.2,0.5" ${C}>${lens(`<g transform="translate(0,20)">${cell(540,1100,false)}</g>`,'a')}</g>
@@ -113,7 +111,7 @@ const V=["Quando tagli una cipolla e piangi, non è il succo che ti schizza negl
 "Nel 2002 alcuni ricercatori giapponesi hanno scoperto l'enzima che produce proprio questo gas.",
 "Prima del trucco: se ti piacciono queste curiosità, segui Made in News.",
 "Ecco il trucco: cipolla fredda di frigo e coltello ben affilato, che rompe meno cellule.",
-"Una pillola di sapere al giorno, su Made in News."];
+"Made in News: una pillola di sapere al giorno."];
 // scena 0: promessa del trucco
 SCN[0].html=SCN[0].html.replace(/\$\{pop\('@cipolla'[^]*?NON È IL SUCCO',80\)\)\}/,'');
 const s0=SCN[0];
