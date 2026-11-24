@@ -92,7 +92,7 @@ const V=["Si può cadere da un aereo senza paracadute e sopravvivere? Sì, ed è
 "Nel 1971 Juliane Koepcke, 17 anni, precipita sulla foresta amazzonica ancora legata al suo sedile. Sopravvive, e cammina da sola per 11 giorni fino a trovare aiuto.",
 "Prima del record: se ti piacciono queste storie, segui Made in News.",
 "Il record è di Vesna Vulović, assistente di volo: nel 1972 sopravvive a una caduta da oltre 10 chilometri, rimasta incastrata nel suo aereo. È nel Guinness dei primati.",
-"Made in News: una pillola di sapere al giorno."];
+"Hai altre curiosità? Scrivile nei commenti. Made in News: una pillola di sapere al giorno."];
 const SCN=[
 {cam:"0,1.04,0,20|@Sì,1.0,0,0|@Resta,1.03,0,10",
  html:S(bg+`${skyBg()}${clouds()}
@@ -121,10 +121,10 @@ const SCN=[
  ${pop('@poco',hl(420,640,'CAMBIA POCO',84,YEL))}${pop('@conta',hl(600,700,'CONTA DOVE ATTERRI',62,RED,'#fff'))}${pop('@atterri',hand(540,780,'e come atterri',56,RED))}${pop(5.4,`<g data-loop="0,40,0.8"><path d="M540 1560 l0 -60 M510 1530 l30 30 l30 -30" stroke="${RED}" stroke-width="12" fill="none" stroke-linecap="round"/></g>`)}`)},
 {cam:"0,1.0,0,0|@sfonda,1.05,0,20",
  html:S(bg+`${skyBg('#ffe3c2','#fff4e6')}
- <g data-off="@Sopravvive">${pop('@1943',hl(420,420,'1943',100,RED,'#fff'))}</g>${pop('@mitragliere',hand(540,690,'Alan Magee, mitragliere USA',56))}
+ <g data-off="@Sopravvive">${pop('@1943',hl(420,420,'1943',100,RED,'#fff'))}</g>${pop('@il',hand(540,690,'Alan Magee, mitragliere USA',56))}
  ${pop(0.15,station())}
  <g data-fade="@cade,0.1" style="opacity:0"><g data-mv="0,0.01,0,-900,0,-900,@cade,1.4,0,-900,0,0"><g data-wig="6,3" style="transform-box:fill-box;transform-origin:center">${faller(540,960,0.5)}</g></g></g>
- ${shards('@sfonda')}${pop('@6',tagAt(860,830,300,'6 KM',60,'#fff'))}${pop('@stazione',tagAt(240,830,300,'FRANCIA',54,'#a8c7e6'))}
+ ${shards('@sfonda')}<g data-off="@6">${pop('@americano',tagAt(860,830,300,'USA',60,'#a8c7e6'))}</g>${pop('@6',tagAt(860,830,300,'6 KM',60,'#fff'))}${pop('@stazione',tagAt(240,830,300,'FRANCIA',54,'#a8c7e6'))}
  ${pop('@Sopravvive',hl(420,560,'SOPRAVVIVE',90,YEL))}`)},
 {cam:"0,1.0,0,0|@11,1.05,0,10",
  html:S(bg+`<g data-off="@11">${pop('@1971',hl(420,420,'1971',100,RED,'#fff'))}</g>${pop('@Juliane',hand(540,690,'Juliane Koepcke, 17 anni',58))}
@@ -142,9 +142,13 @@ const SCN=[
  ${pop('@sopravvive',altim(540,1040,'@caduta'))}
  ${pop('@rimasta',tagAt(330,1290,380,'INCASTRATA',46,'#fff'))}${pop('@aereo',tagAt(760,1290,400,'NEL SUO AEREO',46,'#fff'))}
  <g data-stamp="@Guinness" ${C}><g filter="url(#wob)"><g class="bx"><rect x="240" y="1410" width="600" height="140" rx="20" fill="${RED}" stroke="${INK}" stroke-width="8"/><text x="540" y="1510" text-anchor="middle" ${F('Luckiest Guy')} font-size="74" fill="#fff">RECORD GUINNESS</text></g></g></g>`)},
-{cam:"0,1.1,0,0|1.5,1.0,0,0",
- html:S(bg+`${pop(0.3,`<rect x="390" y="700" width="300" height="300" fill="${INK}"/><text x="540" y="917" text-anchor="middle" ${F('Anton')} font-size="186" fill="#fff">MN<tspan fill="${RED}">.</tspan></text>`,0.5)}
- <g data-rise="0.8,0.5"><text x="540" y="1170" text-anchor="middle" ${F('Inter Tight')} font-size="96" font-weight="900" fill="${INK}" letter-spacing="-4">madeinnews<tspan fill="${RED}">.</tspan></text></g>
- <g data-rise="1.6,0.5">${hand(540,1280,'una pillola di sapere al giorno',62)}</g>`)}];
+{cam:"0,1.0,0,0|@Made,1.0,0,0",
+ html:S(bg+`<g data-off="@Made">${pop('@Hai',hl(560,760,'HAI ALTRE CURIOSITÀ?',66,YEL))}
+ <g data-pop="@Scrivile,0.5" ${C}><g data-idle="8,2.2,0" ${C}><g transform="translate(540,1080)" filter="url(#wob)" ${W}><path d="M-300 -180 Q-300 -220 -260 -220 L260 -220 Q300 -220 300 -180 L300 120 Q300 160 260 160 L-60 160 L-160 260 L-140 160 L-260 160 Q-300 160 -300 120Z" fill="#fff"/>
+  ${[0,1,2].map(k=>`<rect x="-230" y="${-150+k*80}" width="${[400,460,300][k]}" height="30" rx="15" fill="#e5e7eb" stroke="none" style="transform-box:fill-box;transform-origin:left" data-grow="@commenti,0.4"/>`).join('')}</g></g></g>
+ ${pop('@commenti',hl(1330,700,'SCRIVILE NEI COMMENTI',60,RED,'#fff'))}</g>
+ <g data-fade="@Made,0.3" style="opacity:0">${pop('@Made',`<rect x="390" y="700" width="300" height="300" fill="${INK}"/><text x="540" y="917" text-anchor="middle" ${F('Anton')} font-size="186" fill="#fff">MN<tspan fill="${RED}">.</tspan></text>`,0.5)}
+ <g data-rise="@News,0.5"><text x="540" y="1170" text-anchor="middle" ${F('Inter Tight')} font-size="96" font-weight="900" fill="${INK}" letter-spacing="-4">madeinnews<tspan fill="${RED}">.</tspan></text></g>
+ <g data-rise="@pillola,0.5">${hand(540,1280,'una pillola di sapere al giorno',62)}</g></g>`)}];
 const still=process.argv[3]=='still';
 fs.writeFileSync(process.argv[2],JSON.stringify({voiceId:"GOAZNavLupajyL3YafaD",title:["Cadere da un aereo"],logo:'plain',bg:'#f6efe2',light:true,accent:RED,pad:0,scenes:SCN.map((s,i)=>still?{voice:V[i],cam:s.cam,html:s.html,dur:5,words:[]}:{voice:V[i],cam:s.cam,html:s.html})},null,1));console.log('ok');
