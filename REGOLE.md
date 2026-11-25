@@ -54,3 +54,6 @@ Attenzione alle parole-ancora (@parola): trovano la PRIMA parola che inizia cos�
 - NO effetto 'linee vive' (boil/tremolio dei contorni): non piace all'utente.
 - Movimento: deve venire dagli ELEMENTI animati (oggetti che entrano, si muovono, oscillano), NON da zoom/spostamenti di camera. Camera ferma o al massimo uno zoom minimo.
 - Copertine reel: la riga piccola in alto è 'Sapevi che…' (non 'Perché…').
+- Statistiche reel codici GTA 6 (25/11): 7.226 view, 371 salvataggi (> 264 like), 29 ricondivisioni, 8 follow, tempo medio 8 s. I contenuti "utili da salvare" su GTA 6 funzionano.
+- Didascalia: NON svelare tutto (niente lista completa / niente chicca finale) così si guarda il video fino in fondo.
+- Durata: NON accorciare i video (decisione dell'utente).
