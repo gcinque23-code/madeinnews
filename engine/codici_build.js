@@ -91,7 +91,7 @@ const safe=(x,y,s,code,t0,dt,open)=>{const digits=[...String(code)];return `<g t
  <g filter="url(#wob)" ${W}><rect x="40" y="-150" width="140" height="260" rx="14" fill="#2b2d42"/><rect x="55" y="-135" width="110" height="50" rx="6" fill="#0d1a10"/>${[0,1,2,3].map(r=>[0,1,2].map(c=>`<rect x="${58+c*36}" y="${-70+r*42}" width="28" height="32" rx="5" fill="#d9dde3" stroke-width="4"/>`).join('')).join('')}</g>
  <text x="110" y="-98" text-anchor="middle" ${F('Luckiest Guy')} font-size="40" fill="#7bd389" data-type="${t0},${dt}" data-text="${code}"></text></g>`};
 const bills=(x,y,t)=>`<g data-fade="${t},0.2" style="opacity:0">${[0,1,2,3,4,5].map(k=>`<g data-loop="${(k%2?60:-60)},-260,${1.1+k*0.15}"><g transform="translate(${x-150+k*60},${y}) rotate(${k*17-40})"><rect x="-50" y="-26" width="100" height="52" rx="6" fill="#7bd389" stroke="${INK}" stroke-width="6"/><circle r="14" fill="none" stroke="${INK}" stroke-width="5"/></g></g>`).join('')}</g>`;
-const codeTag=(x,y,place,code,t)=>`<g data-pop="${t},0.4" style="transform-box:fill-box;transform-origin:center"><g filter="url(#wob)"><g class="bx"><rect x="${x-300}" y="${y}" width="600" height="80" rx="14" fill="#fff" stroke="${INK}" stroke-width="7"/><text x="${x}" y="${y+56}" text-anchor="middle" ${F('Luckiest Guy')} font-size="44" fill="${INK}">${place}</text></g><g class="bx"><rect x="${x-170}" y="${y+90}" width="340" height="130" rx="18" fill="${YEL}" stroke="${INK}" stroke-width="7"/><text x="${x}" y="${y+185}" text-anchor="middle" ${F('Luckiest Guy')} font-size="110" fill="${INK}">${code}</text></g></g></g>`;
+const codeTag=(x,y,place,code,t1,t2,t3)=>`<g data-pop="${t1},0.4" style="transform-box:fill-box;transform-origin:center"><g filter="url(#wob)"><g class="bx"><rect x="${x-300}" y="${y}" width="600" height="80" rx="14" fill="#fff" stroke="${INK}" stroke-width="7"/><text x="${x}" y="${y+56}" text-anchor="middle" ${F('Luckiest Guy')} font-size="44" fill="${INK}">${place}</text></g></g></g><g data-pop="${t2},0.4" style="transform-box:fill-box;transform-origin:center"><g filter="url(#wob)"><rect x="${x-170}" y="${y+90}" width="340" height="130" rx="18" fill="${YEL}" stroke="${INK}" stroke-width="7"/></g><text x="${x}" y="${y+185}" text-anchor="middle" ${F('Luckiest Guy')} font-size="110" fill="${INK}" data-type="${t2},0.5" data-text="${code}"></text></g><g data-pop="${t3},0.3" style="transform-box:fill-box;transform-origin:center"><circle cx="${x+230}" cy="${y+155}" r="40" fill="#7bd389" stroke="${INK}" stroke-width="6"/><path d="M${x+212} ${y+155} l13 13 l24 -26" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round"/></g>`;
 const wallMap=(x,y)=>`<g transform="translate(${x},${y})" filter="url(#wob)" ${W}><rect x="-300" y="-200" width="600" height="400" rx="10" fill="#f3e3bf"/><path d="M-250 120 Q-150 -40 -40 40 Q60 120 160 -60 Q220 -150 260 -120" fill="none" stroke="#3a86ff" stroke-width="10"/>${[[-180,30],[0,60],[180,-80]].map(([a,b])=>`<circle cx="${a}" cy="${b}" r="22" fill="${RED}"/>`).join('')}<rect x="-20" y="-220" width="40" height="40" rx="20" fill="${RED}"/></g>`;
 const postcards=(x,y)=>`<g transform="translate(${x},${y})">${[[-180,-60,-8],[0,-80,5],[180,-50,-4],[-90,110,6],[100,100,-6]].map(([a,b,r],k)=>`<g transform="translate(${a},${b}) rotate(${r})" filter="url(#wob)"><rect x="-90" y="-65" width="180" height="130" rx="8" fill="${['#ffd9a0','#a8c7e6','#c7e3c0','#e8b4b8','#f3e1a1'][k]}" stroke="${INK}" stroke-width="7"/><text x="0" y="22" text-anchor="middle" ${F('Luckiest Guy')} font-size="62" fill="#fff" stroke="${INK}" stroke-width="3" data-fade="@segni,0.3" style="opacity:0">${'44017'[k]}</text></g>`).join('')}</g>`;
 const V=["In GTA 6 ci sono casseforti piene di soldi. Questi sono i codici per aprirle. Salva il video.",
@@ -108,23 +108,23 @@ const SCN=[
  ${pop('@Salva',hl(1440,560,'SALVA IL VIDEO',72,RED,'#fff'))}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop('@Port',hl(420,600,'PORT GELLHORN',80,'#fff'))}
- ${codeTag(540,660,'BROOKS BOATWORKS','6823','@Brooks')}${codeTag(540,960,'KINGPIN BOWLING','0300','@Kingpin')}${codeTag(540,1260,'LA CASCARA MOTEL','6969','@Cascara')}`)},
+ ${codeTag(540,660,'BROOKS BOATWORKS','6823','@Brooks','@6823','3.2')}${codeTag(540,960,'KINGPIN BOWLING','0300','@Kingpin','@0300','5.8')}${codeTag(540,1260,'LA CASCARA MOTEL','6969','@La','@6969','8.6')}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop('@trucco',hl(420,520,'IL TRUCCO',90,YEL))}${pop('@mappa',hand(540,640,'la mappa al piano di sopra',56,RED))}
- ${pop('@mappa',wallMap(540,1050))}
+ ${pop('@mappa',wallMap(540,1050))}${pop('@Brooks',tagAt(540,1200,420,'BROOKS BOATWORKS',40,'#fff'))}
  ${pop('@tutti',`${tagAt(260,1320,200,'6823',60,YEL)}${tagAt(540,1320,200,'0300',60,YEL)}${tagAt(820,1320,200,'6969',60,YEL)}`)}
  ${pop('@codici',hl(1450,620,'3 CODICI IN UNO',64,RED,'#fff'))}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop('@Prima',hl(420,760,"PRIMA DELL'ULTIMO…",66))}${pop('@cinque',hand(540,690,'è a cinque cifre',56,RED))}
  ${phoneCTA('@Prima','@segui','@Made')}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${pop('@Vice',tagAt(540,420,440,'VICE CITY',70,'#ff9ac1'))}${codeTag(540,560,"JANJAK'S GARAGE",'4444','@Janjak')}
- ${pop('@Keys',tagAt(540,950,380,'KEYS',70,'#7cc4ff'))}${codeTag(540,1090,'SUNRISE RV PARK','6769','@Sunrise')}`)},
+ html:S(bg+`${pop('@Vice',tagAt(540,420,440,'VICE CITY',70,'#ff9ac1'))}${codeTag(540,560,"JANJAK'S GARAGE",'4444',"@Janjak's",'@4444','3.4')}
+ ${pop('@Keys',tagAt(540,950,380,'KEYS',70,'#7cc4ff'))}${codeTag(540,1090,'SUNRISE RV PARK','6769','@Sunrise','@6769','8.0')}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop("@L'ultimo",hl(420,760,'COTTONMOUTH LAKE',66,'#fff'))}
  ${pop('@roulotte',`<g transform="translate(540,980) scale(1.5) translate(-540,-980)">${postcards(540,980)}</g>`)}
- <g data-pop="@44017,0.5" style="transform-box:fill-box;transform-origin:center">${safe(540,1440,0.5,'44017','@44017',0.8,99)}</g>
- ${pop('@cartoline',hl(600,640,'SEGNI SULLE CARTOLINE',54,YEL))}`)},
+ <g data-pop="@44017,0.5" style="transform-box:fill-box;transform-origin:center">${safe(540,1440,0.5,'44017','@44017',0.8,99)}</g><g data-pop="3.4,0.3" style="transform-box:fill-box;transform-origin:center"><circle cx="720" cy="1440" r="44" fill="#7bd389" stroke="${INK}" stroke-width="6"/><path d="M700 1440 l14 14 l26 -28" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round"/></g>
+ ${pop('@nascosto',hl(600,640,'SEGNI SULLE CARTOLINE',54,YEL))}${pop('@camera',tagAt(540,1255,400,'CAMERA DA LETTO',42,'#fff'))}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`<g data-off="@Made">${pop('@Ne',hl(560,760,'NE CONOSCI ALTRI?',70,YEL))}
  <g data-pop="@Scrivili,0.5" ${C}><g data-idle="8,2.2,0" ${C}><g transform="translate(540,1080)" filter="url(#wob)" ${W}><path d="M-300 -180 Q-300 -220 -260 -220 L260 -220 Q300 -220 300 -180 L300 120 Q300 160 260 160 L-60 160 L-160 260 L-140 160 L-260 160 Q-300 160 -300 120Z" fill="#fff"/>
