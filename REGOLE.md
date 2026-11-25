@@ -53,3 +53,4 @@ Attenzione alle parole-ancora (@parola): trovano la PRIMA parola che inizia cos�
 - MODELLO DI RIFERIMENTO: il reel "caduta dall'aereo" (engine/aereo_build.js) è il preferito dall'utente. Struttura: gancio + promessa ("resta fino alla fine"), storie vere con date e nomi, scene piene con sfondi colorati e oggetti grandi, CTA "segui" a metà con telefono e pulsante, chicca finale, chiusura "Hai altre curiosità? Scrivile nei commenti". Pause di 0,6 s tra le frasi (pause.py).
 - NO effetto 'linee vive' (boil/tremolio dei contorni): non piace all'utente.
 - Movimento: deve venire dagli ELEMENTI animati (oggetti che entrano, si muovono, oscillano), NON da zoom/spostamenti di camera. Camera ferma o al massimo uno zoom minimo.
+- Copertine reel: la riga piccola in alto è 'Sapevi che…' (non 'Perché…').
