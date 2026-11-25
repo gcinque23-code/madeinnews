@@ -110,17 +110,17 @@ const motel=()=>`<g filter="url(#wob)" ${W}><rect x="60" y="760" width="960" hei
 const tower=()=>`<g filter="url(#wob)" ${W}><path d="M540 760 L420 1560 L660 1560Z" fill="none" stroke-width="10"/>${[...Array(8)].map((_,k)=>{const y=860+k*90,w=(y-760)*0.15;return `<line x1="${540-w}" y1="${y}" x2="${540+w}" y2="${y}" stroke-width="7"/><line x1="${540-w}" y1="${y}" x2="${540+w+13}" y2="${y+90}" stroke-width="5"/>`}).join('')}<circle cx="540" cy="760" r="14" fill="${RED}"/></g><g data-flash="0,0.6,0.2"><circle cx="540" cy="760" r="34" fill="${RED}" opacity=".35"/></g>`;
 const nest=(x,y,t)=>`<g transform="translate(${x},${y})"><g data-pop="${t},0.5" style="transform-box:fill-box;transform-origin:center"><g filter="url(#wob)" ${W}><path d="M-160 0 Q0 90 160 0 Q120 60 0 70 Q-120 60 -160 0Z" fill="#a0612f"/>${[['#ff6fb1',-90],[YEL,-30],['#7cc4ff',30],['#7bd389',90]].map(([c,a])=>`<ellipse cx="${a}" cy="-20" rx="34" ry="46" fill="${c}"/>`).join('')}</g></g></g>`;
 const climber=(t0)=>`<g data-mv="0,0.01,0,520,0,520,${t0},3,0,520,0,0"><g data-bob="6,8,0">${'<g transform="translate(540,1050) scale(0.35)">'}<g filter="url(#wob)" ${W}><circle cx="0" cy="-95" r="60" fill="#f3c9a0"/><rect x="-55" y="-40" width="110" height="160" rx="36" fill="#3a86ff"/></g></g></g></g>`;
-const V=["Nella mappa di GTA 6 ci sono segreti che quasi nessuno ha ancora trovato. Resta fino alla fine: l'ultimo è un vero uovo di Pasqua.",
+const V=["Nella mappa di GTA 6 ci sono segreti che quasi nessuno ha ancora trovato. Resta fino alla fine: l'ultimo è un vero easter egg.",
 "Se resti bloccato in mezzo al mare senza veicolo, arriva un cane su una moto d'acqua. Ti salva, e ti dà pure dei soldi.",
 "Nelle paludi vicino a Cottonmouth Lake vive lo Skunk Ape, il Bigfoot della Florida. Lo trovi mentre mangia un cervo.",
 "E c'è chi giura di aver visto un UFO vicino allo Starlet Motel, dopo le due di notte. Ma nessuno l'ha ancora filmato.",
 "Prima dell'ultimo segreto: se ti piacciono queste curiosità, segui Made in News.",
-"Sali in cima alla torre radio più alta di Vice City: dopo sei minuti di arrampicata trovi un nido di uova colorate. Un vero uovo di Pasqua.",
+"Sali in cima alla torre radio più alta di Vice City: dopo sei minuti di arrampicata trovi un nido di uova colorate. Un easter egg, letteralmente.",
 "Hai trovato altri segreti in GTA 6? Scrivili nei commenti. Made in News: una pillola di sapere al giorno."];
 const SCN=[
 {cam:"0,1.0,0,0",
  html:S(bg+`<g data-off="@Resta">${pop('@segreti',hl(420,780,'I SEGRETI DI GTA 6',68,YEL))}${pop('@nessuno',hand(540,640,'quasi nessuno li ha trovati',54,RED))}</g>
- ${pop('@Resta',hl(420,760,'RESTA FINO ALLA FINE',66,RED,'#fff'))}${pop('@uovo',hl(600,700,'UN VERO UOVO DI PASQUA',58,YEL))}
+ ${pop('@Resta',hl(420,760,'RESTA FINO ALLA FINE',66,RED,'#fff'))}${pop('@uovo',hl(600,700,'UN VERO EASTER EGG',58,YEL))}
  <g transform="translate(540,1180) scale(0.82) translate(-540,-1140)">${pop(0.15,island())}${pin(860,900,'@mappa','#3a86ff')}${pin(380,1120,'@segreti','#3f8f4f')}${pin(700,1180,'@trovato','#ff6fb1')}${pin(560,1420,'@uovo',YEL)}</g>`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop('@bloccato',hl(420,620,'BLOCCATO IN MARE?',76,'#fff'))}
@@ -141,7 +141,7 @@ const SCN=[
  html:S(bg+`${pop('@Prima',hl(420,780,"PRIMA DELL'ULTIMO SEGRETO…",56))}${pop('@piacciono',hand(540,690,'se ti piacciono queste curiosità',52,RED))}
  ${phoneCTA('@Prima','@segui','@Made')}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`<g data-off="@Un">${pop('@Sali',hl(420,640,'LA TORRE RADIO',84,'#fff'))}</g>${pop('@Un',hl(420,700,'UN VERO UOVO DI PASQUA',58,YEL))}
+ html:S(bg+`<g data-off="@Un">${pop('@Sali',hl(420,640,'LA TORRE RADIO',84,'#fff'))}</g>${pop('@Un',hl(420,700,'UN VERO EASTER EGG',58,YEL))}
  ${pop('@Vice',hand(540,610,'la più alta di Vice City',52,RED))}
  ${pop(0.15,tower())}${climber('@arrampicata')}
  ${pop('@sei',tagAt(260,1400,300,'6 MINUTI',54,YEL))}${nest(540,700,'@nido')}`)},
