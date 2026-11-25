@@ -102,24 +102,24 @@ const V=["Se ti colpisce un fulmine, quasi sicuramente sopravvivi. Resta fino al
 const SCN=[
 {cam:"0,1.0,0,0",
  html:S(bg+`<g data-off="@Resta">${pop('@fulmine',hl(420,720,'9 SU 10 SOPRAVVIVONO',64,YEL))}${pop('@sopravvivi',hand(540,640,'quasi sicuramente',56,RED))}</g>
- ${pop('@Resta',hl(420,760,'RESTA FINO ALLA FINE',66,RED,'#fff'))}${pop('@sette',hl(600,560,'7 VOLTE?!',80,YEL))}
+ ${pop('@Resta',hl(420,760,'RESTA FINO ALLA FINE',66,RED,'#fff'))}${pop('@riuscito',hl(600,560,'7 VOLTE?!',80,YEL))}${[0,1,2].map(k=>`<g data-pop="@sette,0.3" ${C}>${boltS(250+k*290,760,0.18)}</g>`).join('')}
  ${stormCloud(540,930,1.2)}${rain(300,780,1020)}
  ${bolt(470,960,0.95,'@colpisce')}
  <g data-shake="@colpisce">${person(540,1360,1.05)}</g>
  <g data-flash="@colpisce,0.12,0"><rect x="0" y="780" width="1080" height="800" fill="#fff" opacity=".35"/></g>
  <g data-pop="@sopravvivi,0.4" ${C}><g filter="url(#wob)"><circle cx="760" cy="1250" r="60" fill="#7bd389" stroke="${INK}" stroke-width="7"/><path d="M730 1250 l22 22 l40 -44" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round"/></g></g>`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${pop('@CDC',hand(540,640,'secondo i CDC americani',56,INK))}${pop('@nove',hl(420,620,'QUASI 9 SU 10',84,YEL))}
+ html:S(bg+`${pop('@CDC',hand(540,640,'secondo i CDC americani',56,INK))}${pop('@nove',hl(420,620,'QUASI 9 SU 10',84,YEL))}${pop('@colpite',hand(540,780,'colpite da un fulmine',52,RED))}
  ${[...Array(10)].map((_,k)=>{const x=120+(k%5)*210,y=k<5?1050:1390;return `<g data-pop="${(0.3+k*0.12).toFixed(2)},0.3" ${C}>${person(x,y,0.55,k==9?'#9aa3ad':'#3a86ff')}</g>${k<9?`<g data-pop="@sopravvivono,0.3" ${C}><circle cx="${x+50}" cy="${y-110}" r="26" fill="#7bd389" stroke="${INK}" stroke-width="5"/><path d="M${x+38} ${y-110} l9 9 l17 -18" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/></g>`:''}`}).join('')}
  ${bolt(540,780,0.7,'@colpite')}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`<g data-off="@corrente">${pop('@scarica',hl(420,620,'DURA UN ATTIMO',84,YEL))}${pop('@motivo',stopwatch(540,1150,1.4))}</g>
+ html:S(bg+`<g data-off="@corrente">${pop('@scarica',hl(420,620,'DURA UN ATTIMO',84,YEL))}${pop(0.15,stopwatch(540,1150,1.4))}</g>
  ${pop('@corrente',hl(420,720,'SCORRE SULLA PELLE',72,YEL))}
  <g data-fade="@corrente,0.3" style="opacity:0">${person(540,1250,1.6)}<g stroke="${YEL}" stroke-width="14" fill="none" stroke-linecap="round" opacity=".9"><path d="M540 960 Q440 1000 450 1100 Q460 1250 470 1420" data-draw="@pelle,0.8"/><path d="M540 960 Q640 1000 630 1100 Q620 1250 610 1420" data-draw="@pelle,0.8"/></g></g>
- ${pop('@attraversare',tagAt(540,1500,520,'NON DENTRO IL CORPO',48,'#fff'))}`)},
+ ${pop('@attraversare',tagAt(540,1500,520,'NON DENTRO IL CORPO',48,'#fff'))}${pop('@corpo',`<g filter="url(#wob)"><circle cx="800" cy="1150" r="60" fill="#7bd389" stroke="${INK}" stroke-width="7"/><path d="M770 1150 l22 22 l40 -44" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round"/></g>`)}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`<g data-off="@bruciature">${pop('@innocuo',hl(420,640,'NON È INNOCUO',84,RED,'#fff'))}</g>${pop('@bruciature',hl(420,640,'BRUCIATURE',84,RED,'#fff'))}
- <g data-off="@disegni">${pop('@cuore',heart(540,1120,1.6,'@fermare'))}${pop('@istante',tagAt(540,1400,500,'CUORE FERMO UN ISTANTE',44,'#fff'))}</g>
+ <g data-off="@disegni">${pop(0.15,heart(540,1120,1.6,'@fermare'))}${pop('@istante',tagAt(540,1400,500,'CUORE FERMO UN ISTANTE',44,'#fff'))}</g>
  <g data-fade="@disegni,0.3" style="opacity:0"><g transform="translate(540,1150) scale(1.6) translate(-540,-1150)">${arm(540,1150,'@disegni')}</g></g>
  ${pop('@felce',hl(1300,640,'A FORMA DI FELCE',64,YEL))}`)},
 {cam:"0,1.0,0,0",
@@ -127,11 +127,11 @@ const SCN=[
  ${phoneCTA('@Prima','@segui','@Made')}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop('@Roy',hl(420,620,'ROY SULLIVAN',84,'#fff'))}${pop('@guardaparco',hand(540,690,'guardaparco americano',56,RED))}
- ${pop('@Roy',person(330,1250,1.2,'#3f8f4f',true))}
- <g transform="translate(780,1180)"><g filter="url(#wob)" ${W}><rect x="-180" y="-150" width="360" height="300" rx="30" fill="#1b1b2f"/></g><text x="0" y="60" text-anchor="middle" ${F('Luckiest Guy')} font-size="200" fill="${YEL}" data-count="@1942,4,7" data-dec="0"></text></g>
- ${[0,1,2,3,4,5,6].map(k=>`<g data-pop="@1942,${(0.3+k*0.55).toFixed(2)}" ${C}>${boltS(600+((k*97)%360),860+((k*53)%60),0.25)}</g>`).join('')}
+ ${pop(0.15,person(330,1250,1.2,'#3f8f4f',true))}
+ <g transform="translate(780,1180)"><g filter="url(#wob)" ${W}><rect x="-180" y="-150" width="360" height="300" rx="30" fill="#1b1b2f"/></g><text x="0" y="60" text-anchor="middle" ${F('Luckiest Guy')} font-size="200" fill="${YEL}" data-count="@1942,4.2,7" data-dec="0"></text></g>
+ ${[0,1,2,3,4,5,6].map(k=>`<g data-pop="${(3.4+k*0.6).toFixed(1)},0.3" ${C}>${boltS(600+((k*97)%360),860+((k*53)%60),0.25)}</g>`).join('')}
  ${pop('@1942',tagAt(290,1500,360,'1942 → 1977',50,YEL))}
- <g data-stamp="@Guinness" ${C}><g filter="url(#wob)"><g class="bx"><rect x="510" y="1400" width="520" height="120" rx="16" fill="${RED}" stroke="${INK}" stroke-width="7"/><text x="770" y="1480" text-anchor="middle" ${F('Luckiest Guy')} font-size="58" fill="#fff">RECORD GUINNESS</text></g></g></g>`)},
+ ${pop('@riconosce',hand(540,780,'è ufficiale',54,RED))}<g data-stamp="@Guinness" ${C}><g filter="url(#wob)"><g class="bx"><rect x="510" y="1400" width="520" height="120" rx="16" fill="${RED}" stroke="${INK}" stroke-width="7"/><text x="770" y="1480" text-anchor="middle" ${F('Luckiest Guy')} font-size="58" fill="#fff">RECORD GUINNESS</text></g></g></g>`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`<g data-off="@Made">${pop('@Hai',hl(560,760,'HAI ALTRE CURIOSITÀ?',66,YEL))}
  <g data-pop="@Scrivile,0.5" ${C}><g data-idle="8,2.2,0" ${C}><g transform="translate(540,1080)" filter="url(#wob)" ${W}><path d="M-300 -180 Q-300 -220 -260 -220 L260 -220 Q300 -220 300 -180 L300 120 Q300 160 260 160 L-60 160 L-160 260 L-140 160 L-260 160 Q-300 160 -300 120Z" fill="#fff"/>
