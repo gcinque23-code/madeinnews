@@ -58,15 +58,15 @@ const V=["In GTA 6 c'è una roulotte coperta di antenne. Sembra quella di un com
 const SCN=[
 {cam:"0,1.0,0,0",
  html:S(bg+`<g data-off="@bunker">${pop(0.15,hl(420,760,'LA ROULOTTE SEGRETA',64,YEL))}</g>${pop('@bunker',hl(420,760,'UN BUNKER SEGRETO',66,RED,'#fff'))}
- <g data-off="@Sembra">${pop('@antenne',hand(540,640,'coperta di antenne',58,RED))}</g>${pop('@Sembra',hand(540,640,'sembra di un complottista…',56,RED))}
+ <g data-off="@Sembra">${pop('@coperta',hand(540,640,'coperta di antenne',58,RED))}</g>${pop('@Sembra',hand(540,640,'sembra di un complottista…',56,RED))}
  <g data-fade="@sotto,0.5" style="opacity:0"><g filter="url(#wob)" ${W}><rect x="60" y="1170" width="960" height="390" rx="20" fill="${DIRT}"/><rect x="510" y="1170" width="60" height="140" fill="#2b2d42"/><rect x="250" y="1300" width="580" height="220" rx="16" fill="#2b2d42"/></g>
   ${[[150,1230],[900,1260],[180,1480],[920,1500],[420,1220]].map(([a,b])=>`<circle cx="${a}" cy="${b}" r="12" fill="${DIRT2}"/>`).join('')}</g>
  <g data-flash="@bunker,0.35,0.55"><rect x="270" y="1320" width="540" height="180" rx="12" fill="${YEL}" opacity=".25"/></g>
- ${pop(0.1,trailer(540,1080,0.95))}
+ ${pop('@roulotte',trailer(540,1080,0.95))}${pop('@complottista',`<text x="880" y="880" text-anchor="middle" ${F('Luckiest Guy')} font-size="130" fill="${RED}" stroke="${INK}" stroke-width="7" paint-order="stroke">?!</text>`)}
  ${pop('@lanciarazzi',launcher(540,1410,0.72))}${pop('@gratis',tagAt(820,1230,300,'GRATIS!',60,'#7bd389'))}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop('@Prima',hl(420,760,'DOVE SI TROVA?',80,YEL))}${pop('@ogni',hand(540,690,'ogni giorno un segreto di GTA 6',50,RED))}
- ${phoneCTA('@Prima','@seguici','@segreto')}`)},
+ ${phoneCTA('@Prima','@seguici','@segreto')}${pop('@GTA',`<g transform="translate(840,820)" filter="url(#wob)" ${W}><path d="M0 40 C-70 -10 -60 -70 -20 -70 C0 -70 0 -50 0 -40 C0 -50 0 -70 20 -70 C60 -70 70 -10 0 40Z" fill="${RED}"/></g>`)}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop('@Vai',hl(420,560,'VICE CITY',90,'#fff'))}
  <g data-off="@poligono"><g transform="translate(540,1180) scale(0.82) translate(-540,-1140)">${pop(0.1,island())}${pin(420,1410,'@Balsero')}</g>${pop('@Balsero',tagAt(300,1500,320,'BALSERO',56,YEL))}</g>
@@ -75,7 +75,7 @@ const SCN=[
  ${pop('@Griffin',tagAt(770,940,420,'POLIGONO GRIFFIN',44,'#fff'))}
  <g data-fade="@sud,0.3" style="opacity:0"><g filter="url(#wob)"><path d="M600 1040 Q540 1080 480 1110" stroke="${RED}" stroke-width="16" fill="none" stroke-dasharray="30 22" stroke-linecap="round"/><path d="M450 1120 l50 -6 l-24 -40z" fill="${RED}" stroke="${INK}" stroke-width="5"/></g></g>
  ${pop('@sud',tagAt(330,760,300,'SUD-OVEST',50,YEL))}
- <g data-draw="@recinto,0.8"><path d="M110 1160 L520 1160 L520 1520 L110 1520 Z" stroke="${INK}" stroke-width="8" stroke-dasharray="22 12" fill="none"/></g>
+ <g data-fade="@recinto,0.4" style="opacity:0"><path d="M110 1160 L520 1160 L520 1520 L110 1520 Z" stroke="${INK}" stroke-width="8" stroke-dasharray="22 12" fill="none"/></g>
  <g data-pop="@roulotte,0.5" ${C}><g filter="url(#wob)" ${W}><rect x="170" y="1270" width="300" height="140" rx="40" fill="#f4ecd8"/><circle cx="240" cy="1340" r="34" fill="#e5e7eb"/><line x1="330" y1="1300" x2="420" y2="1300"/><line x1="380" y1="1290" x2="380" y2="1380"/><circle cx="420" cy="1300" r="10" fill="${RED}"/></g></g>
  ${pin(320,1262,'@dentro',RED)}`)},
 {cam:"0,1.0,0,0",
@@ -92,14 +92,14 @@ const SCN=[
  <g data-pop="@codice,0.35" ${C}><path d="M680 760 L920 1040 M920 760 L680 1040" stroke="${RED}" stroke-width="26" stroke-linecap="round" filter="url(#wob)"/></g></g>
  ${pop('@scendi',tagAt(780,1290,320,'SCENDI!',56,RED,'#fff'))}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${pop('@Nel',hl(420,620,'IL BOTTINO',90,YEL))}${pop('@unica',hand(540,640,'la Conspiracist Type 9',54,RED))}
+ html:S(bg+`${pop('@Nel',hl(420,620,'IL BOTTINO',90,YEL))}${pop('@Conspiracist',hand(540,640,'la Conspiracist Type 9',54,RED))}
  <g filter="url(#wob)" ${W}><rect x="60" y="700" width="960" height="860" rx="30" fill="#2b2d42"/></g>
  <g data-fade="@bunker,0.25" style="opacity:0"><g data-flash="@bunker,0.12,0.6"><path d="M540 760 L180 1540 L900 1540Z" fill="${YEL}" opacity=".22"/></g><g filter="url(#wob)" ${W}><rect x="90" y="1180" width="900" height="26" fill="#8a6a45"/><rect x="200" y="1400" width="680" height="40" rx="8" fill="#a8723f"/><line x1="240" y1="1440" x2="240" y2="1550"/><line x1="840" y1="1440" x2="840" y2="1550"/>
   ${[[130,1120],[200,1130],[880,1110],[950,1125]].map(([a,b])=>`<rect x="${a-26}" y="${b}" width="52" height="${1180-b}" rx="6" fill="#7bd389"/>`).join('')}</g></g>
  <line x1="540" y1="700" x2="540" y2="760" stroke="${INK}" stroke-width="6"/><circle cx="540" cy="780" r="26" fill="#555" stroke="${INK}" stroke-width="6"/><g data-fade="@bunker,0.1" style="opacity:0"><circle cx="540" cy="780" r="26" fill="${YEL}" stroke="${INK}" stroke-width="6"/></g>
  ${pop('@lanciarazzi',launcher(540,960,0.95))}${pop('@lanciarazzi',tagAt(820,840,200,'H-AT',50,YEL))}
  ${[0,1,2,3].map(k=>pop('@razzi',rocket(300+k*160,1140,0.7),0.3+k*0.15)).join('')}
- ${pop('@mitraglietta',smg(560,1320,0.9))}${pop('@unica',tagAt(250,1460,260,'UNICA',56,RED,'#fff'))}`)},
+ ${pop('@mitraglietta',smg(560,1320,0.9))}${pop('@unica',tagAt(250,1460,260,'UNICA',56,RED,'#fff'))}${pop('@Type',tagAt(830,1460,260,'TYPE 9',52,YEL))}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop('@bello',hl(420,560,'IL BELLO?',96,'#fff'))}
  <g data-pop="@primo,0.5" ${C}><g data-idle="6,2,0" ${C}><g transform="translate(540,800)" filter="url(#wob)" ${W}><path d="M0 -150 L40 -60 L140 -60 L60 0 L90 100 L0 40 L-90 100 L-60 0 L-140 -60 L-40 -60Z" fill="${YEL}"/></g></g></g>
