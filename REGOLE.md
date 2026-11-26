@@ -52,7 +52,7 @@ Attenzione alle parole-ancora (@parola): trovano la PRIMA parola che inizia cos�
 - Testi bianchi con ombra: NO, in nessun elemento (sottotitoli compresi). Su sfondo chiaro testo scuro senza ombra; su sfondo scuro testo chiaro senza ombra o dentro un riquadro.
 - MODELLO DI RIFERIMENTO: il reel "caduta dall'aereo" (engine/aereo_build.js) è il preferito dall'utente. Struttura: gancio + promessa ("resta fino alla fine"), storie vere con date e nomi, scene piene con sfondi colorati e oggetti grandi, CTA "segui" a metà con telefono e pulsante, chicca finale, chiusura "Hai altre curiosità? Scrivile nei commenti". Pause di 0,6 s tra le frasi (pause.py).
 - NO effetto 'linee vive' (boil/tremolio dei contorni): non piace all'utente.
-- Movimento: deve venire dagli ELEMENTI animati (oggetti che entrano, si muovono, oscillano), NON da zoom/spostamenti di camera. Camera ferma o al massimo uno zoom minimo.
+- Movimento: deve venire dagli ELEMENTI animati (oggetti che entrano e si muovono, poi restano fermi), NON da zoom/spostamenti di camera. Camera ferma o al massimo uno zoom minimo.
 - Copertine reel: la riga piccola in alto è 'Sapevi che…' (non 'Perché…').
 - Statistiche reel codici GTA 6 (25/11): 7.226 view, 371 salvataggi (> 264 like), 29 ricondivisioni, 8 follow, tempo medio 8 s. I contenuti "utili da salvare" su GTA 6 funzionano.
 - Didascalia: NON svelare tutto (niente lista completa / niente chicca finale) così si guarda il video fino in fondo.
