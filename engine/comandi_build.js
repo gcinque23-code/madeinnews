@@ -49,14 +49,20 @@ const pistol=(x,y,s=1)=>`<g transform="translate(${x},${y}) scale(${s})" filter=
 const target=(x,y,s=1)=>`<g transform="translate(${x},${y}) scale(${s})" filter="url(#wob)" ${W}><circle r="90" fill="#fff"/><circle r="62" fill="${RED}"/><circle r="36" fill="#fff"/><circle r="14" fill="${RED}"/></g>`;
 const pin=(x,y,t,c=RED)=>`<g data-drop="${t},0.6,-400"><g filter="url(#wob)" ${W}><path d="M${x} ${y} c-34 -44 -54 -64 -54 -94 a54 54 0 0 1 108 0 c0 30 -20 50 -54 94z" fill="${c}"/><circle cx="${x}" cy="${y-94}" r="20" fill="#fff"/></g></g><circle cx="${x}" cy="${y}" r="16" fill="none" stroke="${c}" stroke-width="6" data-ripple="${t},1.4"/>`;
 const PSG='#2bb673',PSR='#e63946',PSB='#3a86ff',PSP='#ff6fb1';
-const BTN={tri:[170,-95],cir:[235,-30],cro:[170,35],squ:[105,-30],l3:[-95,70],r3:[95,70]};
+const BTN={tri:[205,-95],cir:[265,-35],cro:[205,25],squ:[145,-35],l3:[-110,75],r3:[110,75]};
 const controller=(x,y,s,hlt={})=>`<g transform="translate(${x},${y}) scale(${s})">
- <g filter="url(#wob)" ${W}><path d="M-200 -130 L200 -130 Q300 -130 320 -20 L350 140 Q360 210 290 215 Q240 215 210 160 L170 100 L-170 100 L-210 160 Q-240 215 -290 215 Q-360 210 -350 140 L-320 -20 Q-300 -130 -200 -130Z" fill="#e9edf2"/>
- <path d="M-195 -55 h50 v-45 h50 v45 h50 v50 h-50 v45 h-50 v-45 h-50z" transform="translate(30,25) scale(.8)" fill="#c7cdd4"/>
- ${[['tri',PSG],['cir',PSR],['cro',PSB],['squ',PSP]].map(([k,c])=>`<circle cx="${BTN[k][0]}" cy="${BTN[k][1]}" r="34" fill="#fff"/>`).join('')}
- <path d="M170 -115 l18 32 h-36z" fill="none" stroke="${PSG}" stroke-width="6"/><circle cx="235" cy="-30" r="16" fill="none" stroke="${PSR}" stroke-width="6"/><path d="M158 23 l24 24 M182 23 l-24 24" stroke="${PSB}" stroke-width="6"/><rect x="91" y="-44" width="28" height="28" fill="none" stroke="${PSP}" stroke-width="6"/>
- <circle cx="-95" cy="70" r="46" fill="#3a3a44"/><circle cx="95" cy="70" r="46" fill="#3a3a44"/><circle cx="-95" cy="70" r="24" fill="#555"/><circle cx="95" cy="70" r="24" fill="#555"/></g>
- ${Object.entries(hlt).map(([k,t])=>`<g data-fade="${t},0.2" style="opacity:0"><g data-flash="${t},0.35,0.35"><circle cx="${BTN[k][0]}" cy="${BTN[k][1]}" r="${k[1]=='3'?54:42}" fill="${YEL}" opacity=".75" stroke="${INK}" stroke-width="6"/></g></g><circle cx="${BTN[k][0]}" cy="${BTN[k][1]}" r="40" fill="none" stroke="${YEL}" stroke-width="10" data-ripple="${t},1.2"/>`).join('')}</g>`;
+ <g filter="url(#wob)" ${W}>
+ <path d="M-250 -150 Q-200 -175 -120 -165 L120 -165 Q200 -175 250 -150 Q330 -110 350 0 L385 170 Q395 250 330 262 Q285 268 255 225 L190 130 Q170 105 130 105 L-130 105 Q-170 105 -190 130 L-255 225 Q-285 268 -330 262 Q-395 250 -385 170 L-350 0 Q-330 -110 -250 -150Z" fill="#f4f5f7"/>
+ <path d="M-120 -165 L120 -165 L105 -10 Q100 20 70 20 L-70 20 Q-100 20 -105 -10Z" fill="#2b2d42"/>
+ <path d="M-130 105 L130 105 Q120 150 90 160 L-90 160 Q-120 150 -130 105Z" fill="#2b2d42"/>
+ <path d="M-350 0 Q-330 -110 -250 -150 L-235 -140 Q-300 -100 -318 0 L-352 170 Q-360 230 -320 240 L-330 262 Q-395 250 -385 170Z" fill="#2b2d42" opacity=".9"/>
+ <path d="M350 0 Q330 -110 250 -150 L235 -140 Q300 -100 318 0 L352 170 Q360 230 320 240 L330 262 Q395 250 385 170Z" fill="#2b2d42" opacity=".9"/>
+ ${[[0,-1],[0,1],[-1,0],[1,0]].map(([dx,dy])=>`<path d="M${-205+dx*42-16} ${-35+dy*42-16} h32 v32 h-32z" transform="rotate(${dx?0:0})" fill="#d9dde3"/>`).join('')}
+ ${['tri','cir','cro','squ'].map(k=>`<circle cx="${BTN[k][0]}" cy="${BTN[k][1]}" r="30" fill="#2b2d42"/>`).join('')}
+ <circle cx="-110" cy="75" r="52" fill="#2b2d42"/><circle cx="110" cy="75" r="52" fill="#2b2d42"/><circle cx="-110" cy="75" r="32" fill="#4a4e57"/><circle cx="110" cy="75" r="32" fill="#4a4e57"/>
+ <rect x="-150" y="-140" width="18" height="40" rx="8" fill="#d9dde3" stroke-width="5"/><rect x="132" y="-140" width="18" height="40" rx="8" fill="#d9dde3" stroke-width="5"/></g>
+ <g stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M205 -112 l16 28 h-32z" stroke="${PSG}"/><circle cx="265" cy="-35" r="14" stroke="${PSR}"/><path d="M193 13 l24 24 M217 13 l-24 24" stroke="${PSB}"/><rect x="132" y="-48" width="26" height="26" stroke="${PSP}"/></g>
+ ${Object.entries(hlt).map(([k,t])=>`<g data-fade="${t},0.2" style="opacity:0"><g data-flash="${t},0.35,0.35"><circle cx="${BTN[k][0]}" cy="${BTN[k][1]}" r="${k[1]=='3'?60:40}" fill="${YEL}" opacity=".8" stroke="${INK}" stroke-width="6"/></g></g><circle cx="${BTN[k][0]}" cy="${BTN[k][1]}" r="40" fill="none" stroke="${YEL}" stroke-width="10" data-ripple="${t},1.2"/>`).join('')}</g>`;
 const badge=(x,y,n,t)=>pop(t,`<g transform="translate(${x},${y})" filter="url(#wob)" ${W}><circle r="62" fill="${RED}"/><text x="0" y="26" text-anchor="middle" ${F('Luckiest Guy')} font-size="80" fill="#fff" stroke="none">${n}</text></g>`);
 const carTop=(x,y,col=RED)=>`<g transform="translate(${x},${y})" filter="url(#wob)" ${W}><rect x="-190" y="-85" width="380" height="170" rx="50" fill="${col}"/><rect x="40" y="-65" width="70" height="130" rx="18" fill="#bfe6ff"/><rect x="-130" y="-65" width="60" height="130" rx="18" fill="#bfe6ff"/><rect x="-70" y="-70" width="110" height="140" rx="20" fill="#c92f3b"/><circle cx="-30" cy="0" r="26" fill="#f3c9a0"/></g>`;
 const pedTop=(x,y)=>`<g transform="translate(${x},${y})" filter="url(#wob)" ${W}><ellipse cx="0" cy="0" rx="58" ry="34" fill="#7bd389"/><circle cx="0" cy="0" r="28" fill="#6b3e26"/></g>`;
@@ -71,7 +77,7 @@ const V=["Quattro comandi di GTA 6 che il gioco non ti spiega. L'ultimo divide t
 const SCN=[
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop(0.15,hl(420,760,'4 COMANDI SEGRETI',68,YEL))}${pop('@spiega',hand(540,640,'che il gioco non ti spiega',56,RED))}
- ${pop('@comandi',`<g data-wig="3,1.4">${controller(540,1080,1.25,{tri:'@gioco',cir:'@gioco',squ:'@spiega',cro:'@spiega'})}</g>`)}
+ ${pop('@comandi',`<g data-wig="3,1.4">${controller(540,1050,1.05,{tri:'@gioco',cir:'@gioco',squ:'@spiega',cro:'@spiega'})}</g>`)}
  ${pop('@ultimo',tagAt(540,1420,640,"L'ULTIMO DIVIDE TUTTI",54,RED,'#fff'))}${pop('@divide',`<text x="900" y="860" text-anchor="middle" ${F('Luckiest Guy')} font-size="140" fill="${YEL}" stroke="${INK}" stroke-width="7" paint-order="stroke">?!</text>`)}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${badge(540,345,'1','@Primo')}${pop('@Primo',hl(420,640,'APPOGGIATI',90,'#fff'))}${pop('@persona',hand(540,640,'come una persona vera',56,RED))}
@@ -100,7 +106,7 @@ const SCN=[
  ${pop('@sua',bubble(420,1260,`<text x="0" y="0" text-anchor="middle" ${F('Luckiest Guy')} font-size="90" fill="${INK}" stroke="none">!?</text>`,'#bfe6ff'))}${pop('@tu',tagAt(540,1420,520,'TU COME FAI?',64,RED,'#fff'))}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${badge(540,345,'4','@Quarto')}<g data-off="@giura">${pop('@discusso',hl(420,700,'IL PIÙ DISCUSSO',72,RED,'#fff'))}</g>${pop('@giura',hl(420,560,'ESISTE?',96,YEL))}
- <g data-off="@tempo">${pop('@premi',controller(540,1080,1.2,{l3:'@elle',r3:'@erre'}))}${pop('@elle',tagAt(330,1380,200,'L3',64,YEL))}${pop('@erre',tagAt(750,1380,200,'R3',64,YEL))}${pop('@insieme',`<text x="540" y="1440" text-anchor="middle" ${F('Luckiest Guy')} font-size="90" fill="${INK}">+</text>`)}</g>
+ <g data-off="@tempo">${pop('@premi',controller(540,1020,1.0,{l3:'@elle',r3:'@erre'}))}${pop('@elle',tagAt(330,1380,200,'L3',64,YEL))}${pop('@erre',tagAt(750,1380,200,'R3',64,YEL))}${pop('@insieme',`<text x="540" y="1440" text-anchor="middle" ${F('Luckiest Guy')} font-size="90" fill="${INK}">+</text>`)}</g>
  <g data-pop="@tempo,0.5" ${C}><g filter="url(#wob)" ${W}><rect x="60" y="700" width="960" height="600" rx="30" fill="#3d4a7a"/><rect x="560" y="820" width="380" height="420" fill="#8a8fa8"/><rect x="700" y="1060" width="100" height="180" fill="#5b3a1e"/></g>
   <g transform="translate(250,880)"><circle r="90" fill="#fff" stroke="${INK}" stroke-width="8"/><g data-spin="40"><line x1="0" y1="0" x2="0" y2="-70" stroke="${INK}" stroke-width="10" stroke-linecap="round"/></g><line x1="0" y1="0" x2="45" y2="0" stroke="${INK}" stroke-width="10" stroke-linecap="round"/></g></g>
  ${pop('@ingressi',`<rect x="690" y="1050" width="120" height="200" fill="none" stroke="${YEL}" stroke-width="14" data-flash="0,0.4,0.4" filter="url(#wob)"/>`)}
