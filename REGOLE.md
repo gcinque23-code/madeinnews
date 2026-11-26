@@ -57,3 +57,6 @@ Attenzione alle parole-ancora (@parola): trovano la PRIMA parola che inizia cos√
 - Statistiche reel codici GTA 6 (25/11): 7.226 view, 371 salvataggi (> 264 like), 29 ricondivisioni, 8 follow, tempo medio 8 s. I contenuti "utili da salvare" su GTA 6 funzionano.
 - Didascalia: NON svelare tutto (niente lista completa / niente chicca finale) cos√¨ si guarda il video fino in fondo.
 - Durata: NON accorciare i video (decisione dell'utente).
+
+## Niente elementi che fluttuano
+- Gli elementi non devono ondeggiare o galleggiare da fermi (niente data-idle / bob / wig continui). Entrano con un'animazione e poi restano fermi. Richiesto dall'utente sul quiz dei piatti.
