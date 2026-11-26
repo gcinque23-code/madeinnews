@@ -63,7 +63,7 @@ const controller=(x,y,s,hlt={})=>`<g transform="translate(${x},${y}) scale(${s})
  <rect x="-150" y="-140" width="18" height="40" rx="8" fill="#d9dde3" stroke-width="5"/><rect x="132" y="-140" width="18" height="40" rx="8" fill="#d9dde3" stroke-width="5"/></g>
  <g stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M205 -112 l16 28 h-32z" stroke="${PSG}"/><circle cx="265" cy="-35" r="14" stroke="${PSR}"/><path d="M193 13 l24 24 M217 13 l-24 24" stroke="${PSB}"/><rect x="132" y="-48" width="26" height="26" stroke="${PSP}"/></g>
  ${Object.entries(hlt).map(([k,t])=>`<g data-fade="${t},0.2" style="opacity:0"><g data-flash="${t},0.35,0.35"><circle cx="${BTN[k][0]}" cy="${BTN[k][1]}" r="${k[1]=='3'?60:40}" fill="${YEL}" opacity=".8" stroke="${INK}" stroke-width="6"/></g></g><circle cx="${BTN[k][0]}" cy="${BTN[k][1]}" r="40" fill="none" stroke="${YEL}" stroke-width="10" data-ripple="${t},1.2"/>`).join('')}</g>`;
-const badge=(x,y,n,t)=>pop(t,`<g transform="translate(${x},${y})" filter="url(#wob)" ${W}><circle r="62" fill="${RED}"/><text x="0" y="26" text-anchor="middle" ${F('Luckiest Guy')} font-size="80" fill="#fff" stroke="none">${n}</text></g>`);
+const badge=(x,y,n,t)=>pop(t,`<g transform="translate(${x},${y}) scale(0.85)" filter="url(#wob)" ${W}><circle r="62" fill="${RED}"/><text x="0" y="26" text-anchor="middle" ${F('Luckiest Guy')} font-size="80" fill="#fff" stroke="none">${n}</text></g>`);
 const carTop=(x,y,col=RED)=>`<g transform="translate(${x},${y})" filter="url(#wob)" ${W}><rect x="-190" y="-85" width="380" height="170" rx="50" fill="${col}"/><rect x="40" y="-65" width="70" height="130" rx="18" fill="#bfe6ff"/><rect x="-130" y="-65" width="60" height="130" rx="18" fill="#bfe6ff"/><rect x="-70" y="-70" width="110" height="140" rx="20" fill="#c92f3b"/><circle cx="-30" cy="0" r="26" fill="#f3c9a0"/></g>`;
 const pedTop=(x,y)=>`<g transform="translate(${x},${y})" filter="url(#wob)" ${W}><ellipse cx="0" cy="0" rx="58" ry="34" fill="#7bd389"/><circle cx="0" cy="0" r="28" fill="#6b3e26"/></g>`;
 const bubble=(x,y,inner,fill='#fff')=>`<g transform="translate(${x},${y})" filter="url(#wob)" ${W}><path d="M-120 -80 Q-120 -100 -100 -100 L100 -100 Q120 -100 120 -80 L120 40 Q120 60 100 60 L0 60 L-40 110 L-40 60 L-100 60 Q-120 60 -120 40Z" fill="${fill}"/>${inner}</g>`;
@@ -78,25 +78,25 @@ const SCN=[
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop(0.15,hl(420,760,'4 COMANDI SEGRETI',68,YEL))}${pop('@spiega',hand(540,640,'che il gioco non ti spiega',56,RED))}
  ${pop('@comandi',`<g data-wig="3,1.4">${controller(540,1050,1.05,{tri:'@gioco',cir:'@gioco',squ:'@spiega',cro:'@spiega'})}</g>`)}
- ${pop('@ultimo',tagAt(540,1420,640,"L'ULTIMO DIVIDE TUTTI",54,RED,'#fff'))}${pop('@divide',`<text x="900" y="860" text-anchor="middle" ${F('Luckiest Guy')} font-size="140" fill="${YEL}" stroke="${INK}" stroke-width="7" paint-order="stroke">?!</text>`)}`)},
+ ${pop('@divide',tagAt(540,1420,640,"L'ULTIMO DIVIDE TUTTI",54,RED,'#fff'))}${pop('@tutti',`<text x="900" y="860" text-anchor="middle" ${F('Luckiest Guy')} font-size="140" fill="${YEL}" stroke="${INK}" stroke-width="7" paint-order="stroke">?!</text>`)}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${badge(540,345,'1','@Primo')}${pop('@Primo',hl(420,640,'APPOGGIATI',90,'#fff'))}${pop('@persona',hand(540,640,'come una persona vera',56,RED))}
+ html:S(bg+`${badge(105,467,'1','@Primo')}${pop('@Primo',hl(420,640,'APPOGGIATI',90,'#fff'))}${pop('@vera',hand(540,640,'come una persona vera',56,RED))}${pop('@appoggia',tagAt(800,760,260,'RELAX',52,'#7bd389'))}
  <g filter="url(#wob)" ${W}><rect x="60" y="700" width="380" height="560" fill="#d98c6a"/>${[...Array(9)].map((_,r)=>[0,1,2,3].map(c=>`<rect x="${60+c*100-(r%2)*50}" y="${700+r*62}" width="96" height="58" fill="#c8735a" stroke-width="4"/>`).join('')).join('')}<rect x="440" y="700" width="20" height="560" fill="#f6efe2" stroke="none"/><line x1="60" y1="1260" x2="1020" y2="1260"/></g>
  <g data-mv="0,0.01,0,0,0,0,@muro,1.0,0,0,-260,0"><g style="transform-origin:760px 1260px" data-rot="@appoggia,0.5,0,-11">${guy(760,1260,0.9,'#3a86ff')}</g></g>
  ${controller(540,1440,0.55,{cir:'@Cerchio'})}${pop('@Cerchio',tagAt(870,1390,280,'CERCHIO',52,RED,'#fff'))}${pop('@premuto',tagAt(210,1390,280,'TIENI',52,YEL))}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${badge(540,345,'2','@Secondo')}${pop('@Secondo',hl(420,700,'PORTIERA IN FACCIA',66,'#fff'))}
+ html:S(bg+`${badge(105,467,'2','@Secondo')}${pop('@Secondo',hl(420,700,'PORTIERA IN FACCIA',66,'#fff'))}
  <g filter="url(#wob)" ${W}><rect x="60" y="760" width="960" height="320" fill="#6b6f78"/><rect x="60" y="1080" width="960" height="180" fill="#d9d2c4"/></g>
  <g data-loop="-200,0,0.5">${[...Array(7)].map((_,k)=>`<rect x="${k*200}" y="910" width="110" height="18" rx="6" fill="#fff"/>`).join('')}</g>
  <g data-mv="0,0.01,-700,0,-700,0,@guidi,1.2,-700,0,0,0">${carTop(520,960)}<g style="transform-origin:600px 1045px" data-rot="@colpo,0.35,0,-70"><g filter="url(#wob)" ${W}><rect x="470" y="1030" width="130" height="30" rx="8" fill="#c92f3b"/></g></g></g>
  <g data-mv="0,0.01,0,0,0,0,@addosso,0.5,0,0,140,60"><g style="transform-origin:560px 1170px" data-rot="@addosso,0.5,0,120">${pedTop(560,1170)}</g></g>
  ${pop('@addosso',`<g transform="translate(720,1150)" filter="url(#wob)" ${W}><path d="M0 -90 L25 -30 L90 -40 L45 10 L80 70 L15 40 L-20 95 L-30 30 L-95 30 L-45 -15 L-80 -70 L-15 -40Z" fill="${YEL}"/><text x="0" y="18" text-anchor="middle" ${F('Luckiest Guy')} font-size="50" fill="${INK}" stroke="none">BAM</text></g>`)}
- ${controller(540,1440,0.55,{squ:'@Quadrato'})}${pop('@Quadrato',tagAt(870,1390,300,'QUADRATO',50,PSP,'#fff'))}${pop('@guidi',tagAt(210,1390,300,'IN AUTO',50,YEL))}`)},
+ ${pop('@Apri',tagAt(800,790,280,'APRI!',56,YEL))}${pop('@passa',`<g transform="translate(720,1240)">${[[-50,-20],[0,-50],[50,-20]].map(([a,b])=>`<path d="M${a} ${b-14} l5 10 l11 2 l-8 8 l2 11 l-10 -5 l-10 5 l2 -11 l-8 -8 l11 -2z" fill="${YEL}" stroke="${INK}" stroke-width="4"/>`).join('')}</g>`)}${controller(540,1440,0.55,{squ:'@Quadrato'})}${pop('@Quadrato',tagAt(870,1390,300,'QUADRATO',50,PSP,'#fff'))}${pop('@guidi',tagAt(210,1390,300,'IN AUTO',50,YEL))}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${pop('@Prima',hl(420,840,'PRIMA DEGLI ULTIMI DUE…',56,YEL))}${pop('@ogni',hand(540,690,'ogni giorno un segreto di GTA 6',50,RED))}
- ${phoneCTA('@Prima','@seguici','@segreto')}`)},
+ ${phoneCTA('@Prima','@seguici','@segreto')}${pop('@GTA',`<g transform="translate(840,820)" filter="url(#wob)" ${W}><path d="M0 40 C-70 -10 -60 -70 -20 -70 C0 -70 0 -50 0 -40 C0 -50 0 -70 20 -70 C60 -70 70 -10 0 40Z" fill="${RED}"/></g>`)}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${badge(540,345,'3','@Terzo')}${pop('@guida',hl(420,700,'GUIDA AUTOMATICA',70,'#fff'))}${pop('@soli',hand(540,640,'mani libere!',58,RED))}
+ html:S(bg+`${badge(105,467,'3','@Terzo')}${pop('@guida',hl(420,700,'GUIDA AUTOMATICA',70,'#fff'))}${pop('@soli',hand(540,640,'mani libere!',58,RED))}
  <g data-off="@ognuno"><g filter="url(#wob)" ${W}><rect x="60" y="700" width="960" height="760" rx="30" fill="#e8f0e0"/><path d="M200 1380 L200 1100 Q200 1020 280 1020 L760 1020 Q840 1020 840 940 L840 800" stroke="#c7cdd4" stroke-width="60" fill="none"/></g>
   <g data-draw="@destinazione,1.0"><path d="M200 1380 L200 1100 Q200 1020 280 1020 L760 1020 Q840 1020 840 940 L840 800" stroke="#3a86ff" stroke-width="16" fill="none" stroke-linecap="round"/></g>
   ${pin(840,800,'@destinazione')}
@@ -105,7 +105,7 @@ const SCN=[
  ${pop('@ognuno',bubble(300,900,`<text x="0" y="0" text-anchor="middle" ${F('Luckiest Guy')} font-size="90" fill="${INK}" stroke="none">?</text>`))}${pop('@dice',bubble(780,1000,`<text x="0" y="0" text-anchor="middle" ${F('Luckiest Guy')} font-size="90" fill="${INK}" stroke="none">??</text>`,YEL))}
  ${pop('@sua',bubble(420,1260,`<text x="0" y="0" text-anchor="middle" ${F('Luckiest Guy')} font-size="90" fill="${INK}" stroke="none">!?</text>`,'#bfe6ff'))}${pop('@tu',tagAt(540,1420,520,'TU COME FAI?',64,RED,'#fff'))}`)},
 {cam:"0,1.0,0,0",
- html:S(bg+`${badge(540,345,'4','@Quarto')}<g data-off="@giura">${pop('@discusso',hl(420,700,'IL PIÙ DISCUSSO',72,RED,'#fff'))}</g>${pop('@giura',hl(420,560,'ESISTE?',96,YEL))}
+ html:S(bg+`${badge(105,467,'4','@Quarto')}<g data-off="@giura">${pop('@discusso',hl(420,700,'IL PIÙ DISCUSSO',72,RED,'#fff'))}</g>${pop('@giura',hl(420,560,'ESISTE?',96,YEL))}
  <g data-off="@tempo">${pop('@premi',controller(540,1020,1.0,{l3:'@elle',r3:'@erre'}))}${pop('@elle',tagAt(330,1380,200,'L3',64,YEL))}${pop('@erre',tagAt(750,1380,200,'R3',64,YEL))}${pop('@insieme',`<text x="540" y="1440" text-anchor="middle" ${F('Luckiest Guy')} font-size="90" fill="${INK}">+</text>`)}</g>
  <g data-pop="@tempo,0.5" ${C}><g filter="url(#wob)" ${W}><rect x="60" y="700" width="960" height="600" rx="30" fill="#3d4a7a"/><rect x="560" y="820" width="380" height="420" fill="#8a8fa8"/><rect x="700" y="1060" width="100" height="180" fill="#5b3a1e"/></g>
   <g transform="translate(250,880)"><circle r="90" fill="#fff" stroke="${INK}" stroke-width="8"/><g data-spin="40"><line x1="0" y1="0" x2="0" y2="-70" stroke="${INK}" stroke-width="10" stroke-linecap="round"/></g><line x1="0" y1="0" x2="45" y2="0" stroke="${INK}" stroke-width="10" stroke-linecap="round"/></g></g>
