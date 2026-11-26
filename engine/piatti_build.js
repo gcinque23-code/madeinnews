@@ -44,15 +44,25 @@ const V=["Quanti piatti tipici italiani conosci? Contali, e alla fine scrivi il 
 "Valle d'Aosta: la fontina. Piemonte: gli agnolotti. Lombardia: il panettone. Trentino: i canederli. Veneto: il tiramisù. Friuli: il frico. Liguria: il pesto. Emilia-Romagna: i tortellini. Toscana: la fiorentina. Umbria: il tartufo. Marche: le olive all'ascolana. Lazio: la carbonara. Abruzzo: gli arrosticini. Molise: i cavatelli. Campania: la pizza. Puglia: le orecchiette. Basilicata: i peperoni cruschi. Calabria: la nduja. Sicilia: il cannolo. Sardegna: le seadas. Ed ecco l'Italia a tavola.",
 "Quanti ne conoscevi? Scrivi il tuo punteggio su venti nei commenti. E se il piatto della tua regione è un altro, dillo. Made in News: una pillola di sapere al giorno."];
 
-const tour=()=>BR.map((b,i)=>{const nx=BR[i+1]?BR[i+1][3]:'@ecco';const [x,y]=fin(b);const dx=x-CX,dy=y-CY;
- const flyT=BR[i+1]?nx:'@ecco';
- return `<path d="${R[b[0]].d}" fill="#ffb347" stroke="${INK}" stroke-width="4" data-fade="${b[3]},0.3" style="opacity:0" filter="url(#wob)"/>
- <g data-pop="${b[3]},0.35" ${C}><g data-mv="0,0.01,0,0,0,0,${flyT},0.6,0,0,${dx},${dy}"><g data-sc="0,0.01,1,1,${flyT},0.6,1,${SC}" style="transform-origin:${CX}px ${CY}px">${card(b[1],b[2])}</g></g></g>`}).join('')
- +BR.map((b,i)=>`<g data-win="${b[4]},0,99"><g data-off="${BR[i+1]?BR[i+1][3]:'@ecco'}">${tagAt(250,1430,400,b[2],b[2].length>10?40:56,'#fff')}</g></g>`).join('');
+const bbox=d=>{const n=d.match(/-?\d+(\.\d+)?/g).map(Number);let xs=[],ys=[];for(let i=0;i<n.length;i+=2){xs.push(n[i]);ys.push(n[i+1])}return [Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)]};
+const ZS=BR.map(b=>{const [x0,y0,x1,y1]=bbox(R[b[0]].d);return Math.max(1.8,Math.min(3.2,520/Math.max(x1-x0,(y1-y0)*0.75)))});
+const TX=540,TY=1010;
+const zoomTour=()=>{
+ // segmenti mv (traslazione) e sc (scala) del gruppo mappa, origine 0,0: schermo = T + s*p
+ let mv=['0,0.01,0,0,0,0'],sc=['0,0.01,1,1'];let pT=[0,0],pS=1;
+ BR.forEach((b,i)=>{const s=ZS[i];const T=[TX-s*b[5],TY-s*b[6]];mv.push(`${b[3]},0.8,${pT[0].toFixed(1)},${pT[1].toFixed(1)},${T[0].toFixed(1)},${T[1].toFixed(1)}`);sc.push(`${b[3]},0.8,${pS.toFixed(3)},${s.toFixed(3)}`);pT=T;pS=s;});
+ mv.push(`@ecco,1.0,${pT[0].toFixed(1)},${pT[1].toFixed(1)},0,0`);sc.push(`@ecco,1.0,${pS.toFixed(3)},1`);
+ const dishes=BR.map((b,i)=>`<path d="${R[b[0]].d}" fill="#ffb347" stroke="${INK}" stroke-width="${(4/ZS[i]*1.6).toFixed(2)}" data-fade="${b[3]},0.3" style="opacity:0" filter="url(#wob)"/>`).join('')
+  +BR.map((b,i)=>`<g transform="translate(${b[5]},${b[6]}) scale(${(1/ZS[i]).toFixed(3)})"><g data-pop="${b[4]},0.45" ${C}><g filter="url(#wob)"><rect x="-150" y="-110" width="300" height="220" rx="28" fill="#fff" stroke="${INK}" stroke-width="7"/></g><g transform="translate(0,5) scale(0.95)">${ICON[b[1]]}</g></g></g>`).join('');
+ return `<g data-mv="${mv.join(',')}"><g data-sc="${sc.join(',')}" style="transform-origin:0 0">${map()}${dishes}</g></g>`;};
+const tour=()=>zoomTour()+BR.map((b,i)=>`<g data-win="${b[4]},0,99"><g data-off="${BR[i+1]?BR[i+1][3]:'@ecco'}">${tagAt(540,1500,560,b[2],b[2].length>12?58:72,'#fff')}</g></g>`).join('')
+ +BR.map((b,i)=>`<g data-win="${b[3]},0,99"><g data-off="${BR[i+1]?BR[i+1][3]:'@ecco'}">${tagAt(540,1385,460,({'Trentino-Alto Adige':'TRENTINO','Friuli-Venezia Giulia':'FRIULI'}[b[0]]||b[0]).toUpperCase(),52,YEL)}</g></g>`).join('')
+ +`<defs><linearGradient id="topfade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6efe2" stop-opacity="1"/><stop offset="0.75" stop-color="#f6efe2" stop-opacity="0.95"/><stop offset="1" stop-color="#f6efe2" stop-opacity="0"/></linearGradient></defs><rect x="0" y="0" width="1080" height="440" fill="url(#topfade)"/>`;
+const placedZ=()=>BR.map((b,i)=>`<g transform="translate(${b[5]},${b[6]}) scale(${(1/ZS[i]).toFixed(3)})"><g filter="url(#wob)"><rect x="-150" y="-110" width="300" height="220" rx="28" fill="#fff" stroke="${INK}" stroke-width="7"/></g><g transform="translate(0,5) scale(0.95)">${ICON[b[1]]}</g></g>`).join('');
 const SCN=[
 {cam:"0,1.0,0,0",html:S(bg+`${pop(0.1,map(),0.5)}${pop('@piatti',hl(355,860,'QUANTI NE CONOSCI?',66,YEL))}${pop('@Conta',hand(270,1420,'contali…',58,RED))}${pop('@punteggio',hand(860,880,'nei commenti!',48,INK))}${pop('@fine',`<text x="860" y="800" text-anchor="middle" ${F('Luckiest Guy')} font-size="150" fill="${RED}" stroke="${INK}" stroke-width="7" paint-order="stroke">/20</text>`)}`)},
-{cam:"0,1.0,0,0",html:S(bg+map()+tour()+pop('@tavola',hl(355,860,"L'ITALIA A TAVOLA",66,YEL)))},
-{cam:"0,1.0,0,0",html:S(bg+`<g data-off="@Made">${map()}${placed()}${pop('@Quanti',hl(355,860,'QUANTI NE CONOSCEVI?',62,YEL))}${pop('@commenti',tagAt(270,1420,420,'SCRIVILO /20',56,RED,'#fff'))}</g>
+{cam:"0,1.0,0,0",html:S(bg+tour()+pop('@tavola',hl(355,860,"L'ITALIA A TAVOLA",66,YEL)))},
+{cam:"0,1.0,0,0",html:S(bg+`<g data-off="@Made">${map()}${placedZ()}${pop('@Quanti',hl(355,860,'QUANTI NE CONOSCEVI?',62,YEL))}${pop('@commenti',tagAt(270,1420,420,'SCRIVILO /20',56,RED,'#fff'))}</g>
  <g data-fade="@Made,0.3" style="opacity:0">${pop('@Made',`<rect x="390" y="700" width="300" height="300" fill="${INK}"/><text x="540" y="917" text-anchor="middle" ${F('Anton')} font-size="186" fill="#fff">MN<tspan fill="${RED}">.</tspan></text>`,0.5)}
  <g data-rise="@News,0.5"><text x="540" y="1170" text-anchor="middle" ${F('Inter Tight')} font-size="96" font-weight="900" fill="${INK}" letter-spacing="-4">madeinnews<tspan fill="${RED}">.</tspan></text></g>
  <g data-rise="@pillola,0.5">${hand(540,1280,'una pillola di sapere al giorno',62)}</g></g>`)}];
