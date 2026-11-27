@@ -60,3 +60,4 @@ Attenzione alle parole-ancora (@parola): trovano la PRIMA parola che inizia cos√
 
 ## Niente elementi che fluttuano
 - Gli elementi non devono ondeggiare o galleggiare da fermi (niente data-idle / bob / wig continui). Entrano con un'animazione e poi restano fermi. Richiesto dall'utente sul quiz dei piatti.
+- Quiz piatti per regione (26/11, mappa con zoom per regione, piatti disegnati, /20): 1.887 view la mattina dopo. Il format quiz-mappa funziona.
