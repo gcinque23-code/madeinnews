@@ -16,10 +16,10 @@ const logo=(k,w,h)=>{const p=['png','svg','jpg'].map(e=>__dirname+'/assets/loghi
  return `<image href="data:${mt};base64,${fs.readFileSync(p).toString('base64')}" x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" preserveAspectRatio="xMidYMid meet"/>`};
 const cen=d=>{const rings=d.split('M').filter(Boolean).map(r=>r.replace(/Z/g,'').split(' L').map(p=>p.trim().split(' ').map(Number)));let best=null,ba=0;for(const r of rings){let A=0,cx=0,cy=0;for(let i=0;i<r.length;i++){const [x0,y0]=r[i],[x1,y1]=r[(i+1)%r.length];const f=x0*y1-x1*y0;A+=f;cx+=(x0+x1)*f;cy+=(y0+y1)*f}if(Math.abs(A)>ba){ba=Math.abs(A);best=[cx/(3*A),cy/(3*A)]}}return best};
 const ICON={};
-const RAW=[['Piemonte','nutella','NUTELLA','@Piemonte','@Nutella',0,0],['Lombardia','pirelli','PIRELLI','@Lombardia','@Pirelli',0,0],['Trentino-Alto Adige','loacker','LOACKER','@Trentino','@Loacker',0,0],['Veneto','benetton','BENETTON','@Veneto','@Benetton',-15,10],
+const RAW=[['Valle d\'Aosta','courmayeur','COURMAYEUR','@Valle','@Courmayeur',0,0],['Piemonte','nutella','NUTELLA','@Piemonte','@Nutella',0,0],['Lombardia','pirelli','PIRELLI','@Lombardia','@Pirelli',0,0],['Trentino-Alto Adige','loacker','LOACKER','@Trentino','@Loacker',0,0],['Veneto','benetton','BENETTON','@Veneto','@Benetton',-15,10],
 ['Friuli-Venezia Giulia','illy','ILLY','@Friuli','@illy',28,-5],['Liguria','costa','COSTA','@Liguria','@Costa',0,0],
 ['Emilia-Romagna','ferrari','FERRARI','@Emilia','@Ferrari',0,0],['Toscana','gucci','GUCCI','@Toscana','@Gucci',-20,0],['Umbria','perugina','BACI PERUGINA','@Umbria','@Baci',0,10],['Marche','indesit','INDESIT','@Marche','@Indesit',20,-15],
-['Lazio','valentino','VALENTINO','@Lazio','@Valentino',-35,20],['Abruzzo','dececco','DE CECCO','@Abruzzo','@Cecco',25,-15],['Campania','ferrarelle','FERRARELLE','@Campania','@Ferrarelle',-20,5],['Puglia','natuzzi','NATUZZI','@Puglia','@Natuzzi',35,-10]];
+['Lazio','valentino','VALENTINO','@Lazio','@Valentino',-35,20],['Abruzzo','dececco','DE CECCO','@Abruzzo','@Cecco',25,-15],['Campania','ferrarelle','FERRARELLE','@Campania','@Ferrarelle',-20,5],['Molise','molisana','LA MOLISANA','@Molise','@Molisana',0,0],['Puglia','natuzzi','NATUZZI','@Puglia','@Natuzzi',35,-10],['Basilicata','lucano','AMARO LUCANO','@Basilicata','@Lucano',0,0],['Calabria','callipo','CALLIPO','@Calabria','@Callipo',0,0],['Sicilia','averna','AVERNA','@Sicilia','@Averna',0,0],['Sardegna','ichnusa','ICHNUSA','@Sardegna','@Ichnusa',0,0]];
 const BR=RAW.map(r=>{const c=cen(R[r[0]].d);return [r[0],r[1],r[2],r[3],r[4],c[0]+r[5],c[1]+r[6],c]});
 const CX=845,CY=760,CW=300,CH=220,SC=0.4;
 const card=(k,name)=>`<g filter="url(#wob)"><rect x="${CX-CW/2}" y="${CY-CH/2}" width="${CW}" height="${CH}" rx="28" fill="#fff" stroke="${INK}" stroke-width="7"/></g><g transform="translate(${CX},${CY+5}) scale(0.95)">${ICON[k]}</g>`;
@@ -27,8 +27,8 @@ const map=()=>`<g filter="url(#wob)">${Object.values(R).map(v=>`<path d="${v.d}"
 const fin=b=>[b[5],b[6]];
 const placed=()=>BR.map(b=>{const [x,y]=fin(b);return `<g transform="translate(${x},${y}) scale(${SC}) translate(${-CX},${-CY})">${card(b[1],b[2])}</g>`}).join('');
 const V=["Quanti brand italiani riconosci? Conta i loghi, e alla fine scrivi il tuo punteggio.",
-"Piemonte: Nutella. Lombardia: Pirelli. Trentino: Loacker. Veneto: Benetton. Friuli: illy. Liguria: Costa. Emilia-Romagna: Ferrari. Toscana: Gucci. Umbria: Baci Perugina. Marche: Indesit. Lazio: Valentino. Abruzzo: De Cecco. Campania: Ferrarelle. Puglia: Natuzzi. Ed ecco l'Italia dei brand.",
-"Quanti ne hai riconosciuti? Scrivi il tuo punteggio su quattordici nei commenti. Made in News: una pillola di sapere al giorno."];
+"Valle d'Aosta: Courmayeur. Piemonte: Nutella. Lombardia: Pirelli. Trentino: Loacker. Veneto: Benetton. Friuli: illy. Liguria: Costa. Emilia-Romagna: Ferrari. Toscana: Gucci. Umbria: Baci Perugina. Marche: Indesit. Lazio: Valentino. Abruzzo: De Cecco. Molise: La Molisana. Campania: Ferrarelle. Puglia: Natuzzi. Basilicata: Amaro Lucano. Calabria: Callipo. Sicilia: Averna. Sardegna: Ichnusa. Ed ecco l'Italia dei brand.",
+"Quanti ne hai riconosciuti? Scrivi il tuo punteggio su venti nei commenti. Made in News: una pillola di sapere al giorno."];
 
 const bbox=d=>{const n=d.match(/-?\d+(\.\d+)?/g).map(Number);let xs=[],ys=[];for(let i=0;i<n.length;i+=2){xs.push(n[i]);ys.push(n[i+1])}return [Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)]};
 const ZS=BR.map(b=>{const [x0,y0,x1,y1]=bbox(R[b[0]].d);return Math.max(1.8,Math.min(3.4,560/Math.max(x1-x0,(y1-y0)*0.8)))});
@@ -48,9 +48,9 @@ const tour=()=>zoomTour()+BR.map((b,i)=>`<g data-win="${b[4]},0,99"><g data-off=
  +`<defs><linearGradient id="topfade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6efe2" stop-opacity="1"/><stop offset="0.75" stop-color="#f6efe2" stop-opacity="0.95"/><stop offset="1" stop-color="#f6efe2" stop-opacity="0"/></linearGradient></defs><rect x="0" y="0" width="1080" height="440" fill="url(#topfade)"/>`;
 const placedZ=()=>BR.map((b,i)=>`<g transform="translate(${b[5]},${b[6]}) scale(1)"><g filter="url(#wobL)">${logo(b[1],LW(b)[0],LW(b)[1])}</g></g>`).join('');
 const SCN=[
-{cam:"0,1.0,0,0",html:S(bg+`${pop(0.1,map(),0.5)}${pop('@brand',hl(355,860,'QUANTI NE RICONOSCI?',62,YEL))}${pop('@Conta',hand(270,1420,'conta i loghi…',58,RED))}${pop('@punteggio',hand(860,880,'nei commenti!',48,INK))}${pop('@fine',`<text x="860" y="800" text-anchor="middle" ${F('Luckiest Guy')} font-size="150" fill="${RED}" stroke="${INK}" stroke-width="7" paint-order="stroke">/14</text>`)}`)},
+{cam:"0,1.0,0,0",html:S(bg+`${pop(0.1,map(),0.5)}${pop('@brand',hl(355,860,'QUANTI NE RICONOSCI?',62,YEL))}${pop('@Conta',hand(270,1420,'conta i loghi…',58,RED))}${pop('@punteggio',hand(860,880,'nei commenti!',48,INK))}${pop('@fine',`<text x="860" y="800" text-anchor="middle" ${F('Luckiest Guy')} font-size="150" fill="${RED}" stroke="${INK}" stroke-width="7" paint-order="stroke">/20</text>`)}`)},
 {cam:"0,1.0,0,0",html:S(bg+tour()+pop('@dei',hl(355,860,"ECCO L'ITALIA DEI BRAND",56,YEL)))},
-{cam:"0,1.0,0,0",html:S(bg+`<g data-off="@Made">${map()}${placedZ()}${pop('@Quanti',hl(355,880,'QUANTI NE HAI RICONOSCIUTI?',54,YEL))}${pop('@commenti',tagAt(270,1420,420,'SCRIVILO /14',56,RED,'#fff'))}</g>
+{cam:"0,1.0,0,0",html:S(bg+`<g data-off="@Made">${map()}${placedZ()}${pop('@Quanti',hl(355,880,'QUANTI NE HAI RICONOSCIUTI?',54,YEL))}${pop('@commenti',tagAt(270,1420,420,'SCRIVILO /20',56,RED,'#fff'))}</g>
  <g data-fade="@Made,0.3" style="opacity:0">${pop('@Made',`<rect x="390" y="700" width="300" height="300" fill="${INK}"/><text x="540" y="917" text-anchor="middle" ${F('Anton')} font-size="186" fill="#fff">MN<tspan fill="${RED}">.</tspan></text>`,0.5)}
  <g data-rise="@News,0.5"><text x="540" y="1170" text-anchor="middle" ${F('Inter Tight')} font-size="96" font-weight="900" fill="${INK}" letter-spacing="-4">madeinnews<tspan fill="${RED}">.</tspan></text></g>
  <g data-rise="@pillola,0.5">${hand(540,1280,'una pillola di sapere al giorno',62)}</g></g>`)}];
