@@ -5,7 +5,7 @@ const C='style="transform-box:fill-box;transform-origin:center"';
 const defs=`<defs><filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
 <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="8"/><feColorMatrix values="0 0 0 0 0.45  0 0 0 0 0.38  0 0 0 0 0.28  0 0 0 0.07 0"/></filter></defs>`;
 const bg=defs+`<rect width="1080" height="1920" fill="#f6efe2"/><rect width="1080" height="1920" filter="url(#paper)"/>`;
-let IDK=0;const pop=(t,inner,d=.45)=>`<g data-pop="${t},${d}" ${C}><g data-idle="5,${(2+(IDK%3)*0.4).toFixed(1)},${(IDK++)*1.3}" ${C}>${inner}</g></g>`;
+let IDK=0;const pop=(t,inner,d=.45)=>`<g data-pop="${t},${d}" ${C}>${inner}</g>`;
 const title=(y,t,size=110)=>`<g class="bx"><rect x="0" y="${y}" width="1080" height="${size*1.1}" fill="none"/><text x="540" y="${y+size}" text-anchor="middle" ${F('Luckiest Guy')} font-size="${size}" fill="${INK}">${t}</text></g>`;
 const hl=(y,w,t,size=72,fill=YEL,col=INK)=>`<g filter="url(#wob)"><g class="bx"><rect x="${540-w/2}" y="${y}" width="${w}" height="${size*1.5}" rx="12" fill="${fill}"/><text x="540" y="${y+size*1.1}" text-anchor="middle" ${F('Luckiest Guy')} font-size="${size}" fill="${col}">${t}</text></g></g>`;
 const tagAt=(cx,y,w,t,size,fill,col=INK)=>`<g filter="url(#wob)"><g class="bx"><rect x="${cx-w/2}" y="${y}" width="${w}" height="${size*1.5}" rx="12" fill="${fill}"/><text x="${cx}" y="${y+size*1.1}" text-anchor="middle" ${F('Luckiest Guy')} font-size="${size}" fill="${col}">${t}</text></g></g>`;
@@ -32,8 +32,8 @@ const OL='#5f6b3a',GR='#4a4e57',DIRT='#b98a5a',DIRT2='#9c6f45';
 // roulotte vista di lato con antenne e parabole
 const trailer=(x,y,s=1)=>`<g transform="translate(${x},${y}) scale(${s})">
  <g filter="url(#wob)" ${W}><line x1="-120" y1="-160" x2="-120" y2="-260"/><line x1="40" y1="-160" x2="40" y2="-340"/><line x1="10" y1="-300" x2="70" y2="-300"/><line x1="20" y1="-260" x2="60" y2="-260"/><line x1="230" y1="-160" x2="230" y2="-220"/></g>
- <g><g data-wig="6,1.6"><g filter="url(#wob)" ${W}><path d="M-190 -300 Q-120 -190 -50 -300 Z" fill="#e5e7eb"/><line x1="-120" y1="-262" x2="-120" y2="-320"/></g></g></g>
- <g data-wig="5,2.1"><g filter="url(#wob)" ${W}><path d="M180 -250 Q230 -170 280 -250 Z" fill="#e5e7eb"/></g></g>
+ <g><g><g filter="url(#wob)" ${W}><path d="M-190 -300 Q-120 -190 -50 -300 Z" fill="#e5e7eb"/><line x1="-120" y1="-262" x2="-120" y2="-320"/></g></g></g>
+ <g><g filter="url(#wob)" ${W}><path d="M180 -250 Q230 -170 280 -250 Z" fill="#e5e7eb"/></g></g>
  <circle cx="40" cy="-345" r="14" fill="${RED}" stroke="${INK}" stroke-width="5" data-flash="0,0.5,0.2"/>
  <g filter="url(#wob)" ${W}><rect x="-320" y="-165" width="640" height="250" rx="60" fill="#f4ecd8"/><rect x="-320" y="-30" width="640" height="34" fill="#7cc4ff" stroke="none"/><rect x="-320" y="-30" width="640" height="34" fill="none"/>
  <rect x="-250" y="-120" width="140" height="70" rx="14" fill="#bfe6ff"/><rect x="120" y="-120" width="140" height="70" rx="14" fill="#bfe6ff"/><rect x="-40" y="-130" width="100" height="200" rx="10" fill="#d9c9a6"/><circle cx="40" cy="-30" r="8" fill="${INK}"/>
@@ -83,7 +83,7 @@ const road=(y)=>`<g filter="url(#wob)" ${W}><rect x="60" y="${y}" width="960" he
 const SCN=[
 {cam:"0,1.0,0,0",
  html:S(bg+`<g data-off="@altri">${pop(0.15,hl(420,560,'PARTE 2',100,RED,'#fff'))}</g>${pop('@altri',hl(420,760,'4 COMANDI SEGRETI',68,YEL))}${pop('@spiega',hand(540,640,'che il gioco non ti spiega',56,RED))}
- ${pop('@comandi',`<g data-wig="3,1.4">${controller(540,1050,1.05,{tri:'@gioco',cir:'@gioco',r3:'@spiega',r2:'@spiega'})}</g>`)}
+ ${pop('@comandi',`${controller(540,1050,1.05,{tri:'@gioco',cir:'@gioco',r3:'@spiega',r2:'@spiega'})}`)}
  ${pop('@cambia',tagAt(540,1420,640,'TI CAMBIA LA GUIDA',56,RED,'#fff'))}${pop('@guida',`<text x="900" y="860" text-anchor="middle" ${F('Luckiest Guy')} font-size="140" fill="${YEL}" stroke="${INK}" stroke-width="7" paint-order="stroke">?!</text>`)}`)},
 {cam:"0,1.0,0,0",
  html:S(bg+`${badge(105,467,'1','@Primo')}${pop('@Primo',hl(420,700,'MOTORE ACCESO',80,'#fff'))}${pop('@Perfetto',hand(540,640,'perfetto per scappare',56,RED))}
